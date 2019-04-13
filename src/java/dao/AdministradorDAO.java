@@ -58,20 +58,20 @@ public class AdministradorDAO {
     public void excluir(Administrador administrador) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
-
         try {
             tx.begin();
             em.remove(em.getReference(Administrador.class, administrador.getId()));
-            tx.commit();
+            tx.commit();       
         } catch (Exception e) {
-            if (tx != null && tx.isActive()) {
+            if(tx != null && tx.isActive()){
                 tx.rollback();
             }
             throw new RuntimeException(e);
-        } finally {
+        }finally{
             PersistenceUtil.close(em);
         }
     }
+   
 
     public Administrador getAdministrador(long id) {
         EntityManager em = PersistenceUtil.getEntityManager();

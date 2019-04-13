@@ -77,11 +77,14 @@ public class ManterAdministradorController extends HttpServlet {
     public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException, ClassNotFoundException {
         String operacao = request.getParameter("operacao");
 
-        long id = Long.parseLong(request.getParameter("txtCodAdmin"));
         String nome = request.getParameter("txtNomeAdmin");
         String email = request.getParameter("txtEmailAdmin");
         String senha = request.getParameter("txtSenhaAdmin");
-
+        Long id = null;
+        if (!operacao.equals("Incluir")) {
+            id = Long.parseLong(request.getParameter("id"));
+        }
+        
         try {
 
             Administrador admin = new Administrador(nome, email, senha);
@@ -93,6 +96,7 @@ public class ManterAdministradorController extends HttpServlet {
                 admin.salvar();
             } else {
                 if (operacao.equals("Excluir")) {
+                    admin.setId(id);
                     admin.excluir();
                 }
             }
@@ -101,11 +105,11 @@ public class ManterAdministradorController extends HttpServlet {
             view.forward(request, response);
         } catch (IOException e) {
             throw new ServletException(e);
-        }catch (ServletException e) {
+        } catch (ServletException e) {
             throw e;
         }
     }
-    
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
