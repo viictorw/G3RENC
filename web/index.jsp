@@ -12,7 +12,7 @@
         <meta name="author" content="">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-        <title>Bem vindooo</title>
+        <title>Bem vindo</title>
 
         <!-- Bootstrap core CSS -->
 
@@ -63,10 +63,10 @@
                         
                       
                         <li>
-                            <a class="nav-link"  href="login.jsp">Login</a>
+                            <a class="btn btn-dark"  href="login.jsp">Login</a>
                         </li>
                         <li>
-                            <a class="nav-link"  
+                            <a class="btn btn-dark"  
                                href="ManterClienteController?acao=prepararOperacao&operacao=Incluir">Cadastro</a>
                         </li>
 
