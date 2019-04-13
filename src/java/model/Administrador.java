@@ -5,7 +5,10 @@
  */
 package model;
 
+import dao.AdministradorDAO;
 import java.io.Serializable;
+import java.sql.SQLException;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -71,6 +74,21 @@ public class Administrador implements Serializable {
         this.senha = senha;
     }
     
+    public void salvar() throws SQLException, ClassNotFoundException {
+        AdministradorDAO.getInstance().salvar(this);
+    }
+    
+    public void excluir() throws SQLException, ClassNotFoundException {
+        AdministradorDAO.getInstance().excluir(this);
+    }
+    
+    public static Administrador obterAdministrador(Long id) throws SQLException, ClassNotFoundException {
+        return AdministradorDAO.getInstance().getAdministrador((long) id);
+    }
+    
+    public static List<Administrador> obterTodosAdministradores() throws SQLException, ClassNotFoundException {
+        return AdministradorDAO.getInstance().getAllAdministradores();
+    }
     
 
 }

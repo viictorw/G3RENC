@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>ManterAdminClienteController</servlet-name>
+        <servlet-class>controller.Administrador.ManterAdminClienteController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManterAdministradorController</servlet-name>
+        <servlet-class>controller.Administrador.ManterAdministradorController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PesquisaAdminController</servlet-name>
+        <servlet-class>controller.Administrador.PesquisaAdminController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ManterAdminClienteController</servlet-name>
+        <url-pattern>/ManterAdminClienteController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManterAdministradorController</servlet-name>
+        <url-pattern>/ManterAdministradorController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PesquisaAdminController</servlet-name>
+        <url-pattern>/PesquisaAdminController</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
