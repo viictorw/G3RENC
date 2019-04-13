@@ -25,6 +25,8 @@ import javax.persistence.Id;
 public class Administrador implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -88,6 +90,10 @@ public class Administrador implements Serializable {
     
     public static List<Administrador> obterTodosAdministradores() throws SQLException, ClassNotFoundException {
         return AdministradorDAO.getInstance().getAllAdministradores();
+    }
+    
+   public static Administrador logar(String email, String senha) throws ClassNotFoundException {
+        return AdministradorDAO.logar(email, senha);
     }
     
 

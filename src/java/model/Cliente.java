@@ -22,6 +22,10 @@ import javax.persistence.ManyToOne;
 public class Cliente implements Serializable{
 
     private static final long serialVersionUID = 1L;
+
+    public static Cliente logar(String email, String senha) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 
