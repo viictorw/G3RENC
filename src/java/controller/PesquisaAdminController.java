@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller.Administrador;
+package controller;
 import model.Administrador;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

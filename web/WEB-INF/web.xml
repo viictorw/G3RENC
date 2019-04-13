@@ -68,6 +68,10 @@
         <servlet-name>ReportReservaParam</servlet-name>
         <servlet-class>relatorio.ReportReservaParam</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PesquisaAdminController</servlet-name>
+        <servlet-class>controller.PesquisaAdminController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/LoginController</url-pattern>
@@ -163,14 +167,6 @@
     <servlet-mapping>
         <servlet-name>ManterTipoEspacoController</servlet-name>
         <url-pattern>/ManterTipoEspacoController</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>PesquisaAdminController</servlet-name>
-        <servlet-class>controller.PesquisaAdminController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>PesquisaAdminController</servlet-name>
-        <url-pattern>/PesquisaAdminController</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>PesquisaCartaoController</servlet-name>
@@ -350,5 +346,9 @@
     <servlet-mapping>
         <servlet-name>ReportReservaParam</servlet-name>
         <url-pattern>/ReportReservaParam</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PesquisaAdminController</servlet-name>
+        <url-pattern>/PesquisaAdminController</url-pattern>
     </servlet-mapping>
 </web-app>
