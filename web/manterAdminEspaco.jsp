@@ -95,8 +95,7 @@
                         <br>
 
                      <tr>
-                            <td>Codigo Espaco</td>
-                            <td><input type="number" onkeyup="validare(this,'numero')" min="1" max="9999999999" placeholder="Digite apenas numeros" class="form-control"  name="txtIdEspaco"  value="${espaco.id}" autofocus<c:if test="${operacao != 'Incluir'}"> readonly</c:if>></td>
+                         <input type="HIDDEN" min="1" class="form-control" name="id" required id="id" value="${espaco.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>>
                             </tr>
                             <tr>
                                 <td>Nome do Espaço</td>

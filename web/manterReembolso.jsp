@@ -30,14 +30,14 @@
         <%@ include file = "Header.jsp" %>
         <!--fim Header-->
 
-          <!-- JavaScript pasta ( js/scriptJSP.js  )-->
-  <script language="javascript"  type="text/javascript" src="js/scriptJSP.js">
-  </script>
-     <!-- Fim JavaScript--> 
-        
+        <!-- JavaScript pasta ( js/scriptJSP.js  )-->
+        <script language="javascript"  type="text/javascript" src="js/scriptJSP.js">
+        </script>
+        <!-- Fim JavaScript--> 
+
 
         <style>
-            
+
             /*  FIM TAG PARA BARRAR A SELECT NO EXCLUIR*/
             select[readonly] {
                 background: #eee;
@@ -81,8 +81,7 @@
                         <br>
 
                         <tr>
-                            <td>Codigo do Reembolso</td>
-                            <td>    <input type="text" onkeyup="validare(this,'numero')"required="required" min="1" max="9999999999" autocomplete="off" placeholder="Digite apenas numeros" maxlength="10"  class="form-control" name="txtCodReembolso" value="${reembolso.id}" required autofocus<c:if test="${operacao != 'Incluir'}"> readonly</c:if>></td>
+                        <input type="HIDDEN" min="1" class="form-control" name="id" required id="id" value="${reembolso.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>>
                             </tr>
 
                             <tr>
@@ -106,13 +105,13 @@
                             <td>Número do Codigo de Barras:</td>
 
                             <td>
-                                
-                                                       <select class="form-control" id="pagamento" name="optPagamento"  <c:if test="${operacao == 'Excluir'}" > readonly </c:if>>
-                                <c:forEach items="${pagamentos}" var="pagamento">
-                                    <option value="${pagamento.id}" <c:if test="${pagamento.id == reembolso.idPagamento}"> selected</c:if>>${pagamento.numeroCodBarras}</option>  
-                                </c:forEach>
-                            </select>
-            
+
+                                <select class="form-control" id="pagamento" name="optPagamento"  <c:if test="${operacao == 'Excluir'}" > readonly </c:if>>
+                                    <c:forEach items="${pagamentos}" var="pagamento">
+                                        <option value="${pagamento.id}" <c:if test="${pagamento.id == reembolso.pagamento.id}"> selected</c:if>>${pagamento.numeroCodBarras}</option>  
+                                    </c:forEach>
+                                </select>
+
                             </td>
                         </tr>
                         </tbody>

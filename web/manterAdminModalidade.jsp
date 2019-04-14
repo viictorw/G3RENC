@@ -68,9 +68,8 @@
 
 
                         <tr>
-                            <td>Código Modalidade</td>
-                            <td><input type="number" onkeyup="validare(this,'numero')" min="1" placeholder="Digite apenas numeros" class="form-control" name="txtIdModalidade" maxlength="9" value="${modalidade.id}" autofocus<c:if test="${operacao != 'Incluir'}"> readonly</c:if>></td>
-                            </tr>
+                        <input type="HIDDEN" min="1" class="form-control" name="id" required id="id" value="${modalidade.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>>   
+                        </tr>
                             <tr>
                                 <td>Modalidade</td>
                                 <td><input type="text" onkeyup="validare(this,'texto')" min="1" placeholder="Ex: Volei de praia" class="form-control" name="txtModalidade" maxlength="45" value="${modalidade.modalidade}"<c:if test="${operacao == 'Excluir'}"> readonly</c:if>></td>

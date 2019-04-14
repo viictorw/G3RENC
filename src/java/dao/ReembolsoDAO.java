@@ -88,7 +88,7 @@ public class ReembolsoDAO {
         return reembolso;
     }
 
-    public List<Reembolso> getAllReembolsoes() {
+    public List<Reembolso> getAllReembolsos() {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         List<Reembolso> reembolsos = null;

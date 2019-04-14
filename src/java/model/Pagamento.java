@@ -5,7 +5,10 @@
  */
 package model;
 
+import dao.PagamentoDAO;
 import java.io.Serializable;
+import java.sql.SQLException;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,6 +23,7 @@ import javax.persistence.ManyToOne;
 public class Pagamento implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 
@@ -33,16 +37,12 @@ public class Pagamento implements Serializable {
     public Pagamento() {
     }
 
-    
-    
     public Pagamento(String vencimento, String numeroCodBarras, Double valorTotal, Reserva reserva) {
         this.vencimento = vencimento;
         this.numeroCodBarras = numeroCodBarras;
         this.valorTotal = valorTotal;
         this.reserva = reserva;
     }
-    
-    
 
     public Long getId() {
         return id;
@@ -68,12 +68,34 @@ public class Pagamento implements Serializable {
         this.numeroCodBarras = numeroCodBarras;
     }
 
+    public Reserva getReserva() {
+        return reserva;
+    }
+
+    public void setReserva(Reserva reserva) {
+        this.reserva = reserva;
+    }
+
     public Double getValorTotal() {
         return valorTotal;
     }
 
     public void setValorTotal(Double valorTotal) {
         this.valorTotal = valorTotal;
+    }
+public void salvar() throws SQLException, ClassNotFoundException {
+        PagamentoDAO.getInstance().salvar(this);
+}
+public void excluir() throws SQLException, ClassNotFoundException {
+        PagamentoDAO.getInstance().excluir(this);
+    }
+
+    public static Pagamento obterPagamento(Long id) throws SQLException, ClassNotFoundException {
+        return PagamentoDAO.getInstance().getPagamento((long) id);
+    }
+
+    public static List<Pagamento> obterTodosPagamentos() throws SQLException, ClassNotFoundException {
+        return PagamentoDAO.getInstance().getAllPagamentos();
     }
 
 }

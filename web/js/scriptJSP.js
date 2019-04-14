@@ -23,29 +23,10 @@ function validare(dom, tipo) {
 /* Função para a classe pagamento */
 
 function funcPagamento() {
-    var txtCodPagamento = form1.txtCodPagamento.value;
     var txtVencimentoPagamento = form1.txtVencimentoPagamento.value;
     var txtCodBarrasPagamento = form1.txtCodBarrasPagamento.value;
     var txtValorTotalPagamento = form1.txtValorTotalPagamento.value;
     var optReserva = form1.optReserva.value;
-
-    if (txtCodPagamento === "") {
-        alert('Preencha o campo com um código, não permita que seja vazio');
-        form1.txtCodPagamento.focus();
-        return false;
-    }
-
-    if (txtCodPagamento >= 9999999999) {
-        alert('O campo de código foi preenchido acima do suportado (10 dígitos) ');
-        form1.txtCodPagamento.focus();
-        return false;
-    }
-
-    if (txtCodPagamento <= 0) {
-        alert('Preencha o campo com um código ACIMA de número NEGATIVO');
-        form1.txtCodPagamento.focus();
-        return false;
-    }
 
     if (txtVencimentoPagamento === "") {
         alert('Preencha o campo "Vencimento"');
@@ -79,7 +60,6 @@ function funcPagamento() {
 
 /* Função para a classe espaço */
 function funcAdminEspaco() {
-    var txtIdEspaco = form1.txtIdEspaco.value;
     var txtNome = form1.txtNome.value;
     var txtCep = form1.txtCep.value;
     var txtLogradouro = form1.txtLogradouro.value;
@@ -95,23 +75,6 @@ function funcAdminEspaco() {
 
 
 
-
-
-    if (txtIdEspaco === "") {
-        alert('Preencha o campo com um código, não permita que seja vazio');
-        form1.txtIdEspaco.focus();
-        return false;
-    }
-    if (txtIdEspaco <= 0) {
-        alert('Preencha o campo com um código ACIMA de número NEGATIVO');
-        form1.txtIdEspaco.focus();
-        return false;
-    }
-    if (txtIdEspaco >= 9999999999) {
-        alert('O campo de código foi preenchido acima do suportado (10 dígitos) ');
-        form1.txtIdEspaco.focus();
-        return false;
-    }
 
     if (txtNome === "") {
         alert('Preencha o campo "Nome", não o deixe em branco');

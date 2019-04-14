@@ -5,7 +5,10 @@
  */
 package model;
 
+import dao.ReservaDAO;
 import java.io.Serializable;
+import java.sql.SQLException;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -128,8 +131,20 @@ public class Reserva implements Serializable {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+       public void salvar() throws SQLException, ClassNotFoundException {
+        ReservaDAO.getInstance().salvar(this);
+    }
     
+    public void excluir() throws SQLException, ClassNotFoundException {
+        ReservaDAO.getInstance().excluir(this);
+    }
     
+    public static Reserva obterReserva (Long id) throws SQLException, ClassNotFoundException {
+        return ReservaDAO.getInstance().getReserva((long) id);
+    }
     
+    public static List<Reserva> obterTodasReservas() throws SQLException, ClassNotFoundException {
+        return ReservaDAO.getInstance().getAllReservaes();
+                }
 
 }

@@ -83,9 +83,7 @@
                         <br>
 
                         <tr>
-                            <td>Codigo da reserva</td>
-                            <td><input type="text" onkeyup="validare(this, 'numero')" data-ls-module="charCounter" maxlength="9" required="required" autocomplete="off" max="999999999"  placeholder="Digite apenas numeros" class="form-control"  name="txtCodReserva" value="${reserva.id}" required autofocus<c:if test="${operacao != 'Incluir'}"> readonly</c:if>></td>
-                            <p class="help-block"></p>
+                        <input type="HIDDEN" min="1" class="form-control" name="id" required id="id" value="${reserva.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>>
                             </tr>
 
                             <tr>
@@ -120,23 +118,27 @@
                                 <td> <input  type="text" class="form-control" max="5" pattern="[0-5]{1}" onkeyup="validare(this, 'numero')" id="horaf" required="required" autocomplete="off" min="0"  placeholder="Nota de 1 a 5" maxlength="1"name="txtAvaliacao" value="${reserva.notaAvaliacao}" required<c:if test="${operacao == 'Excluir'}">readonly</c:if>> </td>
                             </tr>
 
-                            <td>Local de Reserva:</td>
-                            <td>
-                                <select class="form-control" name="optEspaco" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>                                            
-                                <c:forEach items="${espacos}" var="espaco">
-                                    <option value="${espaco.id}" <c:if test="${espaco.id == reserva.idEspaco}"> selected</c:if>>${espaco.nome}</option>  
-                                </c:forEach>
-                            </select>
-                        </td> 
+                            <tr>
+                                <td>Local de Reserva:</td>
+                                <td>
+                                    <select class="form-control" name="optEspaco" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>                                            
+                                    <c:forEach items="${espacos}" var="espaco">
+                                        <option value="${espaco.id}" <c:if test="${espaco.id == reserva.espaco.id}"> selected</c:if>>${espaco.nome}</option>  
+                                    </c:forEach>
+                                </select>
+                            </td> 
                         </tr>
-                        <td>Nome do Cliente:</td>
-                        <td>
-                            <select class="form-control" name="optCliente" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
-                                <c:forEach items="${clientes}" var="cliente">
-                                    <option value="${cliente.id}" <c:if test="${cliente.id == reserva.idCliente}"> selected</c:if>>${cliente.nome}</option>  
-                                </c:forEach>
-                            </select>
-                        </td>
+
+                        <tr>
+                            <td>Nome do Cliente:</td>
+                            <td>
+                                <select class="form-control" name="optCliente" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
+                                    <c:forEach items="${clientes}" var="cliente">
+                                        <option value="${cliente.id}" <c:if test="${cliente.id == reserva.cliente.id}"> selected</c:if>>${cliente.nome}</option>  
+                                    </c:forEach>
+                                </select>
+                            </td>
+                        </tr>
 
 
 

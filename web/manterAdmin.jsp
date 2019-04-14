@@ -58,16 +58,9 @@
                 </div>
             </div>
 
-
-
-
             <!--Inicio Tabela-->
 
-
-
-
-
-            <form name="form1" action="ManterAdministradorController?acao=confirmarOperacao&operacao=${operacao}" method="post" name="frmManterAdmin">
+            <form name="form1" action="ManterAdministradorController?acao=confirmarOperacao&operacao=${operacao}" method="post">
                 <table class="table table-striped">
                     <thead>
                     <tbody>

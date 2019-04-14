@@ -27,11 +27,9 @@ public class PagamentoDAO {
     private PagamentoDAO() {
     }
 
-    public void salvar(Pagamento pagamento) {
-
+public void salvar(Pagamento pagamento) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
-
         try {
             tx.begin();
             if (pagamento.getId() != null) {
@@ -40,6 +38,7 @@ public class PagamentoDAO {
                 em.persist(pagamento);
             }
             tx.commit();
+
         } catch (Exception e) {
             if (tx != null && tx.isActive()) {
                 tx.rollback();
@@ -88,7 +87,7 @@ public class PagamentoDAO {
         return pagamento;
     }
 
-    public List<Pagamento> getAllPagamentoes() {
+    public List<Pagamento> getAllPagamentos() {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         List<Pagamento> pagamentos = null;
