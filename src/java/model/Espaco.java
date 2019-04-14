@@ -46,6 +46,7 @@ public class Espaco implements Serializable {
     public Espaco() {
     }
 
+   
     public Espaco(String nome, String cnpj, String cep, String logradouro, Integer numero, String complemento, String bairro, String cidade, String uf, Double area, Integer quantidadePessoas, String horaFuncionamentoInicio, String horaFuncionamentoFinal, TipoEspaco tipoEspaco) {
         this.nome = nome;
         this.cnpj = cnpj;
@@ -63,26 +64,15 @@ public class Espaco implements Serializable {
         this.tipoEspaco = tipoEspaco;
     }
 
-    
-        public Espaco(String nome, String cnpj, String cep, String logradouro, Integer numero, String complemento, String bairro, String cidade, String uf, Double area, Integer quantidadePessoas, String horaFuncionamentoInicio, String horaFuncionamentoFinal) {
-        this.nome = nome;
-        this.cnpj = cnpj;
-        this.cep = cep;
-        this.logradouro = logradouro;
-        this.numero = numero;
-        this.complemento = complemento;
-        this.bairro = bairro;
-        this.cidade = cidade;
-        this.uf = uf;
-        this.area = area;
-        this.quantidadePessoas = quantidadePessoas;
-        this.horaFuncionamentoInicio = horaFuncionamentoInicio;
-        this.horaFuncionamentoFinal = horaFuncionamentoFinal;
-
+     public TipoEspaco getTipoEspaco() {
+        return tipoEspaco;
     }
 
-   
+    public void setTipoEspaco(TipoEspaco tipoEspaco) {
+        this.tipoEspaco = tipoEspaco;
+    }
 
+    
     public Long getId() {
         return id;
     }

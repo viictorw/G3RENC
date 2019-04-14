@@ -101,7 +101,6 @@
 
         <script language="javascript" type="text/javascript">
             function validar() {
-                var txtIdEspaco = form1.txtIdEspaco.value;
                 var txtNome = form1.txtNome.value;
                 var txtCep = form1.txtCep.value;
                 var txtLogradouro = form1.txtLogradouro.value;
@@ -119,16 +118,7 @@
 
 
 
-                if (txtIdEspaco === "") {
-                    alert('Preencha o campo com um código, não permita que seja vazio');
-                    form1.txtIdEspaco.focus();
-                    return false;
-                }
-                if (txtIdEspaco <= 0) {
-                    alert('Preencha o campo com um código ACIMA de número NEGATIVO');
-                    form1.txtIdEspaco.focus();
-                    return false;
-                }
+             
                 if (txtNome === "") {
                     alert('Preencha o campo "Nome", não o deixe em branco');
                     form1.txtNome.focus();
@@ -210,9 +200,9 @@
         </script>
 
         <!-- FIM JavaScript para o formulario-->
-<!--inicio Header-->
-<%@ include file = "Header.jsp" %>
-<!--fim Header-->
+        <!--inicio Header-->
+        <%@ include file = "Header.jsp" %>
+        <!--fim Header-->
         <style>
             footer{
                 bottom: 0;
@@ -231,9 +221,9 @@
 
     <body>
 
- 
-        
-        
+
+
+
         <br>
         <div class="container"><!--Div centralizadora-->
             <div class="col">
@@ -255,8 +245,8 @@
                         <br>
 
                         <tr>
-                            <td>Codigo Espaco</td>
-                            <td><input type="text"  min="1" placeholder="Digite apenas numeros"  maxlength="9" required="required" autocomplete="off" max="999999999" onkeyup="validare(this, 'numero')" class="form-control"  name="txtIdEspaco"  value="${espaco.id}" required autofocus<c:if test="${operacao != 'Incluir'}"> readonly</c:if>></td>
+                        <input type="HIDDEN" min="1" class="form-control" name="id" required id="id" value="${espaco.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>>
+
                             </tr>
                             <tr>
                                 <td>Nome do Espaço</td>
@@ -284,15 +274,15 @@
                             </tr>
                             <tr>
                                 <td>Bairro</td>
-                                <td><input type="text" placeholder="Bairro"  id="bairro"  data-ls-module="charCounter"  maxlength="45" size="60" onkeyup="validare(this,'texto')" class="form-control" autocomplete="off" name="txtBairro" value="${espaco.bairro}" required<c:if test="${operacao == 'Excluir'}"> readonly</c:if>></td>
+                                <td><input type="text" placeholder="Bairro"  id="bairro"  data-ls-module="charCounter"  maxlength="45" size="60" onkeyup="validare(this, 'texto')" class="form-control" autocomplete="off" name="txtBairro" value="${espaco.bairro}" required<c:if test="${operacao == 'Excluir'}"> readonly</c:if>></td>
                             </tr>
                             <tr>
                                 <td>Cidade</td>
-                                <td><input type="text" placeholder="Cidade"  id="cidade"  data-ls-module="charCounter" maxlength="45" onkeyup="validare(this,'texto')" class="form-control" autocomplete="off" name="txtCidade" value="${espaco.cidade}" required<c:if test="${operacao == 'Excluir'}"> readonly</c:if>></td>
+                                <td><input type="text" placeholder="Cidade"  id="cidade"  data-ls-module="charCounter" maxlength="45" onkeyup="validare(this, 'texto')" class="form-control" autocomplete="off" name="txtCidade" value="${espaco.cidade}" required<c:if test="${operacao == 'Excluir'}"> readonly</c:if>></td>
                             </tr>
                             <tr>
                                 <td>Uf</td>
-                                <td><input type="text" placeholder="Estado" data-ls-module="charCounter"  id="uf" maxlength="2" onkeyup="validare(this,'texto')" class="form-control" autocomplete="off" name="txtUf"  value="${espaco.uf}" required<c:if test="${operacao == 'Excluir'}"> readonly</c:if>></td>
+                                <td><input type="text" placeholder="Estado" data-ls-module="charCounter"  id="uf" maxlength="2" onkeyup="validare(this, 'texto')" class="form-control" autocomplete="off" name="txtUf"  value="${espaco.uf}" required<c:if test="${operacao == 'Excluir'}"> readonly</c:if>></td>
                             </tr>
                             <tr>
                                 <td>Area</td>
@@ -339,14 +329,14 @@
 
 
 
-    
-                            
-                            
-      <hr>
-                
-<!--inicio Footer-->
-<%@ include file = "Footer.jsp" %>
-<!--fim Footer-->
+
+
+
+        <hr>
+
+        <!--inicio Footer-->
+        <%@ include file = "Footer.jsp" %>
+        <!--fim Footer-->
 
 
 

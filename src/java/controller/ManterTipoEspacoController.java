@@ -117,9 +117,14 @@ public class ManterTipoEspacoController extends HttpServlet {
     public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         String operacao = request.getParameter("operacao");
 
-        long id = Long.parseLong(request.getParameter("txtTipoEspacoId"));
         String nome = request.getParameter("txtNome");
         long idmodalidade = Long.parseLong(request.getParameter("optModalidade"));
+        
+           Long id = null;
+        if (!operacao.equals("Incluir")) {
+            id = Long.parseLong(request.getParameter("id"));
+        }
+        
         try {
                Modalidade modal = null;
             if (idmodalidade != 0) {
