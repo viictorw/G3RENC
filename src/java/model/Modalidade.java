@@ -5,6 +5,8 @@
  */
 package model;
 
+import dao.ModalidadeDAO;
+import dao.PagamentoDAO;
 import java.sql.SQLException;
 import java.util.List;
 import javax.persistence.Entity;
@@ -77,5 +79,21 @@ public class Modalidade {
      */
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+    
+    
+    public void salvar() throws SQLException, ClassNotFoundException {
+        ModalidadeDAO.getInstance().salvar(this);
+}
+public void excluir() throws SQLException, ClassNotFoundException {
+        ModalidadeDAO.getInstance().excluir(this);
+    }
+
+    public static Modalidade obterModalidade(Long id) throws SQLException, ClassNotFoundException {
+        return ModalidadeDAO.getInstance().getModalidade(id);
+    }
+
+    public static List<Modalidade> obterTodasModalidades() throws SQLException, ClassNotFoundException {
+        return ModalidadeDAO.getInstance().getAllModalidades();
     }
 }

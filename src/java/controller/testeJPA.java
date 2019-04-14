@@ -41,14 +41,14 @@ public class testeJPA {
         /* Inicio Classe RESERVA*/
        Cliente cliente = new Cliente("Victor", "Torreões", "123456", "13/03/1994", "Andre@gmail.com", "Mamona");
         ClienteDAO dao = ClienteDAO.getInstance();
-        dao.getInstance().salvar(cliente);
 
+        Modalidade modalidade = new Modalidade("Skateros","Skateros de todo BR HUE");
+        ModalidadeDAO.getInstance().salvar(modalidade);
         // TipoEspaco tipoEspaco = new TipoEspaco("Graminha");
         // TipoEspacoDAO.getInstance().salvar(tipoEspaco);
          
         Espaco espaco = new Espaco("Sportol", "12324", "36049120", "Alver juinoi", 123, "do outro lado", "esse mesmo", "juiz de fuera", "mg", 55.0, 450, "20:00", "06:00");
         EspacoDAO daoa = EspacoDAO.getInstance();
-        daoa.getInstance().salvar(espaco);
 
 
         /*data, hinicio, hfim, qt pessoas, valor, nota, espaco, cliente*/
