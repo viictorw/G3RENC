@@ -23,74 +23,29 @@
 
         <!-- Custom styles for this template -->
         <link href="css/modern-business.css" rel="stylesheet">
-        <!--inicio Header-->
-        <%@ include file = "Header.jsp" %>
-        <!--fim Header-->
+
+ 
 
 
-        <style>
-            footer{
-                bottom: 0;
-                position: absolute; 
-                bottom: 0; 
-                left: 0px; 
-                right: 0px;
-                width: 100%;
-                text-align: center;
-            }
-        </style>
 
 <script language="javascript"  type="text/javascript" src="js/scriptJSP.js"></script>
 
         <!-- INICIO JavaScript para o formulario-->
 
-        <script language="javascript" type="text/javascript">
-            function validar() {
-                var txtIdContato = form1.txtIdContato.value;
-                var txtNumeroContato = form1.txtNumeroContato.value;
-                var optCliente = form1.optCliente.value;
 
-
-
-
-                if (txtIdContato === "") {
-                    alert('Preencha o campo com um código, não permita que seja vazio');
-                    form1.txtIdContato.focus();
-                    return false;
-                }
-
-                if (txtIdContato >= 999999999) {
-                    alert('O campo de código foi preenchido acima do suportado (10 dígitos) ');
-                    form1.txtIdContato.focus();
-                    return false;
-                }
-
-                if (txtIdContato <= 0) {
-                    alert('Preencha o campo com um código ACIMA de número NEGATIVO');
-                    form1.txtIdContato.focus();
-                    return false;
-                }
-
-                if (txtNumeroContato === "") {
-                    alert('Preencha o campo "Nº do Contato"');
-                    form1.txtNumeroContato.focus();
-                    return false;
-                }
-
-                if (optCliente === "") {
-                    alert('Preencha o campo "Cliente"');
-                    form1.optContato.focus();
-                    return false;
-                }
-
-            }
-        </script>
 
         <!-- FIM JavaScript para o formulario-->
 
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Manter Contato - ${operacao}</title>
 
+        <!-- JavaScript pasta ( js/scriptJSP.js  )-->
+        <script language="javascript"  type="text/javascript" src="js/scriptJSP.js">
+        </script>
+
+        <!--inicio Header-->
+        <%@ include file = "Header.jsp" %>
+        <!--fim Header-->
 
 
 
@@ -134,9 +89,9 @@
                             </tr>
                             <td>Cliente:</td>
                             <td>
-                                <select class="form-control" id="cliente" name="optCliente"  <c:if test="${operacao == 'Excluir'}" > readonly </c:if>>
+                                <select class="form-control" id="cliente" name="idCliente"  <c:if test="${operacao == 'Excluir'}" > disabled </c:if>>
                                 <c:forEach items="${clientes}" var="cliente">
-                                    <option value="${cliente.id}" <c:if test="${cliente.id == contato.idCliente}"> selected</c:if>>${cliente.nome}</option>  
+                                    <option value="${cliente.id}" <c:if test="${cliente.id == contato.cliente.id}"> selected</c:if>>${cliente.nome}</option>  
                                 </c:forEach>
                             </select>
                         </td>
