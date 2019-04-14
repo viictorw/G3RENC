@@ -52,31 +52,7 @@ public class ContatoDAO {
         }
     }
 
-           public static void alterar(Contato contato) throws SQLException, ClassNotFoundException {
-        Connection conexao = null;
-        PreparedStatement comando = null;
-        try {
-            conexao = BD.getConexao();
-            String sql = "update contato set numero=?,cliente_id=? where id=?";
-
-            comando = conexao.prepareStatement(sql);
-
-            comando.setString(1, sql);
-            //comando.setString(2, contato.getCliente());
-
-           // if (contato.getCliente() == null) {
-           //     comando.setNull(2, Types.NULL);
-           // } else {
-           //     comando.setLong(2, (long) contato.getCliente());
-            //}
-
-            comando.setLong(4, contato.getId());
-            comando.execute();
-            BD.fecharConexao(conexao, comando);
-        } catch (SQLException e) {
-            throw e;
-        }
-    }
+  
     public void excluir(Contato contato) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();

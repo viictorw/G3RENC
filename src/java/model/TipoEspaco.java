@@ -5,6 +5,8 @@
  */
 package model;
 
+import dao.EspacoDAO;
+import dao.TipoEspacoDAO;
 import java.sql.SQLException;
 import java.util.List;
 import javax.persistence.Entity;
@@ -22,6 +24,10 @@ import javax.persistence.ManyToOne;
 public class TipoEspaco {
     
     private static final long serialVersionUID = 1L;
+
+    public static TipoEspaco obterTipoEspaco(long idtipoEspaco) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     
@@ -71,5 +77,18 @@ public class TipoEspaco {
     /**
      * @return the modalidadePredominanteId
      */
-
+      public void salvar() throws SQLException, ClassNotFoundException {
+        TipoEspacoDAO.getInstance().salvar(this);
+      }
+    public void excluir() throws SQLException, ClassNotFoundException {
+        TipoEspacoDAO.getInstance().excluir(this);
+    }
+    
+    public static TipoEspaco obterEspaco(Long id) throws SQLException, ClassNotFoundException {
+        return TipoEspacoDAO.getInstance().getTipoEspaco(id);
+    }
+    
+    public static List<TipoEspaco> obterTodosTipoEspacos() throws SQLException, ClassNotFoundException {
+        return TipoEspacoDAO.getInstance().getAllTipoEspacos();
+    }
 }

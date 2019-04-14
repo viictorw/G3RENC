@@ -13,6 +13,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -39,11 +40,13 @@ public class Espaco implements Serializable {
     private Integer quantidadePessoas;
     private String horaFuncionamentoInicio;
     private String horaFuncionamentoFinal;
+    @ManyToOne
+    private TipoEspaco tipoEspaco;
 
     public Espaco() {
     }
 
-    public Espaco(String nome, String cnpj, String cep, String logradouro, Integer numero, String complemento, String bairro, String cidade, String uf, Double area, Integer quantidadePessoas, String horaFuncionamentoInicio, String horaFuncionamentoFinal) {
+    public Espaco(String nome, String cnpj, String cep, String logradouro, Integer numero, String complemento, String bairro, String cidade, String uf, Double area, Integer quantidadePessoas, String horaFuncionamentoInicio, String horaFuncionamentoFinal, TipoEspaco tipoEspaco) {
         this.nome = nome;
         this.cnpj = cnpj;
         this.cep = cep;
@@ -57,10 +60,26 @@ public class Espaco implements Serializable {
         this.quantidadePessoas = quantidadePessoas;
         this.horaFuncionamentoInicio = horaFuncionamentoInicio;
         this.horaFuncionamentoFinal = horaFuncionamentoFinal;
+        this.tipoEspaco = tipoEspaco;
     }
 
     
-    
+        public Espaco(String nome, String cnpj, String cep, String logradouro, Integer numero, String complemento, String bairro, String cidade, String uf, Double area, Integer quantidadePessoas, String horaFuncionamentoInicio, String horaFuncionamentoFinal) {
+        this.nome = nome;
+        this.cnpj = cnpj;
+        this.cep = cep;
+        this.logradouro = logradouro;
+        this.numero = numero;
+        this.complemento = complemento;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.uf = uf;
+        this.area = area;
+        this.quantidadePessoas = quantidadePessoas;
+        this.horaFuncionamentoInicio = horaFuncionamentoInicio;
+        this.horaFuncionamentoFinal = horaFuncionamentoFinal;
+
+    }
 
    
 

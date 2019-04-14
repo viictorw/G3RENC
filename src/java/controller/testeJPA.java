@@ -39,32 +39,35 @@ public class testeJPA {
     public static void main(String[] args) {
 
         /* Inicio Classe RESERVA*/
-  /*      Cliente cliente = new Cliente("Victor", "Torreões", "123456", "13/03/1994", "Andre@gmail.com", "Mamona");
+       Cliente cliente = new Cliente("Victor", "Torreões", "123456", "13/03/1994", "Andre@gmail.com", "Mamona");
         ClienteDAO dao = ClienteDAO.getInstance();
         dao.getInstance().salvar(cliente);
 
+        // TipoEspaco tipoEspaco = new TipoEspaco("Graminha");
+        // TipoEspacoDAO.getInstance().salvar(tipoEspaco);
+         
         Espaco espaco = new Espaco("Sportol", "12324", "36049120", "Alver juinoi", 123, "do outro lado", "esse mesmo", "juiz de fuera", "mg", 55.0, 450, "20:00", "06:00");
         EspacoDAO daoa = EspacoDAO.getInstance();
         daoa.getInstance().salvar(espaco);
 
 
         /*data, hinicio, hfim, qt pessoas, valor, nota, espaco, cliente*/
- /*       Reserva reserva = new Reserva("05/01/2020", "05:30", "55", (long) 7777, 55.5, (long) 88, cliente, espaco);
-        ReservaDAO.getInstance().salvar(reserva);
+       // Reserva reserva = new Reserva("05/01/2020", "05:30", "55", (long) 7777, 55.5, (long) 88, cliente, espaco);
+        //ReservaDAO.getInstance().salvar(reserva);
 
         /*data, cod_barras, valor, reserva*/
- /*       Pagamento p = new Pagamento("18/10/2019", "555.444.333.222", 5.0, reserva);
-        PagamentoDAO.getInstance().salvar(p);
+      // Pagamento p = new Pagamento("18/10/2019", "555.444.333.222", 5.0, reserva);
+       // PagamentoDAO.getInstance().salvar(p);
 
-        Pagamento p2 = new Pagamento("20/10/2019", "777.666.555.444", 5000.0, reserva);
-        PagamentoDAO.getInstance().salvar(p2);
+      //  Pagamento p2 = new Pagamento("20/10/2019", "777.666.555.444", 5000.0, reserva);
+       // PagamentoDAO.getInstance().salvar(p2);
 
-        Pagamento p3 = new Pagamento("19/10/2019", "666.555.444.33", 50.0, reserva);
-        PagamentoDAO.getInstance().salvar(p3);
-*/
+      //  Pagamento p3 = new Pagamento("19/10/2019", "666.555.444.33", 50.0, reserva);
+       // PagamentoDAO.getInstance().salvar(p3);
+
 
         /*status , pagamento*/
-      /*  Reembolso reembolso = new Reembolso("Aprovado", p);
+       /* Reembolso reembolso = new Reembolso("Aprovado", p);
         ReembolsoDAO.getInstance().salvar(reembolso);
 
         Reembolso reembolso2 = new Reembolso("Recusado", p2);
@@ -72,7 +75,7 @@ public class testeJPA {
 
         Reembolso reembolso3 = new Reembolso("Em análise", p3);
         ReembolsoDAO.getInstance().salvar(reembolso3);
-*/
+
         /*Fim Classe RESERVA, Reembolso e Pagamento*/
         
          Administrador admin = new Administrador("iza.ribeiro@lul.com", "Iza", "123");

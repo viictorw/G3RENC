@@ -81,9 +81,7 @@ public class Contato implements Serializable{
         ContatoDAO.getInstance().salvar(this);
     }
            
-     public void alterar() throws SQLException, ClassNotFoundException {
-        ContatoDAO.alterar(null);
-    }
+
     
     public void excluir() throws SQLException, ClassNotFoundException {
         ContatoDAO.getInstance().excluir(this);

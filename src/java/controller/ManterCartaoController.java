@@ -7,6 +7,8 @@ package controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -54,8 +56,7 @@ public class ManterCartaoController extends HttpServlet {
         request.setAttribute("clientes", Cliente.obterTodosOsClientes());
         
         if(!operacao.equals("Incluir")){
-            long id = Long.parseLong(request.getParameter("id"));
-            Cartao cartao = Cartao.obterCartao((long)id);
+             Cartao cartao = Cartao.obterCartao(Long.parseLong(request.getParameter("id")));
             request.setAttribute("cartao", cartao);
         }
                 RequestDispatcher view = request.getRequestDispatcher("/manterCartao.jsp");
@@ -94,7 +95,8 @@ public class ManterCartaoController extends HttpServlet {
                 cartao.gravar();
             } else {
                 if (operacao.equals("Editar")) {
-                    cartao.alterar();
+                    cartao.setId(id);
+                    cartao.gravar();
                 } else {
                     if (operacao.equals("Excluir")) {
                         cartao.excluir();
@@ -125,7 +127,9 @@ public class ManterCartaoController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+
+            processRequest(request, response);
+
     }
 
     /**

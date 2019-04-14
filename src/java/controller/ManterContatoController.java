@@ -131,7 +131,8 @@ public class ManterContatoController extends HttpServlet {
                 contato.gravar();
             } else {
                 if (operacao.equals("Editar")) {
-                    contato.alterar();
+                              contato.setId(id);
+                    contato.gravar();
                 } else {
                     if (operacao.equals("Excluir")) {
                         contato.excluir();

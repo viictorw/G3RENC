@@ -15,6 +15,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 import model.Cartao;
 import model.Irregularidade;
+import model.Pagamento;
 
 /**
  *
@@ -52,31 +53,7 @@ public class CartaoDAO {
         }
     }
     
-       public static void alterar(Irregularidade irregularidade) throws SQLException, ClassNotFoundException {
-        Connection conexao = null;
-        PreparedStatement comando = null;
-        try {
-            conexao = BD.getConexao();
-            String sql = "update irregularidade set autor=?,descricao=?,espaco_id=? where id=?";
 
-            comando = conexao.prepareStatement(sql);
-
-            comando.setString(1, irregularidade.getAutor());
-            comando.setString(2, irregularidade.getDescricao());
-
-            if (irregularidade.getIdEspaco() == null) {
-                comando.setNull(3, Types.NULL);
-            } else {
-                comando.setLong(3, (long) irregularidade.getIdEspaco());
-            }
-
-            comando.setLong(4, irregularidade.getId());
-            comando.execute();
-            BD.fecharConexao(conexao, comando);
-        } catch (SQLException e) {
-            throw e;
-        }
-    }
 
     public void excluir(Cartao cartao) {
         EntityManager em = PersistenceUtil.getEntityManager();
@@ -97,7 +74,7 @@ public class CartaoDAO {
     }
 
     public Cartao getCartao(long id) {
-        EntityManager em = PersistenceUtil.getEntityManager();
+            EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         Cartao cartao = null;
 

@@ -128,14 +128,12 @@ public class Cartao {
       public void gravar() throws SQLException, ClassNotFoundException{
         CartaoDAO.getInstance().salvar(this);
       }
-    public void alterar() throws SQLException, ClassNotFoundException{
-        CartaoDAO.alterar(null);
-    }
+
     public void excluir() throws SQLException, ClassNotFoundException{
         CartaoDAO.getInstance().excluir(this);
     }
     public static Cartao obterCartao(Long id) throws SQLException, ClassNotFoundException{
-        return CartaoDAO.getInstance().getCartao(id);
+        return CartaoDAO.getInstance().getCartao((long) id);
     }
     public static List<Cartao> obterTodosOsCartoes() throws SQLException, ClassNotFoundException{
         return CartaoDAO.getInstance().getAllCartoess();
