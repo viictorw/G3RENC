@@ -84,8 +84,8 @@ public class Modalidade {
     
     public void salvar() throws SQLException, ClassNotFoundException {
         ModalidadeDAO.getInstance().salvar(this);
-}
-public void excluir() throws SQLException, ClassNotFoundException {
+    }
+    public void excluir() throws SQLException, ClassNotFoundException {
         ModalidadeDAO.getInstance().excluir(this);
     }
 

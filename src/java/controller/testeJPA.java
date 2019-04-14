@@ -44,8 +44,9 @@ public class testeJPA {
 
         Modalidade modalidade = new Modalidade("Skateros","Skateros de todo BR HUE");
         ModalidadeDAO.getInstance().salvar(modalidade);
-        // TipoEspaco tipoEspaco = new TipoEspaco("Graminha");
-        // TipoEspacoDAO.getInstance().salvar(tipoEspaco);
+        
+         TipoEspaco tipoEspaco = new TipoEspaco("Graminha", modalidade);
+         TipoEspacoDAO.getInstance().salvar(tipoEspaco);
          
         Espaco espaco = new Espaco("Sportol", "12324", "36049120", "Alver juinoi", 123, "do outro lado", "esse mesmo", "juiz de fuera", "mg", 55.0, 450, "20:00", "06:00");
         EspacoDAO daoa = EspacoDAO.getInstance();
