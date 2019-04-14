@@ -9,23 +9,23 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
-import model.Disponibilidadee;
+import model.Disponibilidade;
 
 /**
  *
  * @author iza
  */
-public class DisponibilidadeeDAO {
-        private static DisponibilidadeeDAO instance = new DisponibilidadeeDAO();
-    public static DisponibilidadeeDAO getInstance() {
+public class DisponibilidadeDAO {
+        private static DisponibilidadeDAO instance = new DisponibilidadeDAO();
+    public static DisponibilidadeDAO getInstance() {
         return instance;
 
     }
 
-    private DisponibilidadeeDAO() {
+    private DisponibilidadeDAO() {
     }
 
-    public void salvar(Disponibilidadee disponibilidade) {
+    public void salvar(Disponibilidade disponibilidade) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
 
@@ -47,13 +47,13 @@ public class DisponibilidadeeDAO {
         }
     }
 
-    public void excluir(Disponibilidadee disponibilidade) {
+    public void excluir(Disponibilidade disponibilidade) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
 
         try {
             tx.begin();
-            em.remove(em.getReference(Disponibilidadee.class, disponibilidade.getId()));
+            em.remove(em.getReference(Disponibilidade.class, disponibilidade.getId()));
             tx.commit();
         } catch (Exception e) {
             if (tx != null && tx.isActive()) {
@@ -65,14 +65,14 @@ public class DisponibilidadeeDAO {
         }
     }
 
-    public Disponibilidadee getDisponibilidade(long id) {
+    public Disponibilidade getDisponibilidade(long id) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
-        Disponibilidadee disponibilidade = null;
+        Disponibilidade disponibilidade = null;
 
         try {
             tx.begin();
-            disponibilidade = em.find(Disponibilidadee.class, id);
+            disponibilidade = em.find(Disponibilidade.class, id);
             tx.commit();
         } catch (Exception e) {
             if (tx != null && tx.isActive()) {
@@ -85,13 +85,13 @@ public class DisponibilidadeeDAO {
         return disponibilidade;
     }
 
-    public List<Disponibilidadee> getAllDisponibilidades() {
+    public List<Disponibilidade> getAllDisponibilidades() {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
-        List<Disponibilidadee> disponibilidades = null;
+        List<Disponibilidade> disponibilidades = null;
         try {
             tx.begin();
-            TypedQuery<Disponibilidadee> query = em.createQuery("select c From Disponibilidade c", Disponibilidadee.class);
+            TypedQuery<Disponibilidade> query = em.createQuery("select c From Disponibilidade c", Disponibilidade.class);
             disponibilidades = query.getResultList();
             tx.commit();
         } catch (Exception e) {

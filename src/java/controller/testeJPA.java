@@ -9,7 +9,7 @@ import dao.AdministradorDAO;
 import dao.CartaoDAO;
 import dao.ClienteDAO;
 import dao.ContatoDAO;
-import dao.DisponibilidadeeDAO;
+import dao.DisponibilidadeDAO;
 import dao.EspacoDAO;
 import dao.IrregularidadeDAO;
 import dao.ModalidadeDAO;
@@ -21,7 +21,7 @@ import model.Administrador;
 import model.Cartao;
 import model.Cliente;
 import model.Contato;
-import model.Disponibilidadee;
+import model.Disponibilidade;
 import model.Espaco;
 import model.Irregularidade;
 import model.Modalidade;
@@ -51,7 +51,8 @@ public class testeJPA {
         Espaco espaco = new Espaco("Sportol", "12324", "36049120", "Alver juinoi", 123, "do outro lado", "esse mesmo", "juiz de fuera", "mg", 55.0, 450, "20:00", "06:00");
         EspacoDAO daoa = EspacoDAO.getInstance();
 
-
+        Disponibilidade disponibilidade = new Disponibilidade("20/12/2019", "10:00", "18:00");
+         DisponibilidadeDAO.getInstance().salvar(disponibilidade);
         /*data, hinicio, hfim, qt pessoas, valor, nota, espaco, cliente*/
        // Reserva reserva = new Reserva("05/01/2020", "05:30", "55", (long) 7777, 55.5, (long) 88, cliente, espaco);
         //ReservaDAO.getInstance().salvar(reserva);

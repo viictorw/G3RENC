@@ -5,7 +5,11 @@
  */
 package model;
 
+import dao.DisponibilidadeDAO;
+import dao.PagamentoDAO;
 import java.io.Serializable;
+import java.sql.SQLException;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,7 +21,7 @@ import javax.persistence.ManyToOne;
  * @author iza
  */
 @Entity
-public class Disponibilidadee implements Serializable{
+public class Disponibilidade implements Serializable{
     
     private static final long serialVersionUID = 1L;
     @Id
@@ -30,18 +34,18 @@ public class Disponibilidadee implements Serializable{
      @ManyToOne
     private Espaco espaco;
 
-    public Disponibilidadee() {
+    public Disponibilidade() {
     }
     
 
-    public Disponibilidadee(String dataDisponivel, String hora_inicio, String hora_fim, Espaco espaco) {
+    public Disponibilidade(String dataDisponivel, String hora_inicio, String hora_fim, Espaco espaco) {
         this.dataDisponivel = dataDisponivel;
         this.hora_inicio = hora_inicio;
         this.hora_fim = hora_fim;
         this.espaco = espaco;
     }
     
-    public Disponibilidadee(String dataDisponivel, String hora_inicio, String hora_fim) {
+    public Disponibilidade(String dataDisponivel, String hora_inicio, String hora_fim) {
         this.dataDisponivel = dataDisponivel;
         this.hora_inicio = hora_inicio;
         this.hora_fim = hora_fim;
@@ -83,6 +87,19 @@ public class Disponibilidadee implements Serializable{
         this.hora_fim = hora_fim;
     }
 
+    public void salvar() throws SQLException, ClassNotFoundException {
+            DisponibilidadeDAO.getInstance().salvar(this);
+    }
+    public void excluir() throws SQLException, ClassNotFoundException {
+            DisponibilidadeDAO.getInstance().excluir(this);
+        }
 
+    public static Disponibilidade obterDisponibilidade(Long id) throws SQLException, ClassNotFoundException {
+        return DisponibilidadeDAO.getInstance().getDisponibilidade((long) id);
+    }
+
+    public static List<Disponibilidade> obterTodasDisponibilidades() throws SQLException, ClassNotFoundException {
+        return DisponibilidadeDAO.getInstance().getAllDisponibilidades();
+    }
     
 }
