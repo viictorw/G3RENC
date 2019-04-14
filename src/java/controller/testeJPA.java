@@ -88,6 +88,9 @@ public class testeJPA {
        ClienteDAO.getInstance().salvar(cli1);
        ClienteDAO.getInstance().salvar(cli2);
        ClienteDAO.getInstance().salvar(cli3);
+       
+       Contato cont1 = new Contato("32133414", cli3);
+       ContatoDAO.getInstance().salvar(cont1);
       /*
          Contato contato = new Contato("321654", cliente);
          ContatoDAO.getInstance().salvar(contato);
