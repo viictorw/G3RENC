@@ -119,7 +119,6 @@ public class ManterEspacoController extends HttpServlet {
     public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         String operacao = request.getParameter("operacao");
 
-        long id = Long.parseLong(request.getParameter("txtIdEspaco"));
         String nome = request.getParameter("txtNome");
         String cnpj = request.getParameter("txtCnpj");
         String cep = request.getParameter("txtCep");
@@ -134,6 +133,13 @@ public class ManterEspacoController extends HttpServlet {
         String horaI = request.getParameter("txtHoraFuncionamentoInicio");
         String horaF = request.getParameter("txtHoraFuncionamentoFinal");
         long idtipoEspaco = Long.parseLong(request.getParameter("optTipoEspaco"));
+        
+                Long id = null;
+        if (!operacao.equals("Incluir")) {
+            id = Long.parseLong(request.getParameter("id"));
+        }
+        
+        
         try {
             TipoEspaco tipoEspaco = null;
             if (idtipoEspaco != 0) {

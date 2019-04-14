@@ -122,7 +122,9 @@
                                     </thead>
                                     <tbody>
 
-
+                                   
+                                        
+                                        
                                         <tr>
                                             <th colspan="1">
                                                 Tipo de Espaço : <c:out value ="${tipoEspaco.nome}"/>

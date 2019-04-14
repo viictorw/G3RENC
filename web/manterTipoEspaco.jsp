@@ -41,34 +41,16 @@
                 text-align: center;
             }
         </style>
-<script language="javascript"  type="text/javascript" src="js/scriptJSP.js"></script>
+        <script language="javascript"  type="text/javascript" src="js/scriptJSP.js"></script>
 
         <!-- INICIO JavaScript para o formulario-->
 
         <script language="javascript" type="text/javascript">
             function validar() {
                 var optModalidade = form1.optModalidade.value;
-                var txtTipoEspacoId = form1.txtTipoEspacoId.value;
                 var txtNome = form1.txtNome.value;
 
 
-                if (txtTipoEspacoId === "") {
-                    alert('Preencha o campo com um código, não permita que seja vazio');
-                    form1.txtTipoEspacoId.focus();
-                    return false;
-                }
-
-                if (txtTipoEspacoId >= 999999999) {
-                    alert('O campo de código foi preenchido acima do suportado (10 dígitos) ');
-                    form1.txtTipoEspacoId.focus();
-                    return false;
-                }
-
-                if (txtTipoEspacoId <= 0) {
-                    alert('Preencha o campo com um código ACIMA de número NEGATIVO');
-                    form1.txtTipoEspacoId.focus();
-                    return false;
-                }
 
                 if (txtNome === "") {
                     alert('Preencha o campo "Bandeira do Cartão"');
@@ -127,12 +109,13 @@
                     <br>
 
                     <tr>
-                        <td>Código Tipo Espaço</td>
-                        <td><input type="text"  class="form-control" required="required" max="999999999" maxlength="9" placeholder="Digite apenas numeros" min="1" required="required" onkeyup="validare(this, 'numero')" autocomplete="off" name="txtTipoEspacoId" value="${tipoEspaco.id}" required autofocus<c:if test="${operacao != 'Incluir'}"> readonly</c:if>></td>
+                    <input type="HIDDEN" min="1" class="form-control" name="id" required id="id" value="${tipoEspaco.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>>
+
+                  
                         </tr>
                         <tr>
                             <td>Tipo Espaço</td>
-                            <td><input type="text" onkeyup="validare(this,'texto')" data-ls-module="charCounter"    placeholder="Digite o tipo de espaço" autocomplete="off"  maxlength="45"   class="form-control" name="txtNome" value="${tipoEspaco.nome}"required<c:if test="${operacao == 'Excluir'}"> readonly</c:if>></td>
+                            <td><input type="text" onkeyup="validare(this, 'texto')" data-ls-module="charCounter"    placeholder="Digite o tipo de espaço" autocomplete="off"  maxlength="45"   class="form-control" name="txtNome" value="${tipoEspaco.nome}"required<c:if test="${operacao == 'Excluir'}"> readonly</c:if>></td>
                         </tr>
                         <td>Modalidade:</td>
                         <td>

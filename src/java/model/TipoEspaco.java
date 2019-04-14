@@ -5,7 +5,6 @@
  */
 package model;
 
-import dao.EspacoDAO;
 import dao.TipoEspacoDAO;
 import java.sql.SQLException;
 import java.util.List;
@@ -25,9 +24,7 @@ public class TipoEspaco {
     
     private static final long serialVersionUID = 1L;
 
-    public static TipoEspaco obterTipoEspaco(long idtipoEspaco) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+  
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     
@@ -53,6 +50,14 @@ public class TipoEspaco {
         return id;
     }
 
+    public Modalidade getModalidade() {
+        return modalidade;
+    }
+
+    public void setModalidade(Modalidade modalidade) {
+        this.modalidade = modalidade;
+    }
+
     /**
      * @param id the id to set
      */
@@ -75,7 +80,8 @@ public class TipoEspaco {
     }
 
     /**
-     * @return the modalidadePredominanteId
+     * @throws java.sql.SQLException
+     * @throws java.lang.ClassNotFoundException
      */
       public void salvar() throws SQLException, ClassNotFoundException {
         TipoEspacoDAO.getInstance().salvar(this);
@@ -84,7 +90,7 @@ public class TipoEspaco {
         TipoEspacoDAO.getInstance().excluir(this);
     }
     
-    public static TipoEspaco obterEspaco(Long id) throws SQLException, ClassNotFoundException {
+    public static TipoEspaco obterTipoEspaco(Long id) throws SQLException, ClassNotFoundException {
         return TipoEspacoDAO.getInstance().getTipoEspaco(id);
     }
     
