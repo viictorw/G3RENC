@@ -5,12 +5,15 @@
  */
 package model;
 
+import dao.ClienteDAO;
 import java.io.Serializable;
+import java.sql.SQLException;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+
 
 
 
@@ -22,10 +25,6 @@ import javax.persistence.ManyToOne;
 public class Cliente implements Serializable{
 
     private static final long serialVersionUID = 1L;
-
-    public static Cliente logar(String email, String senha) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 
@@ -36,7 +35,7 @@ public class Cliente implements Serializable{
     private String dataNascimento;
     private String email;
     private String senha;
-
+   
 
     public Cliente() {
     }
@@ -48,7 +47,6 @@ public class Cliente implements Serializable{
         this.dataNascimento = dataNascimento;
         this.email = email;
         this.senha = senha;
-
 
     }
 
@@ -112,6 +110,23 @@ public class Cliente implements Serializable{
         this.senha = senha;
     }
 
-    
+    public static Cliente logar(String email, String senha) throws ClassNotFoundException {
+        return ClienteDAO.logar(email, senha);
+    }
+      public void gravar() throws SQLException, ClassNotFoundException{
+        ClienteDAO.getInstance().salvar(this);
+    }
+    public void alterar() throws SQLException, ClassNotFoundException{
+        ClienteDAO.alterar(this);
+    }
+    public void excluir() throws SQLException, ClassNotFoundException{
+        ClienteDAO.getInstance().excluir(this);
+    }
+    public static Cliente obterCliente(Long id) throws SQLException, ClassNotFoundException{
+        return ClienteDAO.getInstance().getCliente(id);
+    }
+    public static List<Cliente> obterTodosOsClientes() throws SQLException, ClassNotFoundException{
+        return ClienteDAO.getInstance().getAllClientes();
+    }
 
 }

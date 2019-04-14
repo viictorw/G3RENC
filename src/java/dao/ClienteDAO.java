@@ -5,6 +5,10 @@
  */
 package dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -106,5 +110,56 @@ public class ClienteDAO {
         }
         return clientes;
     }
+    
+      public static Cliente logar(String email, String senha) throws ClassNotFoundException {
+        Connection conexao = null;
+        Cliente cliente = null;
+        PreparedStatement comando = null;
+        try {
+            conexao = BD.getConexao();
+            String sql = "SELECT * FROM cliente WHERE email = ? AND senha = ?";
+            comando = conexao.prepareStatement(sql);
+            comando.setString(1, email);
+            comando.setString(2, senha);
+            ResultSet rs = comando.executeQuery();
+            if (rs.first()) {
+                cliente = new Cliente(
+                        rs.getString("nome"),
+                        rs.getString("sobrenome"),
+                        rs.getString("data_nascimento"),
+                        rs.getString("email"),
+                        rs.getString("cpf"),
+                        rs.getString("senha"));
+            }
 
+            comando.close();
+            conexao.close();
+        } catch (SQLException e) {
+        } finally {
+            BD.fecharConexao(conexao, comando);
+        }
+        return cliente;
+    }
+    public static void alterar(Cliente cliente) throws SQLException, ClassNotFoundException {
+        Connection conexao = null;
+        PreparedStatement comando = null;
+        try {
+            conexao = BD.getConexao();
+            String sql = "update cliente set  nome = ?, sobrenome = ?, cpf = ?, data_nascimento = ?, email = ?, senha=?"
+                    + "where id = ?";
+            comando = conexao.prepareStatement(sql);
+            comando.setString(1, cliente.getNome());
+            comando.setString(2, cliente.getSobrenome());
+            comando.setString(3, cliente.getCpf());
+            comando.setString(4, cliente.getDataNascimento());
+            comando.setString(5, cliente.getEmail());
+             comando.setString(6, cliente.getSenha());
+
+            comando.setLong(7, cliente.getId());
+            comando.execute();
+            BD.fecharConexao(conexao, comando);
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
 }
