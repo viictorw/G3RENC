@@ -5,7 +5,10 @@
  */
 package model;
 
+import dao.ContatoDAO;
 import java.io.Serializable;
+import java.sql.SQLException;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -72,4 +75,25 @@ public class Contato implements Serializable{
         this.numero = numero;
     }
     
+    
+    
+             public void gravar() throws SQLException, ClassNotFoundException {
+        ContatoDAO.getInstance().salvar(this);
+    }
+           
+     public void alterar() throws SQLException, ClassNotFoundException {
+        ContatoDAO.alterar(null);
+    }
+    
+    public void excluir() throws SQLException, ClassNotFoundException {
+        ContatoDAO.getInstance().excluir(this);
+    }
+
+    public static  Contato obterContato(Long id) throws SQLException, ClassNotFoundException {
+        return ContatoDAO.getInstance().getContato(id);
+    }
+
+    public static List<Contato> obterTodosContatoes() throws SQLException, ClassNotFoundException {
+        return ContatoDAO.getInstance().getAllContatos();
+    }
 }

@@ -82,8 +82,18 @@ public class testeJPA {
          AdministradorDAO.getInstance().salvar(admin1);
          AdministradorDAO.getInstance().salvar(admin2);
         
-        
+        Cliente cli1 = new Cliente("Izabella", "Ribeiro", "123545848", "22/02/1999", "iza@gmail.om", "123");
+       Cliente cli2 = new Cliente("Victor", "Wagner", "123545848", "22/02/1999", "victor@gmail.om", "123");
+       Cliente cli3 = new Cliente("Luis", "Zanovello", "123545848", "22/02/1999", "luis@gmail.om", "123");
+       ClienteDAO.getInstance().salvar(cli1);
+       ClienteDAO.getInstance().salvar(cli2);
+       ClienteDAO.getInstance().salvar(cli3);
        
+       Contato cont1 = new Contato("32133414", cli3);
+       ContatoDAO.getInstance().salvar(cont1);
+       
+       Cartao cart1 = new Cartao("visa", "05/06/2026", "3442", cli3);
+       CartaoDAO.getInstance().salvar(cart1);
       /*
          Contato contato = new Contato("321654", cliente);
          ContatoDAO.getInstance().salvar(contato);

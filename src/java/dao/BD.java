@@ -11,7 +11,7 @@ public class BD {
         Connection conexao = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/bancoisport", "root", "");
+            conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/genn", "root", "");
         } catch (SQLException e) {
         }
         return conexao;
