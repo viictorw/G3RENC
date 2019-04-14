@@ -5,6 +5,8 @@
  */
 package model;
 
+import dao.CartaoDAO;
+import dao.ClienteDAO;
 import java.sql.SQLException;
 import java.util.List;
 import javax.persistence.Entity;
@@ -22,6 +24,10 @@ import javax.persistence.ManyToOne;
 public class Cartao {
     
         private static final long serialVersionUID = 1L;
+
+    public static Cartao obterCartao(long l) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     
@@ -117,6 +123,22 @@ public class Cartao {
 
     public void setIdCliente(long cliente) {
 
+    }
+
+      public void gravar() throws SQLException, ClassNotFoundException{
+        CartaoDAO.getInstance().salvar(this);
+      }
+    public void alterar() throws SQLException, ClassNotFoundException{
+        CartaoDAO.alterar(null);
+    }
+    public void excluir() throws SQLException, ClassNotFoundException{
+        CartaoDAO.getInstance().excluir(this);
+    }
+    public static Cartao obterCartao(Long id) throws SQLException, ClassNotFoundException{
+        return CartaoDAO.getInstance().getCartao(id);
+    }
+    public static List<Cartao> obterTodosOsCartoes() throws SQLException, ClassNotFoundException{
+        return CartaoDAO.getInstance().getAllCartoess();
     }
 
 

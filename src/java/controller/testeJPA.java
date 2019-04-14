@@ -91,6 +91,9 @@ public class testeJPA {
        
        Contato cont1 = new Contato("32133414", cli3);
        ContatoDAO.getInstance().salvar(cont1);
+       
+       Cartao cart1 = new Cartao("visa", "05/06/2026", "3442", cli3);
+       CartaoDAO.getInstance().salvar(cart1);
       /*
          Contato contato = new Contato("321654", cliente);
          ContatoDAO.getInstance().salvar(contato);
