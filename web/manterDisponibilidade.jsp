@@ -25,84 +25,25 @@
 
         <!-- Custom styles for this template -->
         <link href="css/modern-business.css" rel="stylesheet">
-<!--inicio Header-->
-<%@ include file = "Header.jsp" %>
 
-<script language="javascript"  type="text/javascript" src="js/scriptJSP.js"></script>
-<!--fim Header-->
-        <style>
-            footer{
-                bottom: 0;
-                position: relative; 
-                bottom: 0; 
-                left: 0px; 
-                right: 0px;
-                width: 100%;
-                text-align: center;
-            }
-        </style>
+
+
+
 
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Manter Disponibilidade - ${operacao}</title>
 
-        <!-- INICIO JavaScript para o formulario-->
-
-        <script language="javascript" type="text/javascript">
-            function validar() {
-                var txtIdDisponibilidade = form1.txtIdDisponibilidade.value;
-                var txtDataDisponibilidade = form1.txtDataDisponibilidade.value;
-                var txtHoraInicioDisponibilidade = form1.txtHoraInicioDisponibilidade.value;
-                var txtHoraFimDisponibilidade = form1.txtHoraFimDisponibilidade.value;
-                var optEspaco = form1.optEspaco.value;
-
-                if (txtIdDisponibilidade === "") {
-                    alert('Preencha o campo com um código, não permita que seja vazio');
-                    form1.txtIdDisponibilidade.focus();
-                    return false;
-                }
-
-                if (txtIdDisponibilidade >= 999999999) {
-                    alert('O campo de código foi preenchido acima do suportado (10 dígitos) ');
-                    form1.txtIdDisponibilidade.focus();
-                    return false;
-                }
-
-                if (txtIdDisponibilidade <= 0) {
-                    alert('Preencha o campo com um código ACIMA de número NEGATIVO');
-                    form1.txtIdDisponibilidade.focus();
-                    return false;
-                }
-
-                if (txtDataDisponibilidade === "") {
-                    alert('Preencha o campo "Data disponivel"');
-                    form1.txtDataDisponibilidade.focus();
-                    return false;
-                }
-                if (txtHoraInicioDisponibilidade === "") {
-                    alert('Preencha o campo "Hora inicio"');
-                    form1.txtHoraInicioDisponibilidade.focus();
-                    return false;
-                }
-
-                if (txtHoraFimDisponibilidade === "") {
-                    alert('Preencha o campo "Hora fim"');
-                    form1.txtHoraFimDisponibilidade.focus();
-                    return false;
-                }
-
-
-                if (optEspaco !== rep_senha) {
-                    alert('Preencha o campo "Espaço"');
-                    form1.optEspaco.focus();
-                    return false;
-                }
-
-
-
-
-            }
+            <!-- JavaScript pasta ( js/scriptJSP.js  )-->
+        <script language="javascript"  type="text/javascript" src="js/scriptJSP.js">
         </script>
+
+        <!--inicio Header-->
+        <%@ include file = "Header.jsp" %>
+        <!--fim Header-->
+<script language="javascript"  type="text/javascript" src="js/scriptJSP.js"></script>
+<!--fim Header-->
+  
 
         <!-- FIM JavaScript para o formulario-->
 
@@ -154,11 +95,12 @@
                         </tr>
                         <td>Espaco:</td>
                         <td>
-                            <select class="form-control"  accesskey=""name="optEspaco" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
-                            <c:forEach items="${espacos}" var="espaco">
-                                <option value="${espaco.id}" <c:if test="${espaco.id == disponibilidade.idEspaco}"> selected</c:if>>${espaco.nome}</option>  
-                            </c:forEach>
-                        </select>
+                            <select class="form-control" name="idEspaco" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
+                                    <option>Selecione uma opção</option>
+                                <c:forEach items="${s}" var="espaco">
+                                    <option value="${espaco.id}" <c:if test="${espaco.id == disponibilidade.espaco.id}"> selected</c:if>>${espaco.id}</option>  
+                                </c:forEach>
+                            </select>
                     </td>
                     </tr>
 
@@ -166,17 +108,15 @@
                 </table>
 
 
-                <input  onclick="return validar()" type="submit" name="btnConfirmar"  class="btn btn-outline-primary" role="button" aria-pressed="true" value="Confirmar">
+                    <input onclick="return funcDisponibilidade()" type="submit" name="btnConfirmar"  class="btn btn-outline-primary" role="button" aria-pressed="true" value="Confirmar"/>
 
-                <a href="PesquisaDisponibilidadeController" class="btn btn-outline-danger" role="button" aria-pressed="true" value="Voltar">Voltar</a>
+                <a href="PesquisaDisponibilidadeController" class="btn btn-outlineamento-danger" role="button" aria-pressed="true" value="Voltar">Voltar</a>
 
 
             </div>      
         </form>
 </div>      
-                            
-                            
-                                                            <br>
+<br>
 
       <hr>
                 
