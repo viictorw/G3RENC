@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-
+@WebServlet(name = "PesquisaPagamentoController", urlPatterns = "/PesquisaPagamentoController")
 public class PesquisaCartaoController extends HttpServlet {
 
     @Override
@@ -36,5 +36,10 @@ public class PesquisaCartaoController extends HttpServlet {
         } catch (ServletException e) {
         }
     }
+    
+        @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
 
 }

@@ -39,7 +39,7 @@ public class testeJPA {
     public static void main(String[] args) {
 
         /* Inicio De execução*/
-   /*    Cliente cliente = new Cliente("Victor", "Torreões", "123456", "13/03/1994", "Andre@gmail.com", "Mamona");
+       Cliente cliente = new Cliente("Victor", "Torreões", "123456", "13/03/1994", "Andre@gmail.com", "Mamona");
         ClienteDAO.getInstance().salvar(cliente);
 
         Modalidade modalidade = new Modalidade("Skateros","Skateros de todo BR HUE");
@@ -56,11 +56,11 @@ public class testeJPA {
         /*data, hinicio, hfim, qt pessoas, valor, nota, espaco, cliente*/
         
         
-     /*   Reserva reserva = new Reserva("05/01/2020", "05:30", "55", (long) 7777, 55.5, (long) 88, cliente, espaco);
+        Reserva reserva = new Reserva("05/01/2020", "05:30", "55", (long) 7777, 55.5, (long) 88, cliente, espaco);
         ReservaDAO.getInstance().salvar(reserva);
 
         /*data, cod_barras, valor, reserva*/
-     /* Pagamento p = new Pagamento("18/10/2019", "555.444.333.222", 5.0, reserva);
+      Pagamento p = new Pagamento("18/10/2019", "555.444.333.222", 5.0, reserva);
         PagamentoDAO.getInstance().salvar(p);
 
         Pagamento p2 = new Pagamento("20/10/2019", "777.666.555.444", 5000.0, reserva);
@@ -71,7 +71,7 @@ public class testeJPA {
 
 
         /*status , pagamento*/
-   /*     Reembolso reembolso = new Reembolso("Aprovado", p);
+        Reembolso reembolso = new Reembolso("Aprovado", p);
         ReembolsoDAO.getInstance().salvar(reembolso);
 
         Reembolso reembolso2 = new Reembolso("Recusado", p2);
@@ -88,7 +88,7 @@ public class testeJPA {
          AdministradorDAO.getInstance().salvar(admin);
          AdministradorDAO.getInstance().salvar(admin1);
          AdministradorDAO.getInstance().salvar(admin2);
-       /* 
+       
         Cliente cli1 = new Cliente("Izabella", "Ribeiro", "123545848", "22/02/1999", "iza@gmail.com", "123");
        Cliente cli2 = new Cliente("Victor", "Wagner", "123545848", "22/02/1999", "victor@gmail.com", "123");
        Cliente cli3 = new Cliente("Luis", "Zanovello", "123545848", "22/02/1999", "luis@gmail.com", "123");
@@ -115,7 +115,7 @@ public class testeJPA {
          Irregularidade irregularidade = new Irregularidade("Matim", "Ocorreu o seguinte problema", espaco);
          IrregularidadeDAO.getInstance().salvar(irregularidade);
         
-     */
+     
         
         
     }

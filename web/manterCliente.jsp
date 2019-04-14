@@ -79,8 +79,8 @@
 
 
                         <tr>
-                            <td>Código do cliente: </td>
-                            <td><input type="text" required="required" maxlength="10" min="1" max="9999999999" data-ls-module="charCounter"  onkeyup="validare(this, 'numero')" autocomplete="off" placeholder="Digite um codigo"  class="form-control" name="txtIdCliente"   value="${cliente.id}"  required autofocus<c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
+                            <!--<td>Código do cliente: </td>-->
+                            <td><input type="HIDDEN" required="required" maxlength="10" min="1" max="9999999999" data-ls-module="charCounter"  onkeyup="validare(this, 'numero')" autocomplete="off" placeholder="Digite um codigo"  class="form-control" name="txtIdCliente"   value="${cliente.id}"  required autofocus<c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
                     
                             </tr>
                             <tr>

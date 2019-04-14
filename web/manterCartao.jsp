@@ -38,7 +38,8 @@
 <script language="javascript"  type="text/javascript" src="js/scriptJSP.js"></script>
         <!-- INICIO JavaScript para o formulario-->
 
-        <script language="javascript" type="text/javascript">
+     
+     <script language="javascript" type="text/javascript">
             function validar() {
                 var txtIdCartao = form1.txtIdCartao.value;
                 var txtBandeiraCartao = form1.txtBandeiraCartao.value;
@@ -107,6 +108,13 @@
         <title>Manter Cartão - ${operacao}</title>
 
 
+        <!-- JavaScript pasta ( js/scriptJSP.js  )-->
+        <script language="javascript"  type="text/javascript" src="js/scriptJSP.js">
+        </script>
+
+        <!--inicio Header-->
+        <%@ include file = "Header.jsp" %>
+        <!--fim Header-->
 
 
     </head>
@@ -134,8 +142,8 @@
                     <tbody>
                     <br>
                     <tr>
-                        <td>Código do cartao: </td>
-                        <td><input type="text"   min="1" onkeyup="validare(this, 'numero')" placeholder="Digite apenas numeros"  required="required" maxlength="9"  autocomplete="off" max="999999999"  class="form-control" name="txtIdCartao" value="${cartao.id}"  required autofocus<c:if test="${operacao != 'Incluir'}"> readonly</c:if>></td>
+                        <!--<td>Código do cartao: </td>-->
+                        <td><input type="HIDDEN"   min="1" onkeyup="validare(this, 'numero')" placeholder="Digite apenas numeros"  required="required" maxlength="9"  autocomplete="off" max="999999999"  class="form-control" name="txtIdCartao" value="${cartao.id}"  required autofocus<c:if test="${operacao != 'Incluir'}"> readonly</c:if>></td>
                         </tr>
                         <tr>
                             <td>Bandeira do cartao: </td>
@@ -156,9 +164,9 @@
                         </tr>
                         <td>Cliente:</td>
                         <td>
-                            <select class="form-control"  name="optCliente" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
+                            <select class="form-control"  name="idCliente" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
                             <c:forEach items="${clientes}" var="cliente">
-                                <option value="${cliente.id}" <c:if test="${cliente.id == cartao.idCliente}"> selected</c:if>>${cliente.nome}</option>  
+                                <option value="${cliente.id}" <c:if test="${cliente.id == cartao.id}"> selected</c:if>>${cliente.nome}</option>  
                             </c:forEach>
                         </select>
                     </td>
@@ -170,6 +178,7 @@
                 <input type="submit" onclick="return validar()" name="btnConfirmar"  class="btn btn-outline-primary" role="button" aria-pressed="true" value="Confirmar">
 
                 <a href="PesquisaCartaoController" class="btn btn-outline-danger" role="button" aria-pressed="true" value="Voltar">Voltar</a>
+        </div>
             </form>
 
 

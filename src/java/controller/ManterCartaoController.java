@@ -76,20 +76,21 @@ public class ManterCartaoController extends HttpServlet {
        public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         String operacao = request.getParameter("operacao");
         
-        long id = Long.parseLong(request.getParameter("txtIdCartao"));
+        Long id = null;
         long numero = Long.parseLong(request.getParameter("txtNumeroCartao"));
         String bandeira = request.getParameter("txtBandeiraCartao");
         String validade = request.getParameter("txtValidadeCartao");
         String codSeguranca = request.getParameter("txtCodCartao");
+         long idCliente = Long.parseLong(request.getParameter("idCliente"));
          if (!operacao.equals("Incluir")) {
             id = Long.parseLong(request.getParameter("id"));
         }
         
-         long idcliente = Long.parseLong(request.getParameter("optCliente"));
+        
         try {
             Cliente cliente = null;
-            if (idcliente != 0) {
-                cliente = Cliente.obterCliente(idcliente);
+            if (idCliente != 0) {
+                cliente = Cliente.obterCliente(idCliente);
             }     
             
             Cartao cartao = new Cartao(bandeira, validade, numero, codSeguranca, cliente);
@@ -101,6 +102,7 @@ public class ManterCartaoController extends HttpServlet {
                     cartao.gravar();
                 } else {
                     if (operacao.equals("Excluir")) {
+                        cartao.setId(id);
                         cartao.excluir();
                     }
                 }
