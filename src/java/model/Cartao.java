@@ -6,7 +6,7 @@
 package model;
 
 import dao.CartaoDAO;
-import dao.ClienteDAO;
+import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.List;
 import javax.persistence.Entity;
@@ -21,13 +21,9 @@ import javax.persistence.ManyToOne;
  */
 
 @Entity
-public class Cartao {
+public class Cartao implements Serializable{
     
         private static final long serialVersionUID = 1L;
-
-    public static Cartao obterCartao(long l) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     

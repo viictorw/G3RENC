@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Cliente;
 import model.Contato;
+import model.Pagamento;
 
 
 /**
@@ -57,9 +58,8 @@ public class ManterContatoController extends HttpServlet {
         request.setAttribute("clientes", Cliente.obterTodosOsClientes());
         
         if(!operacao.equals("Incluir")){
-            long id = Long.parseLong(request.getParameter("id").trim());
-            Contato contato = Contato.obterContato((long)id);
-            request.setAttribute("contato", contato);
+                Contato contato = Contato.obterContato(Long.parseLong(request.getParameter("id")));
+                request.setAttribute("contato", contato);
         }
                 RequestDispatcher view = request.getRequestDispatcher("/manterContato.jsp");
                 view.forward(request, response);
@@ -115,7 +115,7 @@ public class ManterContatoController extends HttpServlet {
          public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         String operacao = request.getParameter("operacao");
         
-        long id = Long.parseLong(request.getParameter("txtIdContato"));
+       Long id = null;
         String numero = request.getParameter("txtNumeroContato");
 
         
@@ -131,7 +131,7 @@ public class ManterContatoController extends HttpServlet {
                 contato.gravar();
             } else {
                 if (operacao.equals("Editar")) {
-                              contato.setId(id);
+                    contato.setId(id);
                     contato.gravar();
                 } else {
                     if (operacao.equals("Excluir")) {
