@@ -7,6 +7,8 @@ package controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -32,7 +34,7 @@ public class ManterReservaController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, SQLException, ClassNotFoundException {
 
         String acao = request.getParameter("acao");
 
@@ -55,8 +57,7 @@ public class ManterReservaController extends HttpServlet {
             request.setAttribute("clientes", Cliente.obterTodosOsClientes());
 
             if (!operacao.equals("Incluir")) {
-                long id = Long.parseLong(request.getParameter("id").trim());
-                Reserva reserva = Reserva.obterReserva((long) id);
+                Reserva reserva = Reserva.obterReserva(Long.parseLong(request.getParameter("id").trim()));
                 request.setAttribute("reserva", reserva);
             }
             RequestDispatcher view = request.getRequestDispatcher("/manterReserva.jsp");
@@ -73,8 +74,7 @@ public class ManterReservaController extends HttpServlet {
         }
     }
 
-    
-    public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+    public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException, SQLException, ClassNotFoundException {
         String operacao = request.getParameter("operacao");
 
         String dataLocacao = request.getParameter("txtDataLocacao");
@@ -86,25 +86,23 @@ public class ManterReservaController extends HttpServlet {
         long idClientes = Long.parseLong(request.getParameter("optCliente"));
         long idEspacos = Long.parseLong(request.getParameter("optEspaco"));
 
-          Long id = null;
+        Long id = null;
         if (!operacao.equals("Incluir")) {
             id = Long.parseLong(request.getParameter("id"));
         }
-        
+
         try {
             Cliente cliente = null;
             Espaco espaco = null;
 
             if (idClientes != 0) {
-
                 cliente = Cliente.obterCliente(idClientes);
-                
             }
-            
-            if(idEspacos != 0){
+
+            if (idEspacos != 0) {
                 espaco = Espaco.obterEspaco(idEspacos);
             }
-            
+
             Reserva reserva = new Reserva(dataLocacao, horaInicioLocacao, horaFimLocacao, qtPessoas, valorLocacao, notaAvaliacao, cliente, espaco);
             if (operacao.equals("Incluir")) {
                 reserva.salvar();
@@ -120,12 +118,8 @@ public class ManterReservaController extends HttpServlet {
                 }
             }
             RequestDispatcher view = request.getRequestDispatcher("PesquisaReservaController");
-            view.forward(request, response);
+      view.forward(request, response);
         } catch (IOException e) {
-            throw new ServletException(e);
-        } catch (SQLException e) {
-            throw new ServletException(e);
-        } catch (ClassNotFoundException e) {
             throw new ServletException(e);
         } catch (ServletException e) {
             throw e;
@@ -144,7 +138,13 @@ public class ManterReservaController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(ManterReservaController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ManterReservaController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -158,7 +158,13 @@ public class ManterReservaController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(ManterReservaController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ManterReservaController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
