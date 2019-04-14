@@ -4,10 +4,7 @@
         <servlet-name>ManterAdministradorController</servlet-name>
         <servlet-class>controller.ManterAdministradorController</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>LoginController</servlet-name>
-        <servlet-class>controller.LoginController</servlet-class>
-    </servlet>
+    
     <servlet>
         <servlet-name>ManterAdminClienteController</servlet-name>
         <servlet-class>controller.ManterAdminClienteController</servlet-class>
@@ -72,10 +69,17 @@
         <servlet-name>PesquisaAdminController</servlet-name>
         <servlet-class>controller.PesquisaAdminController</servlet-class>
     </servlet>
+    
+    <servlet>
+        <servlet-name>LoginController</servlet-name>
+        <servlet-class>controller.LoginController</servlet-class>
+    </servlet>
+    
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/LoginController</url-pattern>
     </servlet-mapping>
+    
     <servlet-mapping>
         <servlet-name>ManterAdministradorController</servlet-name>
         <url-pattern>/ManterAdministradorController</url-pattern>
@@ -334,11 +338,12 @@
         <error-code>500</error-code>
         <location>/erro500.jsp</location>
     </error-page>
+        -->
     <error-page>
         <error-code>404</error-code>
         <location>/erro404.jsp</location>
     </error-page>
-    -->
+
     <servlet-mapping>
         <servlet-name>ReportAdminParametro</servlet-name>
         <url-pattern>/ReportAdminParametro</url-pattern>

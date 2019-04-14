@@ -38,7 +38,6 @@ public class Administrador implements Serializable {
     }
 
     public Administrador(String email, String nome, String senha) {
-
         this.nome = nome;
         this.email = email;
         this.senha = senha;
@@ -92,7 +91,7 @@ public class Administrador implements Serializable {
         return AdministradorDAO.getInstance().getAllAdministradores();
     }
     
-   public static Administrador logar(String email, String senha) throws ClassNotFoundException {
+   public static Administrador logar(String email, String senha) throws SQLException, ClassNotFoundException {
         return AdministradorDAO.logar(email, senha);
     }
     

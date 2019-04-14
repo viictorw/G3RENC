@@ -75,7 +75,7 @@
         <!-- Footer -->
         <footer class="py-5 bg-dark">
             <div class="container">
-                <p class="m-0 text-center text-white">LP3 - professor Marco Antonio &copy; Gerenciamento de Espaços 2018</p> 
+                <p class="m-0 text-center text-white">LP3 - professor Marco Antonio &copy; Gerenciamento de Espaços 2019    </p> 
                 <p class="m-0 text-center text-gray"> Izabella R. - Luis G. - Victor W. </p>
             </div>
             <!-- /.container -->

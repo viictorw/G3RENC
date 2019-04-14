@@ -2,6 +2,7 @@
 package controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -25,7 +26,7 @@ public class LoginController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ClassNotFoundException {
+            throws ServletException, IOException, SQLException {
         String acao = request.getParameter("acao");
         if (acao.equals("logar")) {
             logar(request, response);
@@ -34,7 +35,7 @@ public class LoginController extends HttpServlet {
         }
     }
 
-    public void logar(HttpServletRequest request, HttpServletResponse response) throws ClassNotFoundException {
+    public void logar(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         String email = request.getParameter("email");
         String senha = request.getParameter("senha");
         String optUsuario = request.getParameter("optUsuario");
@@ -56,7 +57,7 @@ public class LoginController extends HttpServlet {
                         view.forward(request, response);
                     }
 
-                } catch (IOException | ServletException ex) {
+                } catch (IOException | ClassNotFoundException | ServletException ex) {
                 }
             } else  if (optUsuario.equals("cliente")) {
                 try {
@@ -74,7 +75,7 @@ public class LoginController extends HttpServlet {
                         view.forward(request, response);
                     }
 
-                } catch (IOException | ServletException ex) {
+                } catch (IOException | ClassNotFoundException | ServletException ex) {
                 }
             }
         } catch (NullPointerException ex) {
@@ -109,7 +110,7 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (ClassNotFoundException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -127,7 +128,7 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (ClassNotFoundException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
