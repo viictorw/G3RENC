@@ -39,7 +39,7 @@ public class testeJPA {
     public static void main(String[] args) {
 
         /* Inicio De execução*/
-       Cliente cliente = new Cliente("Victor", "Torreões", "123456", "13/03/1994", "Andre@gmail.com", "Mamona");
+       Cliente cliente = new Cliente("Victor", "Torreões", "12/02/1999", "13/03/1994", "Andre@gmail.com", "Mamona");
         ClienteDAO.getInstance().salvar(cliente);
 
         Modalidade modalidade = new Modalidade("Skateros","Skateros de todo BR HUE");
