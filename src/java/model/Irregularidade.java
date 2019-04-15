@@ -5,6 +5,9 @@
  */
 package model;
 
+import dao.IrregularidadeDAO;
+import java.sql.SQLException;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -84,7 +87,21 @@ public class Irregularidade {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-
+  public void salvar() throws SQLException, ClassNotFoundException {
+        IrregularidadeDAO.getInstance().salvar(this);
+    }
+    
+    public void excluir() throws SQLException, ClassNotFoundException {
+        IrregularidadeDAO.getInstance().excluir(this);
+    }
+    
+    public static Irregularidade obterIrregularidade(Long id) throws SQLException, ClassNotFoundException {
+        return IrregularidadeDAO.getInstance().getIrregularidade((long) id);
+    }
+    
+    public static List<Irregularidade> obterTodasIrregularidades() throws SQLException, ClassNotFoundException {
+        return IrregularidadeDAO.getInstance().getAllIrregularidades();
+    }
 
 }
 

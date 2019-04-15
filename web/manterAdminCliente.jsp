@@ -75,11 +75,11 @@
                     </tr>
                     <tr>
                         <td>Nome do cliente: </td>
-                        <td><input type="text" onkeyup="validare(this,'texto')" data-ls-module="charCounter" maxlength="45"    placeholder="Digite seu nome" name="txtNomeCliente" size="60"  value="${cliente.nome}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>></td>
+                        <td><input type="text" class="form-control" onkeyup="validare(this,'texto')" data-ls-module="charCounter" maxlength="45"    placeholder="Digite seu nome" name="txtNomeCliente" size="60"  value="${cliente.nome}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>></td>
                     </tr>
                     <tr>
                         <td>Sobrenome: </td>
-                        <td> <input  type="text" onkeyup="validare(this,'texto')" data-ls-module="charCounter" maxlength="45"   placeholder="Digite seu Sobrenome" name="txtSobrenomeCliente" size="60"  value="${cliente.sobrenome}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>></td>
+                        <td> <input  type="text" class="form-control" onkeyup="validare(this,'texto')" data-ls-module="charCounter" maxlength="45"   placeholder="Digite seu Sobrenome" name="txtSobrenomeCliente" size="60"  value="${cliente.sobrenome}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>></td>
                     </tr>
                     <tr>
                         <td>Data de Nascimento: </td>

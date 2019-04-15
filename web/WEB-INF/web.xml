@@ -76,6 +76,10 @@
         <servlet-name>ReportPagamentosController</servlet-name>
         <servlet-class>relatorio.ReportPagamentosController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ManterEspacoController</servlet-name>
+        <servlet-class>controller.ManterEspacoController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/LoginController</url-pattern>
@@ -123,14 +127,6 @@
     <servlet-mapping>
         <servlet-name>ManterDisponibilidadeController</servlet-name>
         <url-pattern>/ManterDisponibilidadeController</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>ManterEspacoController</servlet-name>
-        <servlet-class>controller.ManterEspacoController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ManterEspacoController</servlet-name>
-        <url-pattern>/ManterEspacoController</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>ManterIrregularidadeController</servlet-name>
@@ -350,6 +346,10 @@
     <servlet-mapping>
         <servlet-name>ReportPagamentosController</servlet-name>
         <url-pattern>/ReportPagamentosController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManterEspacoController</servlet-name>
+        <url-pattern>/ManterEspacoController</url-pattern>
     </servlet-mapping>
     <error-page>
         <error-code>404</error-code>
