@@ -140,26 +140,4 @@ public class ClienteDAO {
         }
         return cliente;
     }
-    public static void alterar(Cliente cliente) throws SQLException, ClassNotFoundException {
-        Connection conexao = null;
-        PreparedStatement comando = null;
-        try {
-            conexao = BD.getConexao();
-            String sql = "update cliente set  nome = ?, sobrenome = ?, cpf = ?, data_nascimento = ?, email = ?, senha=?"
-                    + "where id = ?";
-            comando = conexao.prepareStatement(sql);
-            comando.setString(1, cliente.getNome());
-            comando.setString(2, cliente.getSobrenome());
-            comando.setString(3, cliente.getCpf());
-            comando.setString(4, cliente.getDataNascimento());
-            comando.setString(5, cliente.getEmail());
-             comando.setString(6, cliente.getSenha());
-
-            comando.setLong(7, cliente.getId());
-            comando.execute();
-            BD.fecharConexao(conexao, comando);
-        } catch (SQLException e) {
-            throw e;
-        }
-    }
 }

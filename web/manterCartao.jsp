@@ -38,68 +38,7 @@
 <script language="javascript"  type="text/javascript" src="js/scriptJSP.js"></script>
         <!-- INICIO JavaScript para o formulario-->
 
-     
-     <script language="javascript" type="text/javascript">
-            function validar() {
-                var txtIdCartao = form1.txtIdCartao.value;
-                var txtBandeiraCartao = form1.txtBandeiraCartao.value;
-                var txtValidadeCartao = form1.txtValidadeCartao.value;
-                var txtNumeroCartao = form1.txtNumeroCartao.value;
-                var txtCodCartao = form1.txtCodCartao.value;
-            
-            
-                
 
-                if (txtIdCartao === "") {
-                    alert('Preencha o campo com um código, não permita que seja vazio');
-                    form1.txtIdCartao.focus();
-                    return false;
-                }
-
-                if (txtIdCartao >= 999999999) {
-                    alert('O campo de código foi preenchido acima do suportado (10 dígitos) ');
-                    form1.txtIdCartao.focus();
-                    return false;
-                }
-
-                if (txtIdCartao <= 0) {
-                    alert('Preencha o campo com um código ACIMA de número NEGATIVO');
-                    form1.txtIdCartao.focus();
-                    return false;
-                }
-
-                if (txtBandeiraCartao === "") {
-                    alert('Preencha o campo "Bandeira do Cartão"');
-                    form1.txtBandeiraCartao.focus();
-                    return false;
-                }
-                if (txtValidadeCartao === "") {
-                    alert('Preencha o campo "Validade do Cartão"');
-                    form1.txtValidadeCartao.focus();
-                    return false;
-                }
-
-                if (txtNumeroCartao === "") {
-                    alert('Preencha o campo "Nº do cartão"');
-                    form1.txtNumeroCartao.focus();
-                    return false;
-                }
-
-
-                if (txtCodCartao !== rep_senha) {
-                    alert('Preencha o campo "Código de Segurança"');
-                    form1.txtCodCartao.focus();
-                    return false;
-                }
-                 if (txtNumeroCartao >= 9999999) {
-                    alert('O campo foi preenchido acima do suportado (10 dígitos) ');
-                    form1.txtNumeroCartao.focus();
-                    return false;
-                }
-
-
-            }
-        </script>
 
         <!-- FIM JavaScript para o formulario-->
 
@@ -143,7 +82,7 @@
                     <br>
                     <tr>
                         <!--<td>Código do cartao: </td>-->
-                        <td><input type="HIDDEN"   min="1" onkeyup="validare(this, 'numero')" placeholder="Digite apenas numeros"  required="required" maxlength="9"  autocomplete="off" max="999999999"  class="form-control" name="txtIdCartao" value="${cartao.id}"  required autofocus<c:if test="${operacao != 'Incluir'}"> readonly</c:if>></td>
+                        <input type="HIDDEN"   min="1" onkeyup="validare(this, 'numero')" placeholder="Digite apenas numeros"  required="required" maxlength="9"  autocomplete="off" max="999999999"  class="form-control" name="txtIdCartao" value="${cartao.id}"  required autofocus<c:if test="${operacao != 'Incluir'}"> readonly</c:if>>
                         </tr>
                         <tr>
                             <td>Bandeira do cartao: </td>

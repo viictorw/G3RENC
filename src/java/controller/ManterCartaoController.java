@@ -34,7 +34,7 @@ public class ManterCartaoController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, SQLException, ClassNotFoundException {
         
         String acao = request.getParameter("acao");
         
@@ -73,7 +73,7 @@ public class ManterCartaoController extends HttpServlet {
             }
     }
     
-       public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+       public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException, ClassNotFoundException  {
         String operacao = request.getParameter("operacao");
         
         Long id = null;
@@ -132,7 +132,13 @@ public class ManterCartaoController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+         try {
             processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(ManterAdministradorController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ManterAdministradorController.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 
@@ -147,7 +153,13 @@ public class ManterCartaoController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(ManterPagamentoController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ManterPagamentoController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

@@ -8,6 +8,8 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,7 +36,7 @@ public class ManterDisponibilidadeController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, SQLException, ClassNotFoundException {
         
         String acao = request.getParameter("acao");
         
@@ -74,14 +76,14 @@ public class ManterDisponibilidadeController extends HttpServlet {
             }
     }
     
-     public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+     public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException, SQLException, ClassNotFoundException {
         String operacao = request.getParameter("operacao");
 
-        long id = Long.parseLong(request.getParameter("txtIdDisponibilidade"));
         String data = request.getParameter("txtDataDisponibilidade");
         String horaInicio = request.getParameter("txtHoraInicioDisponibilidade");
         String horaFim = request.getParameter("txtHoraFimDisponibilidade");
         long espaco = Long.parseLong(request.getParameter("optEspaco"));
+        Long id = null;
         try {
             Espaco esp = null;
             if (espaco != 0) {
@@ -121,7 +123,13 @@ public class ManterDisponibilidadeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+               try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(ManterPagamentoController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ManterPagamentoController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -135,7 +143,13 @@ public class ManterDisponibilidadeController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+                try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(ManterPagamentoController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ManterPagamentoController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

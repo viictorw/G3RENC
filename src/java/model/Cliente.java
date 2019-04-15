@@ -40,7 +40,7 @@ public class Cliente implements Serializable{
     public Cliente() {
     }
 
-    public Cliente(String nome, String sobrenome, String cpf, String dataNascimento, String email, String senha) {
+    public Cliente(String nome, String sobrenome, String dataNascimento,  String email,String cpf, String senha) {
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.cpf = cpf;
@@ -116,9 +116,7 @@ public class Cliente implements Serializable{
       public void gravar() throws SQLException, ClassNotFoundException{
         ClienteDAO.getInstance().salvar(this);
     }
-    public void alterar() throws SQLException, ClassNotFoundException{
-        ClienteDAO.alterar(this);
-    }
+
     public void excluir() throws SQLException, ClassNotFoundException{
         ClienteDAO.getInstance().excluir(this);
     }
