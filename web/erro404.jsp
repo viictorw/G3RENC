@@ -2605,8 +2605,15 @@ html[subframe] body {
 	  hideClass(".onlyforchrome");
 	}
   </script>
-	  
 
+  <br>  <br>
+  <br>
+  <br>
+
+  <div class="onlyforchrome" style="margin-top:5px;text-align:center;color:#8a8a8a;margin-bottom:80px; font-size:.8em;line-height:1.2em;font-family: Georgia;">
+        ~(^w^)~<a href="index.jsp" target="_blank"><strong>Izabella R . Victor W . Luis G</strong></a>~(^w^)~
+        </div>
+  
 
 
 </body>

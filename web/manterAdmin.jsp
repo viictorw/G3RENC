@@ -67,7 +67,7 @@
                     <br>
 
                     <tr>
-                        
+                        <!--Antes <td>Codigo</td> <td> <input name="CodAdmin" e blablabla>  AGORA TEM QUE SER IGUAL ESSE INPUT ABAIXO-->
                         <input type="HIDDEN" min="1" class="form-control" name="id" required id="id" value="${admin.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>>
                         
                         </tr>

@@ -8,7 +8,6 @@ package relatorio;
 import dao.BD;
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.HashMap;
 import javax.servlet.ServletException;

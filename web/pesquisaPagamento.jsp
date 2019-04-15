@@ -143,7 +143,7 @@
                         <div class="row">
                             <div class="col-lg">
                                 <label>
-                                    <form action="ManterPagamentosController?acao=prepararOperacao&operacao=Incluir" method="post">
+                                    <form action="ManterPagamentoController?acao=prepararOperacao&operacao=Incluir" method="post">
                                         <input type="submit" name="btnIncluir" class="btn btn-outline-primary btn-sm" value="Incluir">
                                     </form>
                                 </label>
