@@ -45,60 +45,7 @@
 <script language="javascript"  type="text/javascript" src="js/scriptJSP.js"></script>
 
 
-        <!-- INICIO JavaScript para o formulario-->
-
-        <script language="javascript" type="text/javascript">
-            function validar() {
-                var txtIdIrregularidade = form1.txtIdIrregularidade.value;
-                var txtAutorIrregularidade = form1.txtAutorIrregularidade.value;
-                var txtDescricaoIrregularidade = form1.txtDescricaoIrregularidade.value;
-                var optEspaco = form1.optEspaco.value;
-
-
-                if (txtIdIrregularidade === "") {
-                    alert('Preencha o campo com um código, não permita que seja vazio');
-                    form1.txtIdIrregularidade.focus();
-                    return false;
-                }
-
-                if (txtIdIrregularidade >= 999999999) {
-                    alert('O campo de código foi preenchido acima do suportado (10 dígitos) ');
-                    form1.txtIdIrregularidade.focus();
-                    return false;
-                }
-
-                if (txtIdIrregularidade <= 0) {
-                    alert('Preencha o campo com um código ACIMA de número NEGATIVO');
-                    form1.txtIdIrregularidade.focus();
-                    return false;
-                }
-
-
-                if (txtAutorIrregularidade <= 0) {
-                    alert('Preencha o campo "Autor"');
-                    form1.txtAutorIrregularidade.focus();
-                    return false;
-                }
-
-                if (txtDescricaoIrregularidade <= 0) {
-                    alert('Preencha o campo "Descrição"');
-                    form1.txtDescricaoIrregularidade.focus();
-                    return false;
-                }
-
-                if (optEspaco <= 0) {
-                    alert('Preencha o campo "Espaço"');
-                    form1.optEspaco.focus();
-                    return false;
-                }
-
-
-
-
-
-
-            }
-        </script>
+ 
 
         <!-- FIM JavaScript para o formulario-->
 

@@ -98,8 +98,7 @@ public class ManterModalidadeController extends HttpServlet {
             request.setAttribute("operacao", operacao);
             request.setAttribute("modalidades", Modalidade.obterTodasModalidades());
             if (!operacao.equals("Incluir")) {
-                long id = Long.parseLong(request.getParameter("id").trim());
-                Modalidade modalidade = Modalidade.obterModalidade((long) id);
+                 Modalidade modalidade = Modalidade.obterModalidade(Long.parseLong(request.getParameter("id")));
                 request.setAttribute("modalidade", modalidade);
             }
             RequestDispatcher view = request.getRequestDispatcher("/manterModalidade.jsp");
@@ -112,10 +111,13 @@ public class ManterModalidadeController extends HttpServlet {
     }
      public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         String operacao = request.getParameter("operacao");
-
-        long id = Long.parseLong(request.getParameter("txtIdModalidade"));
+        
         String nome = request.getParameter("txtModalidade");
         String descricao = request.getParameter("txtDescricao");
+        Long id = null;
+        if (!operacao.equals("Incluir")) {
+            id = Long.parseLong(request.getParameter("id"));
+        }
 
         try {
             
@@ -128,6 +130,7 @@ public class ManterModalidadeController extends HttpServlet {
                     modalidade.salvar();
                 } else {
                     if (operacao.equals("Excluir")) {
+                        modalidade.setId(id);
                         modalidade.excluir();
                     }
                 }

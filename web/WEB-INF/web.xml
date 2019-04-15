@@ -128,7 +128,7 @@
         <servlet-name>ManterDisponibilidadeController</servlet-name>
         <url-pattern>/ManterDisponibilidadeController</url-pattern>
     </servlet-mapping>
-    <servlet>
+<servlet>
         <servlet-name>ManterIrregularidadeController</servlet-name>
         <servlet-class>controller.ManterIrregularidadeController</servlet-class>
     </servlet>

@@ -53,51 +53,6 @@
         
  <!-- INICIO JavaScript para o formulario-->
 
-        <script language="javascript" type="text/javascript">
-            function validar() {
-                var txtIdModalidade = form1.txtIdModalidade.value;
-                var txtModalidade = form1.txtModalidade.value;
-                var txtDescricao = form1.txtDescricao.value;
-              
-              
-            
-            
-                
-
-                if (txtIdModalidade === "") {
-                    alert('Preencha o campo com um código, não permita que seja vazio');
-                    form1.txtIdModalidade.focus();
-                    return false;
-                }
-
-                if (txtIdModalidade >= 999999999) {
-                    alert('O campo de código foi preenchido acima do suportado (10 dígitos) ');
-                    form1.txtIdModalidade.focus();
-                    return false;
-                }
-
-                if (txtIdModalidade <= 0) {
-                    alert('Preencha o campo com um código ACIMA de número NEGATIVO');
-                    form1.txtIdModalidade.focus();
-                    return false;
-                }
-
-                if (txtModalidade === "") {
-                    alert('Preencha o campo "Modalidade"');
-                    form1.txtModalidade.focus();
-                    return false;
-                }
-                if (txtDescricao === "") {
-                    alert('Preencha o campo "Descrição"');
-                    form1.txtDescricao.focus();
-                    return false;
-                }
-
-         
-         
-
-            }
-        </script>
 
         <!-- FIM JavaScript para o formulario-->
         
@@ -127,32 +82,40 @@
         <form name="form1" action="ManterModalidadeController?acao=confirmarOperacao&operacao=${operacao}" method="post" name="frmManterContato">
 
           
-                <table class="table table-striped">
-                    <thead>
-                    <tbody>
-                    <br>
+             <!--Inicio Tabela-->
 
-                    <tr>
-                        <td>Código Modalidade</td>
-                        <td><input  min="1"  class="form-control" placeholder="Digite apenas numeros" onkeyup="validare(this, 'numero')" required="required"  maxlength="9" autocomplete="off"  max="999999999" class="form-control" type="text" name="txtIdModalidade" value="${modalidade.id}"required autofocus<c:if test="${operacao != 'Incluir'}"> readonly</c:if>></td>
-                        </tr>
+                <div class="col-lg-7">
+
+                    <!--Div centralizadora-->
+                </div>
+                <div class="col-lg-12">
+                    <table class="table table-striped">
+                        <thead>
+                        <tbody>
+                        <br>
+
+
                         <tr>
-                            <td>Modalidade</td>
-                            <td><input class="form-control" onkeyup="validare(this,'texto')" data-ls-module="charCounter" maxlength="45"    placeholder="Digite a modalidade" autocomplete="off" class="form-control" maxlength="45" type="text" name="txtModalidade" value="${modalidade.modalidade}"required<c:if test="${operacao == 'Excluir'}"> readonly</c:if>></td>
+                        <input type="HIDDEN" min="1" class="form-control" name="id" required id="id" value="${modalidade.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>>   
                         </tr>
-                        <tr>
-                            <td>Descrição</td>
-                            <td><input class="form-control" onkeyup="validare(this,'texto')" data-ls-module="charCounter" maxlength="45"    placeholder="Descreva" autocomplete="off"  class="form-control" maxlength="45" type="text" name="txtDescricao" value="${modalidade.descricao}" required<c:if test="${operacao == 'Excluir'}"> readonly</c:if>></td>
-                    </tr>
+                            <tr>
+                                <td>Modalidade</td>
+                                <td><input type="text" onkeyup="validare(this,'texto')" min="1" placeholder="Ex: Volei de praia" class="form-control" name="txtModalidade" maxlength="45" value="${modalidade.modalidade}"<c:if test="${operacao == 'Excluir'}"> readonly</c:if>></td>
+                            </tr>
+                            <tr>
+                                <td>Descrição</td>
+                                <td><input type="text"  class="form-control" name="txtDescricao" maxlength="45" value="${modalidade.descricao}"<c:if test="${operacao == 'Excluir'}"> readonly</c:if>></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-                    </tbody>
-                </table>
-
-
+                <div>
+            
                 <input type="submit" onclick="return validar()" name="btnConfirmar"  class="btn btn-outline-primary" role="button" aria-pressed="true" value="Confirmar">
 
                 <a href="PesquisaModalidadeController" class="btn btn-outline-danger" role="button" aria-pressed="true" value="Voltar">Voltar</a>
-
+                </div>
                 </form>
 
             </div>      
