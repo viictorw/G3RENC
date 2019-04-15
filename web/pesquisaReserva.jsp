@@ -123,13 +123,13 @@
                                 </div>
                                 <div class="modal-body">
                                     <h5>
-                                        Escolha a cidade desejada
+                                        Escolha por data de locação
                                     </h5>
                                     <form action="ReportReservaParam" method="POST" autofocus>
-                                        <select class="form-control" name="paramReserva">
+                                        <select class="form-control" name="paramReservas">
 
-                                            <c:forEach items="${clientes}" var="cliente">
-                                                <option value="${cliente.id==reserva.idCliente}">${cliente.nome}</option>  
+                                            <c:forEach items="${reservas}" var="reserva">
+                                                <option value="${reserva.dataLocacao}">${reserva.dataLocacao}</option>  
                                             </c:forEach>
                                         </select>
                                         <input class="btn btn-outline-primary btn-sm" type="submit" value="Emitir Relatório com Parâmetro"/>

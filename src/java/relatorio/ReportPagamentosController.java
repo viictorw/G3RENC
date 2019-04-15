@@ -6,7 +6,6 @@ package relatorio;
 
 import dao.BD;
 import java.io.IOException;
-import java.io.PrintStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -24,27 +23,27 @@ import net.sf.jasperreports.engine.JasperPrint;
  *
  * @author viict
  */
-public class ReportReservaParam extends HttpServlet {
-
+public class ReportPagamentosController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) {
         Connection conexao = null;
         try {
             /*Class.forName("com.mysql.jdbc.Driver");
             conexao = DriverManager.getConnection("jdbc:mysql://localhost/sca", "root", "123");*/
- /*parametros.put("PAR_bancoisport.espaco.cidade", Integer.parseInt(request.getParameter("btnReport")));*/
+ /*  parametros.put("PAR_codCurso", Integer.parseInt(request.getParameter("txtCodCurso")));*/
 
             conexao = BD.getConexao();
             HashMap parametros = new HashMap();
-            parametros.put("PAR_Data", request.getParameter("paramReservas"));
-            String relatorio = getServletContext().getRealPath("/WEB-INF/classes/relatorio") + "/ReportReservasCliente.jasper";
+            
+                        parametros.put("PAR_Vencimento", request.getParameter("paramPagamentos"));
+
+            String relatorio = getServletContext().getRealPath("/WEB-INF/classes/relatorio") + "/ReportPagamentos.jasper";
             JasperPrint jp = JasperFillManager.fillReport(relatorio, parametros, conexao);
             byte[] relat = JasperExportManager.exportReportToPdf(jp);
-            response.setHeader("Content-Disposition", "attachment;filename=relatorioReservaLP3.pdf");
+            response.setHeader("Content-Disposition", "attachment;filename=relatorioPagamentoLP3.pdf");
             response.setContentType("application/pdf");
             response.getOutputStream().write(relat);
 
-  
         } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
         } catch (JRException ex) {

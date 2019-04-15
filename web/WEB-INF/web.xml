@@ -45,20 +45,12 @@
         <servlet-class>relatorio.ReportAdministradorController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ReportPagamentoController</servlet-name>
-        <servlet-class>relatorio.ReportPagamentoController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>ReportReembolsoController</servlet-name>
         <servlet-class>relatorio.ReportReembolsoController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ReportReservaController</servlet-name>
         <servlet-class>relatorio.ReportReservaController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ReportReservaParam</servlet-name>
-        <servlet-class>relatorio.ReportReservaParam</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>PesquisaAdminController</servlet-name>
@@ -71,6 +63,18 @@
     <servlet>
         <servlet-name>ReportAdminParametro</servlet-name>
         <servlet-class>relatorio.ReportAdminParametro</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReportReservaParam</servlet-name>
+        <servlet-class>relatorio.ReportReservaParam</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReportPagamentoController</servlet-name>
+        <servlet-class>relatorio.ReportPagamentoController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReportPagamentosController</servlet-name>
+        <servlet-class>relatorio.ReportPagamentosController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -317,10 +321,6 @@
         <url-pattern>/ReportAdministradorController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ReportPagamentoController</servlet-name>
-        <url-pattern>/ReportPagamentoController</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ReportReembolsoController</servlet-name>
         <url-pattern>/ReportReembolsoController</url-pattern>
     </servlet-mapping>
@@ -339,14 +339,22 @@
         <servlet-name>ReportAdminParametro</servlet-name>
         <url-pattern>/ReportAdminParametro</url-pattern>
     </servlet-mapping>
-    <error-page>
-        <error-code>404</error-code>
-        <location>/erro404.jsp</location>
-    </error-page>
     <servlet-mapping>
         <servlet-name>ReportReservaParam</servlet-name>
         <url-pattern>/ReportReservaParam</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReportPagamentoController</servlet-name>
+        <url-pattern>/ReportPagamentoController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReportPagamentosController</servlet-name>
+        <url-pattern>/ReportPagamentosController</url-pattern>
+    </servlet-mapping>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/erro404.jsp</location>
+    </error-page>
     <servlet-mapping>
         <servlet-name>PesquisaAdminController</servlet-name>
         <url-pattern>/PesquisaAdminController</url-pattern>
