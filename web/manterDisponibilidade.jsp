@@ -78,8 +78,7 @@
                     <br>
 
                     <tr>
-                        <td>Código do disponibilidade: </td>
-                        <td><input type="text" class="form-control" onkeyup="validare(this, 'numero')" name="txtIdDisponibilidade" required="required" min="1" max="999999999" autocomplete="off" placeholder="Digite apenas numeros" maxlength="9" value="${disponibilidade.id}" required autofocus<c:if test="${operacao != 'Incluir'}"> readonly</c:if>></td>
+                        <input type="text" class="form-control" onkeyup="validare(this, 'numero')" name="id" required="required" min="1" max="999999999" autocomplete="off" placeholder="Digite apenas numeros" maxlength="9" value="${disponibilidade.id}" required autofocus<c:if test="${operacao != 'Incluir'}"> readonly</c:if>>
                         </tr>
                         <tr>
                             <td>Data Disponivel: </td>
@@ -95,9 +94,9 @@
                         </tr>
                         <td>Espaco:</td>
                         <td>
-                            <select class="form-control" name="idEspaco" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
+                            <select class="form-control" name="idEspacos" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
                                     <option>Selecione uma opção</option>
-                                <c:forEach items="${s}" var="espaco">
+                                <c:forEach items="${espaco}" var="espaco">
                                     <option value="${espaco.id}" <c:if test="${espaco.id == disponibilidade.espaco.id}"> selected</c:if>>${espaco.id}</option>  
                                 </c:forEach>
                             </select>

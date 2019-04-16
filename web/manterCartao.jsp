@@ -82,7 +82,7 @@
                     <br>
                     <tr>
                         <!--<td>Código do cartao: </td>-->
-                        <input type="HIDDEN"   min="1" onkeyup="validare(this, 'numero')" placeholder="Digite apenas numeros"  required="required" maxlength="9"  autocomplete="off" max="999999999"  class="form-control" name="txtIdCartao" value="${cartao.id}"  required autofocus<c:if test="${operacao != 'Incluir'}"> readonly</c:if>>
+                        <input type="HIDDEN"   min="1" onkeyup="validare(this, 'numero')" placeholder="Digite apenas numeros"  required="required" maxlength="9"  autocomplete="off" max="999999999"  class="form-control" name="id" value="${cartao.id}"  required autofocus<c:if test="${operacao != 'Incluir'}"> readonly</c:if>>
                         </tr>
                         <tr>
                             <td>Bandeira do cartao: </td>

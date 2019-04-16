@@ -114,11 +114,10 @@ public class ManterContatoController extends HttpServlet {
     }// </editor-fold>
          public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         String operacao = request.getParameter("operacao");
-        
-        
+
         String numero = request.getParameter("txtNumeroContato");
-         long idcliente = Long.parseLong(request.getParameter("idCliente"));
-         Long id = null;
+        long idcliente = Long.parseLong(request.getParameter("idCliente"));
+        Long id = null;
          
        if (!operacao.equals("Incluir")) {
             id = Long.parseLong(request.getParameter("id"));
