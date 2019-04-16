@@ -80,12 +80,12 @@
                         <br>
 
                         <tr>
-                            <td>Código do contato: </td>
-                            <td><input type="text"   min="1" onkeyup="validare(this, 'numero')" placeholder="Digite apenas numeros"  required="required" maxlength="9" autocomplete="off" max="999999999"  class="form-control" name="txtIdContato" value="${contato.id}"  required autofocus<c:if test="${operacao != 'Incluir'}"> readonly</c:if>></td>
+                            <input type="HIDDEN"   min="1" placeholder="Digite apenas numeros"  required="required" maxlength="9" autocomplete="off" max="999999999"  class="form-control" name="id" value="${contato.id}"  required autofocus<c:if test="${operacao != 'Incluir'}"> readonly</c:if>>
                             </tr>
                             <tr>
                                 <td>Número de contato: </td>
-                                <td><input type="text" class="form-control" data-ls-module="charCounter" placeholder="Digite apenas numeros" onkeyup="validare(this, 'numero')" maxlength="9" autocomplete="off" min="1" max="999999999" name="txtNumeroContato" value="${contato.numero}"   required="required" required<c:if test="${operacao == 'Excluir'}"> readonly</c:if>></td>
+                                <!--<td><input type="text" class="form-control" data-ls-module="charCounter" placeholder="Digite apenas numeros" onkeyup="validare(this, 'numero')" maxlength="9" autocomplete="off" min="1" max="999999999" name="txtNumeroContato" value="${contato.numero}"   required="required" required<c:if test="${operacao == 'Excluir'}"> readonly</c:if>></td>-->
+                             <td><input type="text" onkeyup="validare(this, 'numero')" class="form-control" required="required" maxlength="9" autocomplete="off" placeholder="Digite apenas números" name="txtNumeroContato" value="${contato.numero}" required<c:if test="${operacao == 'Excluir'}">readonly</c:if>></td>
                             </tr>
                             <td>Cliente:</td>
                             <td>
