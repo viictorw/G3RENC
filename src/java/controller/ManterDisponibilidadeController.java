@@ -82,12 +82,15 @@ public class ManterDisponibilidadeController extends HttpServlet {
         String data = request.getParameter("txtDataDisponibilidade");
         String horaInicio = request.getParameter("txtHoraInicioDisponibilidade");
         String horaFim = request.getParameter("txtHoraFimDisponibilidade");
-        long espaco = Long.parseLong(request.getParameter("optEspaco"));
+        long idEspaco = Long.parseLong(request.getParameter("idEspacos"));
         Long id = null;
+        if (!operacao.equals("Incluir")) {
+            id = Long.parseLong(request.getParameter("id"));
+        }
         try {
             Espaco esp = null;
-            if (espaco != 0) {
-                esp = Espaco.obterEspaco((long)espaco);
+            if (idEspaco != 0) {
+                esp = Espaco.obterEspaco(idEspaco);
             }
             Disponibilidade disponibilidade = new Disponibilidade(data,horaInicio,horaFim,esp);
             if (operacao.equals("Incluir")) {
@@ -98,6 +101,7 @@ public class ManterDisponibilidadeController extends HttpServlet {
                     disponibilidade.salvar();
                 } else {
                     if (operacao.equals("Excluir")) {
+                        disponibilidade.setId(id);
                         disponibilidade.excluir();
                     }
                 }
