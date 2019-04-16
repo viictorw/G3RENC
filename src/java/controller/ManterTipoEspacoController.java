@@ -139,6 +139,7 @@ public class ManterTipoEspacoController extends HttpServlet {
                     tipoEspaco.salvar();
                 } else {
                     if (operacao.equals("Excluir")) {
+                        tipoEspaco.setId(id);
                         tipoEspaco.excluir();
                     }
                 }

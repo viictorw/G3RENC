@@ -77,7 +77,7 @@
                                     $(document).ready(function () {
                                         $("#myInput").on("keyup", function () {
                                             var value = $(this).val().toLowerCase();
-                                            $("#myTable ${irregularidade.autor}").filter(function () {
+                                            $("#myTable ${irregularidade}").filter(function () {
                                                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
                                             });
                                         });
@@ -114,7 +114,7 @@
                                     
                                             <tr>
                                             <th colspan="1">
-                                                Dados Irregularidade (Autor): <c:out value ="${irregularidade.autor}"/> 
+                                                Dados Irregularidade (Autor): <c:out value ="${irregularidade.autor} -- ${irregularidade.descricao}"/> 
                                             </th>
 
                                             <th colspan="1">

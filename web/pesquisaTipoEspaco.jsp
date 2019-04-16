@@ -94,7 +94,54 @@
                         </div>
                     </div>
                     <!-- FIM TAG para buscar -->
+                    <!--INICIO Tabela botoes incluir-->
 
+                    <div class="container">
+                        <div class="row">                                   
+                            <div class="col-lg">
+                                <label>
+                                    <form action="ManterTipoEspacoController?acao=prepararOperacao&operacao=Incluir" method="post">
+                                        <input type="submit" name="btnIncluir" class="btn btn-outline-primary btn-sm" value="Incluir">
+                                    </form>
+                                </label>
+                        
+
+                    <!--FIM Tabela botoes incluir-->
+                    
+<!--  Inicio Botão de relatório -->
+                        <a href="#" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#modalReserva">Relatorios</a>
+                    </div>
+                    <div class="modal fade" id="modalReserva" tabindex="-1" role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5>
+                                        Relatorio completo
+                                    </h5>
+                                    <div>
+                                        <a href="ReportPagamentoController" class="btn btn-outline-primary btn-sm">Emitir Relatório</a>
+                                    </div> 
+                                </div>
+                                <div class="modal-body">
+                                    <h5>
+                                        Escolha por data de vencimento
+                                    </h5>
+                                    <form action="ReportPagamentosController" method="POST" autofocus>
+                                        <select class="form-control" name="paramPagamentos">
+
+                                            <c:forEach items="${pagamentos}" var="pagamento">
+                                                <option value="${pagamento.vencimento}">${pagamento.vencimento}</option>  
+                                            </c:forEach>
+                                        </select>
+                                        <input class="btn btn-outline-primary btn-sm" type="submit" value="Emitir Relatório com Parâmetro"/>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                </div>
+                            </div>
+                        </div>                         
+                        <!--  Fim Botão de relatório -->
+                        
                     <!--INICIO Tabela botoes incluir e voltar-->
 
                     <div class="container">
