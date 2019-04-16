@@ -60,6 +60,14 @@ public class Irregularidade {
         this.id = id;
     }
 
+    public Espaco getEspaco() {
+        return espaco;
+    }
+
+    public void setEspaco(Espaco espaco) {
+        this.espaco = espaco;
+    }
+
     /**
      * @return the autor
      */
