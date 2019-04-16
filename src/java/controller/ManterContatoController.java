@@ -138,6 +138,7 @@ public class ManterContatoController extends HttpServlet {
                     contato.gravar();
                 } else {
                     if (operacao.equals("Excluir")) {
+                        contato.setId(id);
                         contato.excluir();
                     }
                 }

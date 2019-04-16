@@ -45,35 +45,7 @@
 
         <!-- INICIO JavaScript para o formulario-->
 
-        <script language="javascript" type="text/javascript">
-            function validar() {
-                var optModalidade = form1.optModalidade.value;
-                var txtNome = form1.txtNome.value;
-
-
-
-                if (txtNome === "") {
-                    alert('Preencha o campo "Bandeira do Cartão"');
-                    form1.txtNome.focus();
-                    return false;
-                }
-
-
-
-                if (optModalidade === "") {
-                    alert('Preencha o campo "Nº do cartão"');
-                    form1.optModalidade.focus();
-                    return false;
-                }
-
-
-
-
-
-
-            }
-        </script>
-
+      
         <!-- FIM JavaScript para o formulario-->
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -121,7 +93,7 @@
                         <td>
                             <select class="form-control" name="optModalidade" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
                             <c:forEach items="${modalidades}" var="modalidade">
-                                <option value="${modalidade.id}" <c:if test="${modalidade.id == tipoEspaco.modalidadeId}"> selected</c:if>>${modalidade.modalidade}</option>  
+                                <option value="${modalidade.id}" <c:if test="${modalidade.id == tipoEspaco.modalidade.id}"> selected</c:if>>${modalidade.id}</option>  
                             </c:forEach>
                         </select>
                     </td>

@@ -84,12 +84,12 @@
                             </tr>
                             <tr>
                                 <td>Número de contato: </td>
-                                <!--<td><input type="text" class="form-control" data-ls-module="charCounter" placeholder="Digite apenas numeros" onkeyup="validare(this, 'numero')" maxlength="9" autocomplete="off" min="1" max="999999999" name="txtNumeroContato" value="${contato.numero}"   required="required" required<c:if test="${operacao == 'Excluir'}"> readonly</c:if>></td>-->
                              <td><input type="text" onkeyup="validare(this, 'numero')" class="form-control" required="required" maxlength="9" autocomplete="off" placeholder="Digite apenas números" name="txtNumeroContato" value="${contato.numero}" required<c:if test="${operacao == 'Excluir'}">readonly</c:if>></td>
                             </tr>
                             <td>Cliente:</td>
                             <td>
                                 <select class="form-control" id="cliente" name="idCliente"  <c:if test="${operacao == 'Excluir'}" > disabled </c:if>>
+                                  <option>Selecione uma opção</option>
                                 <c:forEach items="${clientes}" var="cliente">
                                     <option value="${cliente.id}" <c:if test="${cliente.id == contato.cliente.id}"> selected</c:if>>${cliente.nome}</option>  
                                 </c:forEach>
