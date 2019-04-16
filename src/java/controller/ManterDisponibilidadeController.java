@@ -6,13 +6,11 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -58,8 +56,7 @@ public class ManterDisponibilidadeController extends HttpServlet {
         request.setAttribute("espacos", Espaco.obterTodosEspacos());
         
         if(!operacao.equals("Incluir")){
-            long id = Long.parseLong(request.getParameter("id").trim());
-            Disponibilidade disponibilidade = Disponibilidade.obterDisponibilidade((long)id);
+            Disponibilidade disponibilidade = Disponibilidade.obterDisponibilidade(Long.parseLong(request.getParameter("id")));
             request.setAttribute("disponibilidade", disponibilidade);
         }
                 RequestDispatcher view = request.getRequestDispatcher("/manterDisponibilidade.jsp");
@@ -67,11 +64,7 @@ public class ManterDisponibilidadeController extends HttpServlet {
                 
     }catch(ServletException e){
                 throw e;
-            }catch(IOException e){
-                throw new ServletException(e);
-            }catch(SQLException e){
-                throw new ServletException(e);
-            }catch(ClassNotFoundException e){
+            }catch(IOException | SQLException | ClassNotFoundException e){
                 throw new ServletException(e);
             }
     }

@@ -34,6 +34,14 @@ public class Disponibilidade implements Serializable{
      @ManyToOne
     private Espaco espaco;
 
+    public Espaco getEspaco() {
+        return espaco;
+    }
+
+    public void setEspaco(Espaco espaco) {
+        this.espaco = espaco;
+    }
+
     public Disponibilidade() {
     }
     

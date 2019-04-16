@@ -78,7 +78,7 @@
                     <br>
 
                     <tr>
-                        <input type="text" class="form-control" onkeyup="validare(this, 'numero')" name="id" required="required" min="1" max="999999999" autocomplete="off" placeholder="Digite apenas numeros" maxlength="9" value="${disponibilidade.id}" required autofocus<c:if test="${operacao != 'Incluir'}"> readonly</c:if>>
+                        <input type="HIDDEN" class="form-control" onkeyup="validare(this, 'numero')" name="id" required="required" min="1" max="999999999" autocomplete="off" placeholder="Digite apenas numeros" maxlength="9" value="${disponibilidade.id}" required autofocus<c:if test="${operacao != 'Incluir'}"> readonly</c:if>>
                         </tr>
                         <tr>
                             <td>Data Disponivel: </td>
@@ -92,15 +92,17 @@
                             <td>Hora Final: </td>
                             <td><input type="time" class="form-control" name="txtHoraFimDisponibilidade" required="required" maxlength="8" pattern="[0-9]{2}:[0-9]{2} [0-9]{2}$" autocomplete="off" value="${disponibilidade.hora_fim}"  required<c:if test="${operacao == 'Excluir'}"> readonly</c:if>></td>
                         </tr>
-                        <td>Espaco:</td>
-                        <td>
-                            <select class="form-control" name="idEspacos" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
-                                    <option>Selecione uma opção</option>
-                                <c:forEach items="${espaco}" var="espaco">
-                                    <option value="${espaco.id}" <c:if test="${espaco.id == disponibilidade.espaco.id}"> selected</c:if>>${espaco.id}</option>  
+                        <tr>
+                            <td>Espaco:</td>
+
+
+                            <td>
+                                <select class="form-control" name="idEspacos" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
+                                <c:forEach items="${espacos}" var="espaco">
+                                    <option value="${espaco.id}" <c:if test="${espaco.id == disponibilidade.espaco.id}"> selected</c:if>>${espaco.nome}</option>  
                                 </c:forEach>
                             </select>
-                    </td>
+                        </td>
                     </tr>
 
                     </tbody>
@@ -109,7 +111,7 @@
 
                     <input onclick="return funcDisponibilidade()" type="submit" name="btnConfirmar"  class="btn btn-outline-primary" role="button" aria-pressed="true" value="Confirmar"/>
 
-                <a href="PesquisaDisponibilidadeController" class="btn btn-outlineamento-danger" role="button" aria-pressed="true" value="Voltar">Voltar</a>
+                <a href="PesquisaDisponibilidadeController" class="btn btn-outline-danger" role="button" aria-pressed="true" value="Voltar">Voltar</a>
 
 
             </div>      
