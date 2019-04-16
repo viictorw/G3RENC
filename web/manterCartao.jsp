@@ -103,9 +103,9 @@
                         </tr>
                         <td>Cliente:</td>
                         <td>
-                            <select class="form-control"  name="idCliente" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
+                            <select class="form-control"  name="idClientes" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
                             <c:forEach items="${clientes}" var="cliente">
-                                <option value="${cliente.id}" <c:if test="${cliente.id == cartao.id}"> selected</c:if>>${cliente.nome}</option>  
+                                <option value="${cliente.id}" <c:if test="${cliente.id == cartao.cliente.id}"> selected</c:if>>${cliente.nome}</option>  
                             </c:forEach>
                         </select>
                     </td>

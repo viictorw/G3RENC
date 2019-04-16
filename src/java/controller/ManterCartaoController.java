@@ -81,7 +81,7 @@ public class ManterCartaoController extends HttpServlet {
         String bandeira = request.getParameter("txtBandeiraCartao");
         String validade = request.getParameter("txtValidadeCartao");
         String codSeguranca = request.getParameter("txtCodCartao");
-         long idCliente = Long.parseLong(request.getParameter("idCliente"));
+         long idCliente = Long.parseLong(request.getParameter("idClientes"));
          if (!operacao.equals("Incluir")) {
             id = Long.parseLong(request.getParameter("id"));
         }
