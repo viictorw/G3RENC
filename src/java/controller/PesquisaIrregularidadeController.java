@@ -20,33 +20,32 @@ import model.Irregularidade;
 public class PesquisaIrregularidadeController extends HttpServlet {
     
      protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException, ClassNotFoundException{
-  request.setAttribute("irregularidade", Irregularidade.obterTodasIrregularidades());
+  request.setAttribute("irregularidades", Irregularidade.obterTodasIrregularidades());
         RequestDispatcher view = request.getRequestDispatcher("pesquisaIrregularidade.jsp");
         view.forward(request, response);
     }
      
+     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(PesquisaPagamentoController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
+        } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(PesquisaPagamentoController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
+     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(PesquisaPagamentoController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
+        } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(PesquisaPagamentoController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
+     @Override
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
