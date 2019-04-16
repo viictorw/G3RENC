@@ -88,7 +88,7 @@
                             </tr>
                             <td>Cliente:</td>
                             <td>
-                                <select class="form-control" id="cliente" name="idCliente"  <c:if test="${operacao == 'Excluir'}" > disabled </c:if>>
+                                <select class="form-control" id="cliente" name="idCliente"  <c:if test="${operacao == 'Excluir'}" > readonly </c:if>>
                                   <option>Selecione uma opção</option>
                                 <c:forEach items="${clientes}" var="cliente">
                                     <option value="${cliente.id}" <c:if test="${cliente.id == contato.cliente.id}"> selected</c:if>>${cliente.nome}</option>  
