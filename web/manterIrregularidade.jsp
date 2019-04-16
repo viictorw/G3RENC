@@ -80,11 +80,9 @@
                         <tbody>
                         <br>
 
-                        <tr>
-
-                            <td>Código Irregularidade</td>
-                            <td><input type="text" min="1" class="form-control" placeholder="Digite apenas numeros"  maxlength="9" required="required" autocomplete="off" max="999999999" onkeyup="validare(this, 'numero')" name="txtIdIrregularidade" value="${irregularidade.id}" required autofocus<c:if test="${operacao != 'Incluir'}"> readonly</c:if>></td>
-                            </tr>
+                            <tr>                            
+                    <input type="HIDDEN" min="1" class="form-control" name="id" required id="id" value="${irregularidade.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>>
+                        </tr>
                             <tr>
                                 <td>Autor</td>
                                 <td><input type="text" maxlength="45" data-ls-module="charCounter" placeholder="Autor" class="form-control" autocomplete="off" onkeyup="validare(this,'texto')" name="txtAutorIrregularidade" value="${irregularidade.autor}" required<c:if test="${operacao == 'Excluir'}"> readonly</c:if>></td> 

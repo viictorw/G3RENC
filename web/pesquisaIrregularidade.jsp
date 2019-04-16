@@ -103,37 +103,32 @@
                     </div>                         
                             <div clas="card">
                         <div class="card-body">
-                        <c:forEach items="${irregularidades}" var="irregularidade">
+               <c:forEach items="${irregularidades}" var="irregularidade">
 
-                            
-                                <table class="table table-striped" id="myTable">
+                          <table class="table table-striped" id="myTable">
+                              
                                     
                                     <tbody>
-                
-                                        
-                                    
-                                            <tr>
-                                            <th colspan="1">
-                                                Dados Irregularidade (Autor): <c:out value ="${irregularidade.autor} -- ${irregularidade.descricao}"/> 
-                                            </th>
 
+                                        <tr>
                                             <th colspan="1">
-                                                <a href="ManterIrregularidadeController?acao=prepararOperacao&operacao=Editar&id=<c:out value="${irregularidade.id}"/>"
-                                                   class="btn btn-outline-success" role="button" aria-pressed="true">Editar</a>
-                                                <a href="ManterIrregularidadeController?acao=prepararOperacao&operacao=Excluir&id=<c:out value="${irregularidade.id}"/>"
-                                                   class="btn btn-outline-danger" role="button" aria-pressed="true">Excluir</a>
+                                                Irregularidade : <c:out value ="${irregularidade.autor} -- ${irregularidade.descricao}"/>
                                             </th>
+                                            
+                                            <th colspan="1" >
 
+                                        <a href="ManterIrregularidadeController?acao=prepararOperacao&operacao=Editar&id=<c:out value="${irregularidade.id}"/>" 
+                                           class="btn btn-outline-success" role="button" aria-pressed="true">Editar</a>
+
+                                        <a href="ManterIrregularidadeController?acao=prepararOperacao&operacao=Excluir&id=<c:out value="${irregularidade.id}"/>"
+                                           class="btn btn-outline-danger" role="button" aria-pressed="true">Excluir</a>
+                                    </th>
+                                            
                                         </tr>
-                     
-
-                                    </tbody>
-
-                                </table>
-
-
-                                <hr>
-                            </c:forEach>
+                            </tbody>
+                        </table>
+                        <hr>
+                                </c:forEach>
 
                             <!--INICIO Tabela botoes incluir e voltar-->
 
