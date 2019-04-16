@@ -11,6 +11,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Espaco;
@@ -18,9 +20,10 @@ import model.Irregularidade;
 
 /**
  *
- * @author viict
+ * @author luis
  */
-public class ManterIrregularidadeController {
+@WebServlet(name = "ManterIrregularidadeController", urlPatterns = {"/ManterIrregularidadeController"})
+public class ManterIrregularidadeController extends HttpServlet {
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -69,10 +72,10 @@ public class ManterIrregularidadeController {
     public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException, SQLException, ClassNotFoundException {
         String operacao = request.getParameter("operacao");
 
+        Long id = null;
         String autor = request.getParameter("txtAutor");
         String descricao = request.getParameter("txtDescricao");
         long idEspacos = Long.parseLong(request.getParameter("idEspacos"));
-        Long id = null;
         if (!operacao.equals("Incluir")) {
             id = Long.parseLong(request.getParameter("id"));
         }

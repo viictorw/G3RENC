@@ -85,37 +85,38 @@
                         </tr>
                             <tr>
                                 <td>Autor</td>
-                                <td><input type="text" maxlength="45" data-ls-module="charCounter" placeholder="Autor" class="form-control" autocomplete="off" onkeyup="validare(this,'texto')" name="txtAutorIrregularidade" value="${irregularidade.autor}" required<c:if test="${operacao == 'Excluir'}"> readonly</c:if>></td> 
+                                <td><input type="text" maxlength="45" data-ls-module="charCounter" placeholder="Autor" class="form-control" autocomplete="off" onkeyup="validare(this,'texto')" name="txtAutor" value="${irregularidade.autor}" required<c:if test="${operacao == 'Excluir'}"> readonly</c:if>></td> 
                             </tr>
 
                             <tr>
                                 <td>Descrição</td>
-                                <td><input type="text" maxlength="45" data-ls-module="charCounter" placeholder="Descrição da Irregularidade" class="form-control" autocomplete="off" onkeyup="validare(this,'texto')" name="txtDescricaoIrregularidade" value="${irregularidade.descricao}" required<c:if test="${operacao == 'Excluir'}"> readonly</c:if>></td> 
+                                <td><input type="text" maxlength="45" data-ls-module="charCounter" placeholder="Descrição da Irregularidade" class="form-control" autocomplete="off" onkeyup="validare(this,'texto')" name="txtDescricao" value="${irregularidade.descricao}" required<c:if test="${operacao == 'Excluir'}"> readonly</c:if>></td> 
                             </tr>
 
+                            <tr>
                             <td>Espaco:</td>
+
+
                             <td>
-                                <select  class="form-control" name="optEspaco" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
+                                <select class="form-control" name="idEspacos" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
                                 <c:forEach items="${espacos}" var="espaco">
-                                    <option value="${espaco.id}" <c:if test="${espaco.id == irregularidade.idEspaco}"> selected</c:if>>${espaco.nome}</option>  
+                                    <option value="${espaco.id}" <c:if test="${espaco.id == irregularidade.espaco.id}"> selected</c:if>>${espaco.nome}</option>  
                                 </c:forEach>
                             </select>
                         </td>
-                        </tr>
+                    </tr>
                         </tbody>
                     </table>
-                </div>
-
-                <div>
+                
                     <input onclick="return validar()" type="submit" name="btnConfirmar"  class="btn btn-outline-primary" role="button" aria-pressed="true" value="Confirmar">
-                    </form>
+                    
                     <a href="PesquisaIrregularidadeController" class="btn btn-outline-danger" role="button" aria-pressed="true" value="Voltar">Voltar</a>
 
-
+</div>
+                                    </form>
                 </div> <!--FIM da Div centralizadora-->
 
                 <hr>
-                </div>
                                 <br>
                                 <br>
             
