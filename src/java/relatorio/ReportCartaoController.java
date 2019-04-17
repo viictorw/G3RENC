@@ -23,7 +23,7 @@ import net.sf.jasperreports.engine.JasperPrint;
  *
  * @author Marco
  */
-public class ReportCartao extends HttpServlet {
+public class ReportCartaoController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) {
  Connection conexao = null;
         try {
