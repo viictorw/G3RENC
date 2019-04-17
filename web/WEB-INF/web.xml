@@ -4,7 +4,7 @@
         <servlet-name>ManterAdministradorController</servlet-name>
         <servlet-class>controller.ManterAdministradorController</servlet-class>
     </servlet>
-        <servlet>
+    <servlet>
         <servlet-name>PesquisaIrregularidadeController</servlet-name>
         <servlet-class>controller.PesquisaIrregularidadeController</servlet-class>
     </servlet>
@@ -38,7 +38,7 @@
     </servlet>
     <servlet>
         <servlet-name>ReportCliente</servlet-name>
-        <servlet-class>relatorio.ReportCliente</servlet-class>
+        <servlet-class>relatorio.ReportClienteController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ReportPagamento</servlet-name>
@@ -282,7 +282,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>ReportCliente</servlet-name>
-        <servlet-class>relatorio.ReportCliente</servlet-class>
+        <servlet-class>relatorio.ReportClienteController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ReportCliente</servlet-name>
@@ -324,13 +324,6 @@
         <servlet-name>ReportReservaController</servlet-name>
         <url-pattern>/ReportReservaController</url-pattern>
     </servlet-mapping>
-    <!-- 
-
-    <error-page>
-        <error-code>500</error-code>
-        <location>/erro500.jsp</location>
-    </error-page>
-        -->
     <servlet-mapping>
         <servlet-name>ReportAdminParametro</servlet-name>
         <url-pattern>/ReportAdminParametro</url-pattern>
@@ -351,7 +344,6 @@
         <servlet-name>ManterEspacoController</servlet-name>
         <url-pattern>/ManterEspacoController</url-pattern>
     </servlet-mapping>
-    
     <error-page>
         <error-code>404</error-code>
         <location>/erro404.jsp</location>

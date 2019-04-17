@@ -104,38 +104,43 @@
                                     </form>
                                 </label>
                                 
-                           <label>
-                                    <form action="ReportContato" method="post">
-                                        <input type="submit" name="btnIncluir" class="btn btn-outline-primary btn-sm" value="Gerar Relatório">
-                                    </form>
-                                </label>
+          
                                 
-                                                                               <a href="#" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#modalReserva">Relatório com parametro</a>
+                          <a href="#" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#modalReserva">Relatório</a>
 
-                                    <div class="modal fade" id="modalReserva" tabindex="-1" role="dialog">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
+                                   
+                         <div class="modal fade" id="modalReserva" tabindex="-1" role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5>
+                                        Relatorio completo
+                                    </h5>
+                                    <div>
+                                        <a href="ReportPagamentoController" class="btn btn-outline-primary btn-sm">Emitir Relatório</a>
+                                    </div> 
+                                </div>
+                                <div class="modal-body">
+                                    <h5>
+                                        Escolha por data de vencimento
+                                    </h5>
+                                    <form action="ReportPagamentosController" method="POST" autofocus>
+                                        <select class="form-control" name="paramPagamentos">
 
-
-                                                <div class="modal-body">
-                                                    <h5>
-                                                        Selecione o nome da cidade desejada
-                                                    </h5>
-                                                    <form action="ReportReservaController" method="POST" autofocus>
-                                <select class="form-control" id="cliente" name="optCliente"  <c:if test="${operacao == 'Excluir'}" > readonly </c:if>>
-                                <c:forEach items="${clientes}" var="cliente">
-                                    <option value="${cliente.id}" <c:if test="${cliente.id == contato.idCliente}"> selected</c:if>>${cliente.nome}</option>  
-                                </c:forEach>
-                            </select>
-                                                        <input type="submit" class="btn btn-outline-primary btn-sm"/>
-
-                                                    </form>
-                                                </div>
-
-
-                                            </div>
-                                        </div>
-                                    </div>
+                                            <c:forEach items="${pagamentos}" var="pagamento">
+                                                <option value="${pagamento.vencimento}">${pagamento.vencimento}</option>  
+                                            </c:forEach>
+                                        </select>
+                                        <input class="btn btn-outline-primary btn-sm" type="submit" value="Emitir Relatório com Parâmetro"/>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                </div>
+                            </div>
+                        </div>                         
+                        <!--  Fim Botão de relatório -->
+                    
+                    
 
                                 </div>
                             </div>

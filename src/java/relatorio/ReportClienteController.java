@@ -21,27 +21,30 @@ import net.sf.jasperreports.engine.JasperPrint;
 
 /**
  *
- * @author Marco
+ * @author viict
  */
-public class ReportCliente extends HttpServlet {
+public class ReportClienteController extends HttpServlet {
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) {
- Connection conexao = null;
+        Connection conexao = null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            /*Class.forName("com.mysql.jdbc.Driver");
+            conexao = DriverManager.getConnection("jdbc:mysql://localhost/sca", "root", "123");*/
+ /*  parametros.put("PAR_codCurso", Integer.parseInt(request.getParameter("txtCodCurso")));*/
+
             conexao = BD.getConexao();
-            
-            //conexao = DriverManager.getConnection("jdbc:mysql://localhost/sca", "root", "123");
             HashMap parametros = new HashMap();
-            //parametros.put("PAR_codCurso", Integer.parseInt(request.getParameter("txtCodCurso")));
-            String relatorio = getServletContext().getRealPath("/WEB-INF/classes/relatorio")+"/ReportCliente.jasper";
+            
+                        parametros.put("PAR_Vencimento", request.getParameter("paramPagamentos"));
+
+            String relatorio = getServletContext().getRealPath("/WEB-INF/classes/relatorio") + "/ReportPagamentos.jasper";
             JasperPrint jp = JasperFillManager.fillReport(relatorio, parametros, conexao);
             byte[] relat = JasperExportManager.exportReportToPdf(jp);
-            response.setHeader("Content-Disposition", "attachment;filename=relatorioCliente.pdf");
+            response.setHeader("Content-Disposition", "attachment;filename=relatorioPagamentoLP3.pdf");
             response.setContentType("application/pdf");
             response.getOutputStream().write(relat);
-        } /*catch (SQLException ex) {
-            ex.printStackTrace();
-        } */catch (ClassNotFoundException ex) {
+
+        } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
         } catch (JRException ex) {
             ex.printStackTrace();
@@ -58,8 +61,9 @@ public class ReportCliente extends HttpServlet {
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /** 
+    /**
      * Handles the HTTP <code>GET</code> method.
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -71,8 +75,9 @@ public class ReportCliente extends HttpServlet {
         processRequest(request, response);
     }
 
-    /** 
+    /**
      * Handles the HTTP <code>POST</code> method.
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -84,13 +89,13 @@ public class ReportCliente extends HttpServlet {
         processRequest(request, response);
     }
 
-    /** 
+    /**
      * Returns a short description of the servlet.
+     *
      * @return a String containing servlet description
      */
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold
-    
+    }// </editor-fold>
 }
