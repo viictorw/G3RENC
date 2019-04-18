@@ -439,4 +439,16 @@
         <servlet-name>ReportIrregularidade</servlet-name>
         <url-pattern>/ReportIrregularidade</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ReportIrregularidadeParam</servlet-name>
+        <servlet-class>relatorio.ReportIrregularidadeParam</servlet-class>
+    </servlet>
+  <servlet-mapping>
+        <servlet-name>ReportIrregularidadeParam</servlet-name>
+        <url-pattern>/ReportIrregularidadeParam</url-pattern>
+    </servlet-mapping>
+    
+    
+    
 </web-app>

@@ -114,8 +114,8 @@
                                     <h5>
                                         Escolha a cidade desejada
                                     </h5>
-                                    <form action="ReportIrregularidade" method="POST" autofocus>
-                                        <select class="form-control" name="paramIrregularidade">
+                                    <form action="ReportIrregularidadeParam" method="POST" autofocus>
+                                        <select class="form-control" name="paramIr">
 
                                             <c:forEach items="${irregularidades}" var="irregularidade">
                                                 <option value="${irregularidade.id}">${irregularidade.autor}</option>  
