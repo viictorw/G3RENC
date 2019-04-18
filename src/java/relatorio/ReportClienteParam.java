@@ -21,30 +21,29 @@ import net.sf.jasperreports.engine.JasperPrint;
 
 /**
  *
- * @author viict
+ * @author Marco
  */
-public class ReportClienteController extends HttpServlet {
+public class ReportClienteParam extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) {
         Connection conexao = null;
         try {
-            /*Class.forName("com.mysql.jdbc.Driver");
-            conexao = DriverManager.getConnection("jdbc:mysql://localhost/sca", "root", "123");*/
- /*  parametros.put("PAR_codCurso", Integer.parseInt(request.getParameter("txtCodCurso")));*/
-
+            Class.forName("com.mysql.jdbc.Driver");
             conexao = BD.getConexao();
-            HashMap parametros = new HashMap();
-            
-              //          parametros.put("PAR_Vencimento", request.getParameter("paramCliente"));
 
-            String relatorio = getServletContext().getRealPath("/WEB-INF/classes/relatorio") + "/ReportCliente.jasper";
+            //conexao = DriverManager.getConnection("jdbc:mysql://localhost/sca", "root", "123");
+            HashMap parametros = new HashMap();
+            parametros.put("PAR_nome", request.getParameter("paramCliente"));
+
+            String relatorio = getServletContext().getRealPath("/WEB-INF/classes/relatorio") + "/ReportClienteParam.jasper";
             JasperPrint jp = JasperFillManager.fillReport(relatorio, parametros, conexao);
             byte[] relat = JasperExportManager.exportReportToPdf(jp);
             response.setHeader("Content-Disposition", "attachment;filename=relatorioCliente.pdf");
             response.setContentType("application/pdf");
             response.getOutputStream().write(relat);
-
-        } catch (ClassNotFoundException ex) {
+        } /*catch (SQLException ex) {
+         ex.printStackTrace();
+         } */ catch (ClassNotFoundException ex) {
             ex.printStackTrace();
         } catch (JRException ex) {
             ex.printStackTrace();

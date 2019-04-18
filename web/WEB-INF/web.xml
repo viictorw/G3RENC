@@ -24,6 +24,14 @@
         <servlet-name>ReportDisponibilidadeParam</servlet-name>
         <servlet-class>relatorio.ReportDisponibilidadeParam</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ReportCienteParam</servlet-name>
+        <servlet-class>relatorio.ReportCienteParam</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReportClienteParam</servlet-name>
+        <servlet-class>relatorio.ReportClienteParam</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PesquisaIrregularidadeController</servlet-name>
         <url-pattern>/PesquisaIrregularidadeController</url-pattern>
@@ -387,6 +395,14 @@
     <servlet-mapping>
         <servlet-name>ReportDisponibilidadeParam</servlet-name>
         <url-pattern>/ReportDisponibilidadeParam</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReportCienteParam</servlet-name>
+        <url-pattern>/ReportCienteParam</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReportClienteParam</servlet-name>
+        <url-pattern>/ReportClienteParam</url-pattern>
     </servlet-mapping>
     <error-page>
         <error-code>404</error-code>

@@ -109,7 +109,7 @@
                                         <select class="form-control" name="paramCliente">
 
                                             <c:forEach items="${clientes}" var="cliente">
-                                                <option value="${cliente.id}">${cliente.nome}</option>  
+                                                <option value="${cliente.nome}">${cliente.nome}</option>  
                                             </c:forEach>
                                         </select>
                                         <input class="btn btn-outline-primary btn-sm" type="submit" value="Emitir Relatório com Parâmetro"/>
