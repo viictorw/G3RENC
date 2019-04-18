@@ -31,12 +31,10 @@ public class ReportAdministradorController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) {
         Connection conexao = null;
         try {
-            /*Class.forName("com.mysql.jdbc.Driver");
-            conexao = DriverManager.getConnection("jdbc:mysql://localhost/sca", "root", "123");*/
- /*  parametros.put("PAR_codCurso", Integer.parseInt(request.getParameter("txtCodCurso")));*/
-
+ 
             conexao = BD.getConexao();
             HashMap parametros = new HashMap();
+            
             String relatorio = getServletContext().getRealPath("/WEB-INF/classes/relatorio") + "/ReportAdministrador.jasper";
             JasperPrint jp = JasperFillManager.fillReport(relatorio, parametros, conexao);
             byte[] relat = JasperExportManager.exportReportToPdf(jp);

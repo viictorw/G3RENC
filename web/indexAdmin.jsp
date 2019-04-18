@@ -100,9 +100,9 @@
                                     <a class="dropdown-item" href="ReportReservaController">Relatório de Reservas</a>
                                     <a class="dropdown-item" href="ReportReembolsoController">Relatório de Reembolsos</a>
 
-                                    <a class="dropdown-item" href="ReportReembolsoController">Relatório de Clientes</a>
-                                    <a class="dropdown-item" href="ReportReembolsoController">Relatório de Espaços</a>
-                                    <a class="dropdown-item" href="ReportReembolsoController">Relatório de Irregularidades</a>
+                                    <a class="dropdown-item" href="ReportCliente">Relatório de Clientes</a>
+                                    <a class="dropdown-item" href="ReportEspacoController">Relatório de Espaços</a>
+                                    <a class="dropdown-item" href="ReportIrregularidadeController">Relatório de Irregularidades</a>
 
 
                                 </div> 

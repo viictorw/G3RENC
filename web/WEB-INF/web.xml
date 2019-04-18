@@ -420,4 +420,23 @@
         <servlet-name>PesquisaAdminController</servlet-name>
         <url-pattern>/PesquisaAdminController</url-pattern>
     </servlet-mapping>
+    
+    
+    <servlet>
+        <servlet-name>ReportEspacoControlller</servlet-name>
+        <servlet-class>relatorio.ReportEspacoControlller</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReportIrregularidade</servlet-name>
+        <servlet-class>relatorio.ReportIrregularidade</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>ReportEspacoControlller</servlet-name>
+        <url-pattern>/ReportEspacoControlller</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReportIrregularidade</servlet-name>
+        <url-pattern>/ReportIrregularidade</url-pattern>
+    </servlet-mapping>
 </web-app>

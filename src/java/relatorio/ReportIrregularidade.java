@@ -23,20 +23,18 @@ import net.sf.jasperreports.engine.JasperPrint;
  *
  * @author Marco
  */
-public class ReportEspacoController extends HttpServlet {
+public class ReportIrregularidade extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) {
  Connection conexao = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
             conexao = BD.getConexao();
             
-            //conexao = DriverManager.getConnection("jdbc:mysql://localhost/sca", "root", "123");
             HashMap parametros = new HashMap();
-            //parametros.put("PAR_codCurso", Integer.parseInt(request.getParameter("txtCodCurso")));
-            String relatorio = getServletContext().getRealPath("/WEB-INF/classes/relatorio")+"/ReportEspaco.jasper";
+            String relatorio = getServletContext().getRealPath("/WEB-INF/classes/relatorio")+"/ReportIrregularidade.jasper";
             JasperPrint jp = JasperFillManager.fillReport(relatorio, parametros, conexao);
             byte[] relat = JasperExportManager.exportReportToPdf(jp);
-            response.setHeader("Content-Disposition", "attachment;filename=relatorioEspaco.pdf");
+            response.setHeader("Content-Disposition", "attachment;filename=relatorioIrregularidade.pdf");
             response.setContentType("application/pdf");
             response.getOutputStream().write(relat);
         } /*catch (SQLException ex) {

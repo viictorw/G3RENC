@@ -1,6 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 package relatorio;
@@ -8,6 +7,7 @@ package relatorio;
 import dao.BD;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.HashMap;
 import javax.servlet.ServletException;
@@ -21,24 +21,29 @@ import net.sf.jasperreports.engine.JasperPrint;
 
 /**
  *
- * @author viict
+ * @author Marco
  */
-public class ReportAdminParametro extends HttpServlet {
-
+public class ReportEspacoControlller extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) {
-        Connection conexao = null;
+ Connection conexao = null;
         try {
+            Class.forName("com.mysql.jdbc.Driver");
             conexao = BD.getConexao();
+            
             HashMap parametros = new HashMap();
-            parametros.put("PAR_Nome", request.getParameter("paramAdmin"));
-            String relatorio = getServletContext().getRealPath("/WEB-INF/classes/relatorio") + "/ReportAdminParam.jasper";
+            String relatorio = getServletContext().getRealPath("/WEB-INF/classes/relatorio")+"/ReportEspaco.jasper";
             JasperPrint jp = JasperFillManager.fillReport(relatorio, parametros, conexao);
             byte[] relat = JasperExportManager.exportReportToPdf(jp);
-            response.setHeader("Content-Disposition", "attachment;filename=relatorioAdministradorLP3.pdf");
+            response.setHeader("Content-Disposition", "attachment;filename=relatorioEspaco.pdf");
             response.setContentType("application/pdf");
             response.getOutputStream().write(relat);
-
-        } catch (ClassNotFoundException | JRException | IOException ex) {
+        } /*catch (SQLException ex) {
+            ex.printStackTrace();
+        } */catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (JRException ex) {
+            ex.printStackTrace();
+        } catch (IOException ex) {
             ex.printStackTrace();
         } finally {
             try {
@@ -51,9 +56,8 @@ public class ReportAdminParametro extends HttpServlet {
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
+    /** 
      * Handles the HTTP <code>GET</code> method.
-     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -65,9 +69,8 @@ public class ReportAdminParametro extends HttpServlet {
         processRequest(request, response);
     }
 
-    /**
+    /** 
      * Handles the HTTP <code>POST</code> method.
-     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -79,9 +82,8 @@ public class ReportAdminParametro extends HttpServlet {
         processRequest(request, response);
     }
 
-    /**
+    /** 
      * Returns a short description of the servlet.
-     *
      * @return a String containing servlet description
      */
     @Override
