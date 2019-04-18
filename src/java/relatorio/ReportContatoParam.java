@@ -23,25 +23,27 @@ import net.sf.jasperreports.engine.JasperPrint;
  *
  * @author Marco
  */
-public class ReportContato extends HttpServlet {
+public class ReportContatoParam extends HttpServlet {
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) {
- Connection conexao = null;
+        Connection conexao = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
             conexao = BD.getConexao();
-            
+
             //conexao = DriverManager.getConnection("jdbc:mysql://localhost/sca", "root", "123");
             HashMap parametros = new HashMap();
-            //parametros.put("PARAM_contato", Integer.parseInt(request.getParameter("txtContato")));
-            String relatorio = getServletContext().getRealPath("/WEB-INF/classes/relatorio")+"/ReportContato.jasper";
+            parametros.put("PARAM_contato", request.getParameter("paramContato"));
+
+            String relatorio = getServletContext().getRealPath("/WEB-INF/classes/relatorio") + "/ReportContatoParam.jasper";
             JasperPrint jp = JasperFillManager.fillReport(relatorio, parametros, conexao);
             byte[] relat = JasperExportManager.exportReportToPdf(jp);
             response.setHeader("Content-Disposition", "attachment;filename=relatorioContato.pdf");
             response.setContentType("application/pdf");
             response.getOutputStream().write(relat);
         } /*catch (SQLException ex) {
-            ex.printStackTrace();
-        } */catch (ClassNotFoundException ex) {
+         ex.printStackTrace();
+         } */ catch (ClassNotFoundException ex) {
             ex.printStackTrace();
         } catch (JRException ex) {
             ex.printStackTrace();
@@ -58,8 +60,9 @@ public class ReportContato extends HttpServlet {
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /** 
+    /**
      * Handles the HTTP <code>GET</code> method.
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -71,8 +74,9 @@ public class ReportContato extends HttpServlet {
         processRequest(request, response);
     }
 
-    /** 
+    /**
      * Handles the HTTP <code>POST</code> method.
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -84,8 +88,9 @@ public class ReportContato extends HttpServlet {
         processRequest(request, response);
     }
 
-    /** 
+    /**
      * Returns a short description of the servlet.
+     *
      * @return a String containing servlet description
      */
     @Override

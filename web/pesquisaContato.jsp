@@ -124,8 +124,8 @@
                                     <h5>
                                         Escolha por data de vencimento
                                     </h5>
-                                    <form action="ReportContato" method="POST" autofocus>
-                                        <select class="form-control" name="paramContato">
+                                    <form action="ReportContatoParam" method="POST" autofocus>
+                                        <select class="form-control" name="ParamContato">
 
                                             <c:forEach items="${contatos}" var="contato">
                                                 <option value="${contato.id}">${contato.numero}</option>  

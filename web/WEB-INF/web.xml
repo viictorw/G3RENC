@@ -8,6 +8,10 @@
         <servlet-name>PesquisaIrregularidadeController</servlet-name>
         <servlet-class>controller.PesquisaIrregularidadeController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ReportContatoParam</servlet-name>
+        <servlet-class>relatorio.ReportContatoParam</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PesquisaIrregularidadeController</servlet-name>
         <url-pattern>/PesquisaIrregularidadeController</url-pattern>
@@ -48,7 +52,7 @@
         <servlet-name>ReportCartao</servlet-name>
         <servlet-class>relatorio.ReportCartao</servlet-class>
     </servlet>
-        <servlet>
+    <servlet>
         <servlet-name>ReportModalidade</servlet-name>
         <servlet-class>relatorio.ReportModalidade</servlet-class>
     </servlet>
@@ -317,14 +321,14 @@
         <url-pattern>/ReportDisponibilidade</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-            <servlet>
-        <servlet-name>ReportModalidade</servlet-name>
-        <servlet-class>relatorio.ReportModalidade</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ReportModalidade</servlet-name>
-        <url-pattern>/ReportModalidade</url-pattern>
-    </servlet-mapping>
+        <servlet>
+            <servlet-name>ReportModalidade</servlet-name>
+            <servlet-class>relatorio.ReportModalidade</servlet-class>
+        </servlet>
+        <servlet-mapping>
+            <servlet-name>ReportModalidade</servlet-name>
+            <url-pattern>/ReportModalidade</url-pattern>
+        </servlet-mapping>
         <servlet-name>ReportAdministradorController</servlet-name>
         <url-pattern>/ReportAdministradorController</url-pattern>
     </servlet-mapping>
@@ -355,6 +359,10 @@
     <servlet-mapping>
         <servlet-name>ManterEspacoController</servlet-name>
         <url-pattern>/ManterEspacoController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReportContatoParam</servlet-name>
+        <url-pattern>/ReportContatoParam</url-pattern>
     </servlet-mapping>
     <error-page>
         <error-code>404</error-code>
