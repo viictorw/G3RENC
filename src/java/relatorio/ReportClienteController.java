@@ -35,12 +35,12 @@ public class ReportClienteController extends HttpServlet {
             conexao = BD.getConexao();
             HashMap parametros = new HashMap();
             
-                        parametros.put("PAR_Vencimento", request.getParameter("paramPagamentos"));
+                        parametros.put("PAR_Vencimento", request.getParameter("paramCliente"));
 
             String relatorio = getServletContext().getRealPath("/WEB-INF/classes/relatorio") + "/ReportPagamentos.jasper";
             JasperPrint jp = JasperFillManager.fillReport(relatorio, parametros, conexao);
             byte[] relat = JasperExportManager.exportReportToPdf(jp);
-            response.setHeader("Content-Disposition", "attachment;filename=relatorioPagamentoLP3.pdf");
+            response.setHeader("Content-Disposition", "attachment;filename=relatorioCliente.pdf");
             response.setContentType("application/pdf");
             response.getOutputStream().write(relat);
 
