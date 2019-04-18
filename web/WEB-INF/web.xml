@@ -12,6 +12,10 @@
         <servlet-name>ReportContatoParam</servlet-name>
         <servlet-class>relatorio.ReportContatoParam</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RportEspacoController</servlet-name>
+        <servlet-class>relatorio.RportEspacoController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PesquisaIrregularidadeController</servlet-name>
         <url-pattern>/PesquisaIrregularidadeController</url-pattern>
@@ -363,6 +367,10 @@
     <servlet-mapping>
         <servlet-name>ReportContatoParam</servlet-name>
         <url-pattern>/ReportContatoParam</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RportEspacoController</servlet-name>
+        <url-pattern>/RportEspacoController</url-pattern>
     </servlet-mapping>
     <error-page>
         <error-code>404</error-code>

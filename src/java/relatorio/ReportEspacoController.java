@@ -36,7 +36,7 @@ public class ReportEspacoController extends HttpServlet {
             String relatorio = getServletContext().getRealPath("/WEB-INF/classes/relatorio")+"/ReportEspaco.jasper";
             JasperPrint jp = JasperFillManager.fillReport(relatorio, parametros, conexao);
             byte[] relat = JasperExportManager.exportReportToPdf(jp);
-            response.setHeader("Content-Disposition", "attachment;filename=relatorioCartão.pdf");
+            response.setHeader("Content-Disposition", "attachment;filename=relatorioEspaco.pdf");
             response.setContentType("application/pdf");
             response.getOutputStream().write(relat);
         } /*catch (SQLException ex) {
