@@ -32,6 +32,10 @@
         <servlet-name>ReportClienteParam</servlet-name>
         <servlet-class>relatorio.ReportClienteParam</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ReportCartaoController</servlet-name>
+        <servlet-class>relatorio.ReportCartaoController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PesquisaIrregularidadeController</servlet-name>
         <url-pattern>/PesquisaIrregularidadeController</url-pattern>
@@ -403,6 +407,10 @@
     <servlet-mapping>
         <servlet-name>ReportClienteParam</servlet-name>
         <url-pattern>/ReportClienteParam</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReportCartaoController</servlet-name>
+        <url-pattern>/ReportCartaoController</url-pattern>
     </servlet-mapping>
     <error-page>
         <error-code>404</error-code>
