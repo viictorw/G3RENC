@@ -16,6 +16,14 @@
         <servlet-name>RportEspacoController</servlet-name>
         <servlet-class>relatorio.RportEspacoController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ReportCartaoParam</servlet-name>
+        <servlet-class>relatorio.ReportCartaoParam</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReportDisponibilidadeParam</servlet-name>
+        <servlet-class>relatorio.ReportDisponibilidadeParam</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PesquisaIrregularidadeController</servlet-name>
         <url-pattern>/PesquisaIrregularidadeController</url-pattern>
@@ -371,6 +379,14 @@
     <servlet-mapping>
         <servlet-name>RportEspacoController</servlet-name>
         <url-pattern>/RportEspacoController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReportCartaoParam</servlet-name>
+        <url-pattern>/ReportCartaoParam</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReportDisponibilidadeParam</servlet-name>
+        <url-pattern>/ReportDisponibilidadeParam</url-pattern>
     </servlet-mapping>
     <error-page>
         <error-code>404</error-code>

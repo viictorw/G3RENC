@@ -120,11 +120,11 @@
                                     <h5>
                                         Escolha a cidade desejada
                                     </h5>
-                                    <form action="ReportDisponibilidade" method="POST" autofocus>
+                                   <form action="ReportDisponibilidadeParam" method="POST" autofocus>
                                         <select class="form-control" name="paramDisponibilidade">
 
                                             <c:forEach items="${disponibilidades}" var="disponibilidade">
-                                               <option value="${disponibilidade.id}">${disponibilidade.dataDisponivel}</option>  
+                                                <option value="${disponibilidade.dataDisponivel}">${disponibilidade.dataDisponivel}</option>  
                                             </c:forEach>
                                         </select>
                                         <input class="btn btn-outline-primary btn-sm" type="submit" value="Emitir Relatório com Parâmetro"/>
