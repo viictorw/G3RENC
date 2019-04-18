@@ -107,18 +107,18 @@
                                         Relatorio completo
                                     </h5>
                                     <div>
-                                        <a href="ReportReservaController" class="btn btn-outline-primary btn-sm">Emitir Relatório</a>
+                                        <a href="ReportIrregularidade" class="btn btn-outline-primary btn-sm">Emitir Relatório</a>
                                     </div> 
                                 </div>
                                 <div class="modal-body">
                                     <h5>
                                         Escolha a cidade desejada
                                     </h5>
-                                    <form action="ReportReservaParam" method="POST" autofocus>
-                                        <select class="form-control" name="paramReserva">
+                                    <form action="ReportIrregularidade" method="POST" autofocus>
+                                        <select class="form-control" name="paramIrregularidade">
 
-                                            <c:forEach items="${espacos}" var="espaco">
-                                                <option value="${espaco.cidade}">${espaco.cidade}</option>  
+                                            <c:forEach items="${irregularidades}" var="irregularidade">
+                                                <option value="${irregularidade.id}">${irregularidade.autor}</option>  
                                             </c:forEach>
                                         </select>
                                         <input class="btn btn-outline-primary btn-sm" type="submit" value="Emitir Relatório com Parâmetro"/>

@@ -126,11 +126,11 @@
                                     <h5>
                                         Escolha por data de vencimento
                                     </h5>
-                                    <form action="ReportPagamentosController" method="POST" autofocus>
-                                        <select class="form-control" name="paramPagamentos">
+                                    <form action="ReportCartao" method="POST" autofocus>
+                                        <select class="form-control" name="paramCartoes">
 
-                                            <c:forEach items="${pagamentos}" var="pagamento">
-                                                <option value="${pagamento.vencimento}">${pagamento.vencimento}</option>  
+                                            <c:forEach items="${cartoes}" var="cartao">
+                                                <option value="${cartao.id}">${cartao.bandeira}</option>  
                                             </c:forEach>
                                         </select>
                                         <input class="btn btn-outline-primary btn-sm" type="submit" value="Emitir Relatório com Parâmetro"/>

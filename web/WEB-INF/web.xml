@@ -46,7 +46,11 @@
     </servlet>
     <servlet>
         <servlet-name>ReportCartao</servlet-name>
-        <servlet-class>relatorio.ReportCartaoController</servlet-class>
+        <servlet-class>relatorio.ReportCartao</servlet-class>
+    </servlet>
+        <servlet>
+        <servlet-name>ReportModalidade</servlet-name>
+        <servlet-class>relatorio.ReportModalidade</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ReportAdministradorController</servlet-name>
@@ -298,7 +302,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>ReportCartao</servlet-name>
-        <servlet-class>relatorio.ReportCartaoController</servlet-class>
+        <servlet-class>relatorio.ReportCartao</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ReportCartao</servlet-name>
@@ -313,6 +317,14 @@
         <url-pattern>/ReportDisponibilidade</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+            <servlet>
+        <servlet-name>ReportModalidade</servlet-name>
+        <servlet-class>relatorio.ReportModalidade</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReportModalidade</servlet-name>
+        <url-pattern>/ReportModalidade</url-pattern>
+    </servlet-mapping>
         <servlet-name>ReportAdministradorController</servlet-name>
         <url-pattern>/ReportAdministradorController</url-pattern>
     </servlet-mapping>

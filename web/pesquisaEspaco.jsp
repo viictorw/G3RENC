@@ -113,7 +113,7 @@
                                         Relatorio completo
                                     </h5>
                                     <div>
-                                        <a href="ReportReservaController" class="btn btn-outline-primary btn-sm">Emitir Relatório</a>
+                                        <a href="ReportEspaco" class="btn btn-outline-primary btn-sm">Emitir Relatório</a>
                                     </div> 
                                 </div>
                                 <div class="modal-body">

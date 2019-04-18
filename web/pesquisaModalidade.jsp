@@ -119,18 +119,18 @@
                                         Relatorio completo
                                     </h5>
                                     <div>
-                                        <a href="ReportPagamentoController" class="btn btn-outline-primary btn-sm">Emitir Relatório</a>
+                                        <a href="ReportModalidade" class="btn btn-outline-primary btn-sm">Emitir Relatório</a>
                                     </div> 
                                 </div>
                                 <div class="modal-body">
                                     <h5>
                                         Escolha por data de vencimento
                                     </h5>
-                                    <form action="ReportPagamentosController" method="POST" autofocus>
-                                        <select class="form-control" name="paramPagamentos">
+                                    <form action="ReportModalidade" method="POST" autofocus>
+                                        <select class="form-control" name="paramModalidades">
 
-                                            <c:forEach items="${pagamentos}" var="pagamento">
-                                                <option value="${pagamento.vencimento}">${pagamento.vencimento}</option>  
+                                            <c:forEach items="${modalidades}" var="modalidade">
+                                                <option value="${modalidade.id}">${modalidade.modalidade}</option>  
                                             </c:forEach>
                                         </select>
                                         <input class="btn btn-outline-primary btn-sm" type="submit" value="Emitir Relatório com Parâmetro"/>

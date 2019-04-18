@@ -119,18 +119,18 @@
                                         Relatorio completo
                                     </h5>
                                     <div>
-                                        <a href="ReportPagamentoController" class="btn btn-outline-primary btn-sm">Emitir Relatório</a>
+                                        <a href="ReportTipoEspaco" class="btn btn-outline-primary btn-sm">Emitir Relatório</a>
                                     </div> 
                                 </div>
                                 <div class="modal-body">
                                     <h5>
                                         Escolha por data de vencimento
                                     </h5>
-                                    <form action="ReportPagamentosController" method="POST" autofocus>
-                                        <select class="form-control" name="paramPagamentos">
+                                    <form action="ReportTipoEspaco" method="POST" autofocus>
+                                        <select class="form-control" name="paramEspacos">
 
-                                            <c:forEach items="${pagamentos}" var="pagamento">
-                                                <option value="${pagamento.vencimento}">${pagamento.vencimento}</option>  
+                                            <c:forEach items="${tipoEspacos}" var="tipoEspaco">
+                                                <option value="${tipoEspaco.id}">${tipoEspaco.nome}</option>  
                                             </c:forEach>
                                         </select>
                                         <input class="btn btn-outline-primary btn-sm" type="submit" value="Emitir Relatório com Parâmetro"/>
