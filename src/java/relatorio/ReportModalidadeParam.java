@@ -23,7 +23,7 @@ import net.sf.jasperreports.engine.JasperPrint;
  *
  * @author viict
  */
-public class ReportIrregularidadeParam extends HttpServlet {
+public class ReportModalidadeParam extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) {
         Connection conexao = null;
@@ -34,11 +34,11 @@ public class ReportIrregularidadeParam extends HttpServlet {
 
             conexao = BD.getConexao();
             HashMap parametros = new HashMap();
-            parametros.put("PARAM_nome", request.getParameter("paramIre"));
-            String relatorio = getServletContext().getRealPath("/WEB-INF/classes/relatorio") + "/ReportIrregularidadeParam.jasper";
+            parametros.put("PARAM_modalidade", request.getParameter("paramModal"));
+            String relatorio = getServletContext().getRealPath("/WEB-INF/classes/relatorio") + "/ReportModalidadeParam.jasper";
             JasperPrint jp = JasperFillManager.fillReport(relatorio, parametros, conexao);
             byte[] relat = JasperExportManager.exportReportToPdf(jp);
-            response.setHeader("Content-Disposition", "attachment;filename=relatorioIrregularidadeParam.pdf");
+            response.setHeader("Content-Disposition", "attachment;filename=relatorioModalidadeParam.pdf");
             response.setContentType("application/pdf");
             response.getOutputStream().write(relat);
 

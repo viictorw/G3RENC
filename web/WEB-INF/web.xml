@@ -40,6 +40,26 @@
         <servlet-name>ReportEspacoParam</servlet-name>
         <servlet-class>relatorio.ReportEspacoParam</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ReportTipoEspaco</servlet-name>
+        <servlet-class>relatorio.ReportTipoEspaco</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReportTipoEspacoParam</servlet-name>
+        <servlet-class>relatorio.ReportTipoEspacoParam</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReportModalidade</servlet-name>
+        <servlet-class>relatorio.ReportModalidade</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReportModalidadeParam</servlet-name>
+        <servlet-class>relatorio.ReportModalidadeParam</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReportIrregularidadeParam</servlet-name>
+        <servlet-class>relatorio.ReportIrregularidadeParam</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PesquisaIrregularidadeController</servlet-name>
         <url-pattern>/PesquisaIrregularidadeController</url-pattern>
@@ -79,10 +99,6 @@
     <servlet>
         <servlet-name>ReportCartao</servlet-name>
         <servlet-class>relatorio.ReportCartao</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ReportModalidade</servlet-name>
-        <servlet-class>relatorio.ReportModalidade</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ReportAdministradorController</servlet-name>
@@ -349,18 +365,6 @@
         <url-pattern>/ReportDisponibilidade</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet>
-            <servlet-name>ReportModalidade</servlet-name>
-            <servlet-class>relatorio.ReportModalidade</servlet-class>
-        </servlet>
-        <servlet-mapping>
-            <servlet-name>ReportModalidade</servlet-name>
-            <url-pattern>/ReportModalidade</url-pattern>
-        </servlet-mapping>
-        <servlet-name>ReportAdministradorController</servlet-name>
-        <url-pattern>/ReportAdministradorController</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ReportReembolsoController</servlet-name>
         <url-pattern>/ReportReembolsoController</url-pattern>
     </servlet-mapping>
@@ -420,6 +424,26 @@
         <servlet-name>ReportEspacoParam</servlet-name>
         <url-pattern>/ReportEspacoParam</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReportTipoEspaco</servlet-name>
+        <url-pattern>/ReportTipoEspaco</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReportTipoEspacoParam</servlet-name>
+        <url-pattern>/ReportTipoEspacoParam</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReportModalidade</servlet-name>
+        <url-pattern>/ReportModalidade</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReportModalidadeParam</servlet-name>
+        <url-pattern>/ReportModalidadeParam</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReportIrregularidadeParam</servlet-name>
+        <url-pattern>/ReportIrregularidadeParam</url-pattern>
+    </servlet-mapping>
     <error-page>
         <error-code>404</error-code>
         <location>/erro404.jsp</location>
@@ -443,13 +467,5 @@
     <servlet-mapping>
         <servlet-name>ReportIrregularidade</servlet-name>
         <url-pattern>/ReportIrregularidade</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>ReportIrregularidadeParam</servlet-name>
-        <servlet-class>relatorio.ReportIrregularidadeParam</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ReportIrregularidadeParam</servlet-name>
-        <url-pattern>/ReportIrregularidadeParam</url-pattern>
     </servlet-mapping>
 </web-app>

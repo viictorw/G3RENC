@@ -124,13 +124,13 @@
                                 </div>
                                 <div class="modal-body">
                                     <h5>
-                                        Escolha por data de vencimento
+                                        Escolha por Modalidade
                                     </h5>
-                                    <form action="ReportModalidade" method="POST" autofocus>
-                                        <select class="form-control" name="paramModalidades">
+                                    <form action="ReportModalidadeParam" method="POST" autofocus>
+                                        <select class="form-control" name="paramModal">
 
                                             <c:forEach items="${modalidades}" var="modalidade">
-                                                <option value="${modalidade.id}">${modalidade.modalidade}</option>  
+                                                <option value="${modalidade.modalidade}">${modalidade.modalidade}</option>  
                                             </c:forEach>
                                         </select>
                                         <input class="btn btn-outline-primary btn-sm" type="submit" value="Emitir Relatório com Parâmetro"/>

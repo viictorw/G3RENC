@@ -112,13 +112,13 @@
                                 </div>
                                 <div class="modal-body">
                                     <h5>
-                                        Escolha a cidade desejada
+                                        Escolha o autor
                                     </h5>
                                     <form action="ReportIrregularidadeParam" method="POST" autofocus>
-                                        <select class="form-control" name="paramIr">
+                                        <select class="form-control" name="paramIre">
 
                                             <c:forEach items="${irregularidades}" var="irregularidade">
-                                                <option value="${irregularidade.id}">${irregularidade.autor}</option>  
+                                                <option value="${irregularidade.autor}">${irregularidade.autor}</option>  
                                             </c:forEach>
                                         </select>
                                         <input class="btn btn-outline-primary btn-sm" type="submit" value="Emitir Relatório com Parâmetro"/>

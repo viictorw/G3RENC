@@ -1,6 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 package relatorio;
@@ -8,6 +7,7 @@ package relatorio;
 import dao.BD;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.HashMap;
 import javax.servlet.ServletException;
@@ -21,28 +21,29 @@ import net.sf.jasperreports.engine.JasperPrint;
 
 /**
  *
- * @author viict
+ * @author Marco
  */
-public class ReportIrregularidadeParam extends HttpServlet {
-
+public class ReportTipoEspaco extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) {
-        Connection conexao = null;
+ Connection conexao = null;
         try {
-            /*Class.forName("com.mysql.jdbc.Driver");
-            conexao = DriverManager.getConnection("jdbc:mysql://localhost/sca", "root", "123");*/
- /*  parametros.put("PAR_codCurso", Integer.parseInt(request.getParameter("txtCodCurso")));*/
-
+            Class.forName("com.mysql.jdbc.Driver");
             conexao = BD.getConexao();
+            
             HashMap parametros = new HashMap();
-            parametros.put("PARAM_nome", request.getParameter("paramIre"));
-            String relatorio = getServletContext().getRealPath("/WEB-INF/classes/relatorio") + "/ReportIrregularidadeParam.jasper";
+            String relatorio = getServletContext().getRealPath("/WEB-INF/classes/relatorio")+"/ReportTipoEspaco.jasper";
             JasperPrint jp = JasperFillManager.fillReport(relatorio, parametros, conexao);
             byte[] relat = JasperExportManager.exportReportToPdf(jp);
-            response.setHeader("Content-Disposition", "attachment;filename=relatorioIrregularidadeParam.pdf");
+            response.setHeader("Content-Disposition", "attachment;filename=relatorioTipoEspaco.pdf");
             response.setContentType("application/pdf");
             response.getOutputStream().write(relat);
-
-        } catch (ClassNotFoundException | JRException | IOException ex) {
+        } /*catch (SQLException ex) {
+            ex.printStackTrace();
+        } */catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (JRException ex) {
+            ex.printStackTrace();
+        } catch (IOException ex) {
             ex.printStackTrace();
         } finally {
             try {
@@ -55,9 +56,8 @@ public class ReportIrregularidadeParam extends HttpServlet {
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
+    /** 
      * Handles the HTTP <code>GET</code> method.
-     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -69,9 +69,8 @@ public class ReportIrregularidadeParam extends HttpServlet {
         processRequest(request, response);
     }
 
-    /**
+    /** 
      * Handles the HTTP <code>POST</code> method.
-     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -83,9 +82,8 @@ public class ReportIrregularidadeParam extends HttpServlet {
         processRequest(request, response);
     }
 
-    /**
+    /** 
      * Returns a short description of the servlet.
-     *
      * @return a String containing servlet description
      */
     @Override

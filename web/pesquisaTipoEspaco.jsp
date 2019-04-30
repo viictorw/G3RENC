@@ -108,10 +108,10 @@
 
                     <!--FIM Tabela botoes incluir-->
                     
-<!--  Inicio Botão de relatório -->
-                        <a href="#" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#modalReserva">Relatorios</a>
+  <!--  Inicio Botão de relatório -->
+                        <a href="#" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#modalAdmin">Relatorios</a>
                     </div>
-                    <div class="modal fade" id="modalReserva" tabindex="-1" role="dialog">
+                    <div class="modal fade" id="modalAdmin" tabindex="-1" role="dialog">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -124,13 +124,13 @@
                                 </div>
                                 <div class="modal-body">
                                     <h5>
-                                        Escolha por data de vencimento
+                                        Escolha por tipo
                                     </h5>
-                                    <form action="ReportTipoEspaco" method="POST" autofocus>
-                                        <select class="form-control" name="paramEspacos">
+                                    <form action="ReportTipoEspacoParam" method="POST" autofocus>
+                                        <select class="form-control" name="paramTipoEspaco">
 
-                                            <c:forEach items="${tipoEspacos}" var="tipoEspaco">
-                                                <option value="${tipoEspaco.id}">${tipoEspaco.nome}</option>  
+                                            <c:forEach items="${tiposEspacos}" var="tipoEspaco">
+                                                <option value="${tipoEspaco.nome}">${tipoEspaco.nome}</option>  
                                             </c:forEach>
                                         </select>
                                         <input class="btn btn-outline-primary btn-sm" type="submit" value="Emitir Relatório com Parâmetro"/>
