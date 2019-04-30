@@ -79,7 +79,7 @@
 
 
                             <td>
-                                <select class="form-control" name="idReservas" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
+                                <select class="form-control" name="idReservas" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
                                     <option>Selecione uma opção</option>
                                 <c:forEach items="${reservas}" var="reserva">
                                     <option value="${reserva.id}" <c:if test="${reserva.id == pagamento.reserva.id}"> selected</c:if>>${reserva.id}</option>  
