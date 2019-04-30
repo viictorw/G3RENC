@@ -101,8 +101,8 @@
                                     <a class="dropdown-item" href="ReportReembolsoController">Relatório de Reembolsos</a>
 
                                     <a class="dropdown-item" href="ReportCliente">Relatório de Clientes</a>
-                                    <a class="dropdown-item" href="ReportEspacoController">Relatório de Espaços</a>
-                                    <a class="dropdown-item" href="ReportIrregularidadeController">Relatório de Irregularidades</a>
+                                    <a class="dropdown-item" href="ReportEspacoControlller">Relatório de Espaços</a>
+                                    <a class="dropdown-item" href="ReportIrregularidade">Relatório de Irregularidades</a>
 
 
                                 </div> 

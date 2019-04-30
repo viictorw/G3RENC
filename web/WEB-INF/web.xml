@@ -60,6 +60,10 @@
         <servlet-name>ReportIrregularidadeParam</servlet-name>
         <servlet-class>relatorio.ReportIrregularidadeParam</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ReportAdministradorController</servlet-name>
+        <servlet-class>relatorio.ReportAdministradorController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PesquisaIrregularidadeController</servlet-name>
         <url-pattern>/PesquisaIrregularidadeController</url-pattern>
@@ -99,10 +103,6 @@
     <servlet>
         <servlet-name>ReportCartao</servlet-name>
         <servlet-class>relatorio.ReportCartao</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ReportAdministradorController</servlet-name>
-        <servlet-class>relatorio.ReportAdministradorController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ReportReembolsoController</servlet-name>
@@ -443,6 +443,10 @@
     <servlet-mapping>
         <servlet-name>ReportIrregularidadeParam</servlet-name>
         <url-pattern>/ReportIrregularidadeParam</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReportAdministradorController</servlet-name>
+        <url-pattern>/ReportAdministradorController</url-pattern>
     </servlet-mapping>
     <error-page>
         <error-code>404</error-code>

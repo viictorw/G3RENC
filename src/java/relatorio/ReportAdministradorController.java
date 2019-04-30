@@ -8,7 +8,6 @@ package relatorio;
 import dao.BD;
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.HashMap;
 import javax.servlet.ServletException;
@@ -20,18 +19,15 @@ import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 
-
 /**
  *
  * @author viict
  */
 public class ReportAdministradorController extends HttpServlet {
 
-
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) {
         Connection conexao = null;
         try {
- 
             conexao = BD.getConexao();
             HashMap parametros = new HashMap();
             
@@ -42,11 +38,7 @@ public class ReportAdministradorController extends HttpServlet {
             response.setContentType("application/pdf");
             response.getOutputStream().write(relat);
 
-        } catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
-        } catch (JRException ex) {
-            ex.printStackTrace();
-        } catch (IOException ex) {
+        } catch (ClassNotFoundException | JRException | IOException ex) {
             ex.printStackTrace();
         } finally {
             try {
