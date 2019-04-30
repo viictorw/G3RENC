@@ -36,6 +36,10 @@
         <servlet-name>ReportCartaoController</servlet-name>
         <servlet-class>relatorio.ReportCartaoController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ReportEspacoParam</servlet-name>
+        <servlet-class>relatorio.ReportEspacoParam</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PesquisaIrregularidadeController</servlet-name>
         <url-pattern>/PesquisaIrregularidadeController</url-pattern>
@@ -412,6 +416,10 @@
         <servlet-name>ReportCartaoController</servlet-name>
         <url-pattern>/ReportCartaoController</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReportEspacoParam</servlet-name>
+        <url-pattern>/ReportEspacoParam</url-pattern>
+    </servlet-mapping>
     <error-page>
         <error-code>404</error-code>
         <location>/erro404.jsp</location>
@@ -420,8 +428,6 @@
         <servlet-name>PesquisaAdminController</servlet-name>
         <url-pattern>/PesquisaAdminController</url-pattern>
     </servlet-mapping>
-    
-    
     <servlet>
         <servlet-name>ReportEspacoControlller</servlet-name>
         <servlet-class>relatorio.ReportEspacoControlller</servlet-class>
@@ -430,7 +436,6 @@
         <servlet-name>ReportIrregularidade</servlet-name>
         <servlet-class>relatorio.ReportIrregularidade</servlet-class>
     </servlet>
-    
     <servlet-mapping>
         <servlet-name>ReportEspacoControlller</servlet-name>
         <url-pattern>/ReportEspacoControlller</url-pattern>
@@ -439,16 +444,12 @@
         <servlet-name>ReportIrregularidade</servlet-name>
         <url-pattern>/ReportIrregularidade</url-pattern>
     </servlet-mapping>
-    
     <servlet>
         <servlet-name>ReportIrregularidadeParam</servlet-name>
         <servlet-class>relatorio.ReportIrregularidadeParam</servlet-class>
     </servlet>
-  <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ReportIrregularidadeParam</servlet-name>
         <url-pattern>/ReportIrregularidadeParam</url-pattern>
     </servlet-mapping>
-    
-    
-    
 </web-app>

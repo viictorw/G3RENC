@@ -120,8 +120,8 @@
                                     <h5>
                                         Escolha a cidade desejada
                                     </h5>
-                                    <form action="ReportReservaParam" method="POST" autofocus>
-                                        <select class="form-control" name="paramReserva">
+                                    <form action="ReportEspacoParam" method="POST" autofocus>
+                                        <select class="form-control" name="paramEspaco">
 
                                             <c:forEach items="${espacos}" var="espaco">
                                                 <option value="${espaco.cidade}">${espaco.cidade}</option>  
