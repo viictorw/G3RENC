@@ -37,7 +37,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                          <li>
-                            <a class="nav-link"  href="ManterClienteController?acao=prepararOperacao&operacao=Incluir">Cadastro</a>
+                            <a class="nav-link"  href="ManterCadastroController?acao=prepararOperacao&operacao=Incluir">Cadastro</a>
                         </li>
 
                     </ul>

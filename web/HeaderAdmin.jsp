@@ -1,4 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<% String usuario = (String)session.getAttribute("usuario");
+    if(usuario == null){
+        response.sendRedirect("login.jsp");
+    }
+%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -90,8 +95,9 @@
                             </li>
                      
                             <li class="nav-item">
-                            <a class="nav-link" href="index.jsp">Sair</a>
+                            <a class="nav-link" href="deslogar.jsp">Sair</a>
                         </li>
+                        
                         
                         
                         
