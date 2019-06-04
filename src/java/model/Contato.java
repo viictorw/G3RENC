@@ -5,6 +5,8 @@
  */
 package model;
 
+import model.Contato;
+import dao.Base;
 import dao.ContatoDAO;
 import java.io.Serializable;
 import java.sql.SQLException;
@@ -20,7 +22,7 @@ import javax.persistence.ManyToOne;
  * @author iza
  */
 @Entity
-public class Contato implements Serializable{
+public class Contato implements  Base, Serializable{
     
     private static final long serialVersionUID = 1L;
     @Id
@@ -58,7 +60,7 @@ public class Contato implements Serializable{
     }
 
 
-
+    @Override
     public Long getId() {
         return id;
     }
@@ -75,21 +77,20 @@ public class Contato implements Serializable{
         this.numero = numero;
     }
     
+    Contato contato = new Contato();
     
-    
-             public void gravar() throws SQLException, ClassNotFoundException {
+    public void gravar() throws SQLException, ClassNotFoundException {
         ContatoDAO.getInstance().salvar(this);
     }
            
-
-    
+    /*
     public void excluir() throws SQLException, ClassNotFoundException {
-        ContatoDAO.getInstance().excluir(this);
+        ContatoDAO.getInstance().excluir(contato,this);
     }
 
     public static  Contato obterContato(Long id) throws SQLException, ClassNotFoundException {
-        return ContatoDAO.getInstance().getContato(id);
-    }
+        return ContatoDAO.getInstance().getContato(contato, id);
+    }*/
 
     public static List<Contato> obterTodosContatoes() throws SQLException, ClassNotFoundException {
         return ContatoDAO.getInstance().getAllContatos();

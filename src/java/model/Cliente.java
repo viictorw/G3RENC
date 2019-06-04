@@ -15,7 +15,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 
-
+<% String usuario = (String)session.getAttribute("usuario");
+    if(usuario == null){
+        response.sendRedirect("login.jsp");
+    }
+%>
 
 /**
  *
