@@ -1,4 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<% String usuario = (String)session.getAttribute("usuario");
+    if(usuario == null){
+        response.sendRedirect("login.jsp");
+    }
+%>
+
 <!DOCTYPE html>
 <html>
   <head>

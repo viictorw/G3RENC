@@ -28,6 +28,7 @@ public class Reserva implements Serializable {
      private Long id;
     private String dataLocacao;
     private String horaInicioLocacao;
+    
     private String horaFimLocacao;
     private Long qtPessoas;
     private Double valorLocacao;
@@ -53,10 +54,15 @@ public class Reserva implements Serializable {
         this.cliente = cliente;
     }
 
-
-    
-
- 
+/*
+    public double totalLocacao()
+    {
+        double totalValor;
+        totalValor=(hInicio - hFim) * valorLocacao;
+        return totalValor;
+        
+    }
+ */
 
     
     

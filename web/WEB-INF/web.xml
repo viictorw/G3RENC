@@ -64,6 +64,14 @@
         <servlet-name>ReportAdministradorController</servlet-name>
         <servlet-class>relatorio.ReportAdministradorController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PesquisaAdminEspacoController</servlet-name>
+        <servlet-class>controller.PesquisaAdminEspacoController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManterAdminEspacoController</servlet-name>
+        <servlet-class>controller.ManterAdminEspacoController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PesquisaIrregularidadeController</servlet-name>
         <url-pattern>/PesquisaIrregularidadeController</url-pattern>
@@ -75,14 +83,6 @@
     <servlet>
         <servlet-name>PesquisaAdminClienteController</servlet-name>
         <servlet-class>controller.PesquisaAdminClienteController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>PesquisaAdminEspacoController</servlet-name>
-        <servlet-class>controller.PesquisaAdminEspacoController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ManterAdminEspacoController</servlet-name>
-        <servlet-class>controller.ManterAdminEspacoController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ManterAdminModalidadeController</servlet-name>
@@ -317,14 +317,6 @@
         <url-pattern>/PesquisaAdminClienteController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>PesquisaAdminEspacoController</servlet-name>
-        <url-pattern>/PesquisaAdminEspacoController</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ManterAdminEspacoController</servlet-name>
-        <url-pattern>/ManterAdminEspacoController</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ManterAdminModalidadeController</servlet-name>
         <url-pattern>/ManterAdminModalidadeController</url-pattern>
     </servlet-mapping>
@@ -447,6 +439,14 @@
     <servlet-mapping>
         <servlet-name>ReportAdministradorController</servlet-name>
         <url-pattern>/ReportAdministradorController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PesquisaAdminEspacoController</servlet-name>
+        <url-pattern>/PesquisaAdminEspacoController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManterAdminEspacoController</servlet-name>
+        <url-pattern>/ManterAdminEspacoController</url-pattern>
     </servlet-mapping>
     <error-page>
         <error-code>404</error-code>

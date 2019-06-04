@@ -1,17 +1,17 @@
 package controller;
 
-import model.Contato;
+import model.Espaco;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import java.sql.SQLException;
 
-public class    PesquisaContatoController extends HttpServlet {
+
+public class    PesquisaAdminEspacoController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -23,15 +23,15 @@ public class    PesquisaContatoController extends HttpServlet {
         processRequest(request, response);
     }
 
-    protected void processRequest(HttpServletRequest request,
-                                  HttpServletResponse response) throws SecurityException, IOException, ServletException {
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws SecurityException, IOException, ServletException {
         try {
-            request.setAttribute("contatos", Contato.obterTodosContatos());
-            RequestDispatcher view = request.getRequestDispatcher("/pesquisaContato.jsp");
+            request.setAttribute("espacos", Espaco.obterTodosEspacos());
+            RequestDispatcher view = request.getRequestDispatcher("/pesquisaAdminEspaco.jsp");
             view.forward(request, response);
         } catch (ClassNotFoundException | SQLException e) {
             throw new ServletException(e);
         } catch (ServletException e) {
+            e.printStackTrace();
         }
     }
 }

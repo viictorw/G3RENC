@@ -59,6 +59,7 @@ public class ManterContatoController extends HttpServlet {
         
         if(!operacao.equals("Incluir")){
                 Contato contato = Contato.obterContato(Long.parseLong(request.getParameter("id")));
+                
                 request.setAttribute("contato", contato);
         }
                 RequestDispatcher view = request.getRequestDispatcher("/manterContato.jsp");

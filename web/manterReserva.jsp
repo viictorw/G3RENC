@@ -83,13 +83,13 @@
                         <br>
 
                         <tr>
-                        <input type="HIDDEN" min="1" class="form-control" name="id" required id="id" value="${reserva.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>>
+                        <input type="HIDDEN" min="1" class="form-control" name="id" required id="id" value="${reserva.id}" required autofocus<c:if test="${operacao != 'Incluir'}"> readonly</c:if>>
                             </tr>
 
                             <tr>
                                 <td>Data da locação:</td>
 
-                                <td><input type="date" class="form-control" placeholder="00/00/0000" name="txtDataLocacao" required="required"  maxlength="10" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}$" autocomplete="off" min="1500-01-01" max="3000-12-31"  value="${reserva.dataLocacao}" required<c:if test="${operacao == 'Excluir'}">readonly</c:if>></td>
+                                <td><input type="date" class="form-control" placeholder="00/00/0000" name="txtDataLocacao" required="required"  maxlength="10" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}$" autocomplete="off" min="1500-01-01" max="3000-12-31"  value="${reserva.dataLocacao}" required<c:if test="${operacao == 'Excluir'}">disable</c:if>></td>
                             </tr>
 
 

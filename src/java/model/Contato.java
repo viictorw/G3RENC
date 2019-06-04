@@ -77,22 +77,22 @@ public class Contato implements  Base, Serializable{
         this.numero = numero;
     }
     
-    Contato contato = new Contato();
+    
     
     public void gravar() throws SQLException, ClassNotFoundException {
         ContatoDAO.getInstance().salvar(this);
     }
            
-    /*
+    
     public void excluir() throws SQLException, ClassNotFoundException {
-        ContatoDAO.getInstance().excluir(contato,this);
+        ContatoDAO.getInstance().excluir(this);
     }
 
     public static  Contato obterContato(Long id) throws SQLException, ClassNotFoundException {
-        return ContatoDAO.getInstance().getContato(contato, id);
-    }*/
+        return ContatoDAO.getInstance().getContato((long) id);
+    }
 
-    public static List<Contato> obterTodosContatoes() throws SQLException, ClassNotFoundException {
+    public static List<Contato> obterTodosContatos() throws SQLException, ClassNotFoundException {
         return ContatoDAO.getInstance().getAllContatos();
     }
 }
