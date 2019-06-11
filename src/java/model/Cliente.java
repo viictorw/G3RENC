@@ -5,7 +5,7 @@
  */
 package model;
 
-import dao.ClienteDAO;
+import dao.GenericoDAO;
 import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.List;
@@ -110,21 +110,21 @@ public class Cliente implements Serializable{
         this.senha = senha;
     }
 
-    public static Cliente logar(String email, String senha) throws ClassNotFoundException {
-        return ClienteDAO.logar(email, senha);
+    public static Object logar(String email, String senha) throws ClassNotFoundException {
+        return GenericoDAO.getInstance().getClienteEmail(email, null, email);
     }
-      public void gravar() throws SQLException, ClassNotFoundException{
-        ClienteDAO.getInstance().salvar(this);
+      public void gravar() throws SQLException, ClassNotFoundException, NoSuchMethodException{
+        GenericoDAO.getInstance().salvar(this);
     }
 
-    public void excluir() throws SQLException, ClassNotFoundException{
-        ClienteDAO.getInstance().excluir(this);
+    public void excluir() throws SQLException, ClassNotFoundException, NoSuchMethodException{
+        GenericoDAO.getInstance().excluir(this);
     }
     public static Cliente obterCliente(Long id) throws SQLException, ClassNotFoundException{
-        return ClienteDAO.getInstance().getCliente(id);
+        return (Cliente) GenericoDAO.getInstance().get(id);
     }
-    public static List<Cliente> obterTodosOsClientes() throws SQLException, ClassNotFoundException{
-        return ClienteDAO.getInstance().getAllClientes();
+    public static List<Object> obterTodosOsClientes() throws SQLException, ClassNotFoundException{
+        return GenericoDAO.getInstance().getAll();
     }
 
 }

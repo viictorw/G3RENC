@@ -7,6 +7,8 @@ package controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -31,7 +33,7 @@ public class ManterClienteController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, NoSuchMethodException {
 
         String acao = request.getParameter("acao");
 
@@ -71,7 +73,7 @@ public class ManterClienteController extends HttpServlet {
         }
     }
 
-    public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+    public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException, NoSuchMethodException {
         String operacao = request.getParameter("operacao");
 
         String nome = request.getParameter("txtNomeCliente");
@@ -127,7 +129,11 @@ public class ManterClienteController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (NoSuchMethodException ex) {
+            Logger.getLogger(ManterClienteController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -141,7 +147,11 @@ public class ManterClienteController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (NoSuchMethodException ex) {
+            Logger.getLogger(ManterClienteController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

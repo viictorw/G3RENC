@@ -61,7 +61,7 @@ public class LoginController extends HttpServlet {
                 }
             } else  if (optUsuario.equals("cliente")) {
                 try {
-                    Cliente cliente = Cliente.logar(email, senha);
+                    Object cliente = Cliente.logar(email, senha);
                     if (cliente != null) {
                         HttpSession session = request.getSession(true);
                         session.setAttribute("cliente", cliente);

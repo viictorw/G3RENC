@@ -138,5 +138,31 @@ public class GenericoDAO {
         }
         return objeto;
     }
+    public Object getClienteEmail(String email, Class classe, String login){
+        
+        EntityManager em = PersistenceUtil.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        Object objeto = null;
+        try{
+            tx.begin();
+            TypedQuery<Object> query = em.createQuery("select c From "+ classe.getName() +" c where c."+login +" LIKE :"+login , classe);
+            if(login == "email"){
+            query.setParameter("email", email);
+            }else{
+               query.setParameter("login", email);
+            }
+            objeto = query.getSingleResult();
+            tx.commit();
+        } catch (Exception e){
+            if(tx != null && tx.isActive()){
+                tx.rollback();
+                return objeto;
+            }
+            throw new RuntimeException(e);
+        }finally{
+            PersistenceUtil.close(em);
+        }
+        return objeto;
+    }
 
 }
