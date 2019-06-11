@@ -33,9 +33,10 @@ public class ManterTipoEspacoController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      * @throws java.sql.SQLException
      * @throws java.lang.ClassNotFoundException
+     * @throws java.lang.NoSuchMethodException
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException, ClassNotFoundException {
+            throws ServletException, IOException, SQLException, ClassNotFoundException, NoSuchMethodException {
         String acao = request.getParameter("acao");
         if (acao.equals("confirmarOperacao")) {
               confirmarOperacao(request, response);
@@ -62,6 +63,8 @@ public class ManterTipoEspacoController extends HttpServlet {
             processRequest(request, response);
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(ManterTipoEspacoController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchMethodException ex) {
+            Logger.getLogger(ManterTipoEspacoController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -79,6 +82,8 @@ public class ManterTipoEspacoController extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(ManterTipoEspacoController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchMethodException ex) {
             Logger.getLogger(ManterTipoEspacoController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -114,7 +119,7 @@ public class ManterTipoEspacoController extends HttpServlet {
         }
     }
     
-    public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+    public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException, NoSuchMethodException {
         String operacao = request.getParameter("operacao");
 
         String nome = request.getParameter("txtNome");

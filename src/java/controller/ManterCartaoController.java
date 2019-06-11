@@ -34,7 +34,7 @@ public class ManterCartaoController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException, ClassNotFoundException {
+            throws ServletException, IOException, SQLException, ClassNotFoundException, NoSuchMethodException {
         
         String acao = request.getParameter("acao");
         
@@ -73,7 +73,7 @@ public class ManterCartaoController extends HttpServlet {
             }
     }
     
-       public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException, ClassNotFoundException  {
+       public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException, ClassNotFoundException, NoSuchMethodException  {
         String operacao = request.getParameter("operacao");
         
         Long id = null;
@@ -138,6 +138,8 @@ public class ManterCartaoController extends HttpServlet {
             Logger.getLogger(ManterAdministradorController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ManterAdministradorController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchMethodException ex) {
+            Logger.getLogger(ManterCartaoController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -159,6 +161,8 @@ public class ManterCartaoController extends HttpServlet {
             Logger.getLogger(ManterPagamentoController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ManterPagamentoController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchMethodException ex) {
+            Logger.getLogger(ManterCartaoController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

@@ -34,7 +34,7 @@ public class ManterModalidadeController extends HttpServlet {
      * @throws java.lang.ClassNotFoundException
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException, ClassNotFoundException {
+            throws ServletException, IOException, SQLException, ClassNotFoundException, NoSuchMethodException {
         String acao = request.getParameter("acao");
         if (acao.equals("confirmarOperacao")) {
               confirmarOperacao(request, response);
@@ -61,6 +61,8 @@ public class ManterModalidadeController extends HttpServlet {
             processRequest(request, response);
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(ManterModalidadeController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchMethodException ex) {
+            Logger.getLogger(ManterModalidadeController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -78,6 +80,8 @@ public class ManterModalidadeController extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(ManterModalidadeController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchMethodException ex) {
             Logger.getLogger(ManterModalidadeController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -109,7 +113,7 @@ public class ManterModalidadeController extends HttpServlet {
             throw new ServletException(e);
         }
     }
-     public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+     public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException, NoSuchMethodException {
         String operacao = request.getParameter("operacao");
         
         String nome = request.getParameter("txtModalidade");

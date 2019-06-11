@@ -36,7 +36,7 @@ public class ManterReembolsoController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException, ClassNotFoundException {
+            throws ServletException, IOException, SQLException, ClassNotFoundException, NoSuchMethodException {
 
         String acao = request.getParameter("acao");
 
@@ -75,7 +75,7 @@ public class ManterReembolsoController extends HttpServlet {
         }
     }
 
-    public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException, SQLException, ClassNotFoundException {
+    public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException, SQLException, ClassNotFoundException, NoSuchMethodException {
         String operacao = request.getParameter("operacao");
 
         String estado = request.getParameter("txtNomeReembolso");
@@ -134,6 +134,8 @@ public class ManterReembolsoController extends HttpServlet {
             Logger.getLogger(ManterReembolsoController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ManterReembolsoController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchMethodException ex) {
+            Logger.getLogger(ManterReembolsoController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -153,6 +155,8 @@ public class ManterReembolsoController extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(ManterReembolsoController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ManterReembolsoController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchMethodException ex) {
             Logger.getLogger(ManterReembolsoController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

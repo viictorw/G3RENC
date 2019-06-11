@@ -5,7 +5,7 @@
  */
 package model;
 
-import dao.ReembolsoDAO;
+import dao.GenericoDAO;
 import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.List;
@@ -65,20 +65,20 @@ public class Reembolso implements Serializable {
         this.pagamento = pagamento;
     }
 
-       public void salvar() throws SQLException, ClassNotFoundException {
-        ReembolsoDAO.getInstance().salvar(this);
+       public void salvar() throws SQLException, ClassNotFoundException, NoSuchMethodException {
+        GenericoDAO.getInstance().salvar(this);
     }
     
-    public void excluir() throws SQLException, ClassNotFoundException {
-        ReembolsoDAO.getInstance().excluir(this);
+    public void excluir() throws SQLException, ClassNotFoundException, NoSuchMethodException {
+        GenericoDAO.getInstance().excluir(this);
     }
     
     public static Reembolso obterReembolso(Long id) throws SQLException, ClassNotFoundException {
-        return ReembolsoDAO.getInstance().getReembolso(id);
+        return (Reembolso) GenericoDAO.getInstance().get((long)id);
     }
     
-    public static List<Reembolso> obterTodosReembolsos() throws SQLException, ClassNotFoundException {
-        return ReembolsoDAO.getInstance().getAllReembolsos();
+    public static List<Object> obterTodosReembolsos() throws SQLException, ClassNotFoundException {
+        return GenericoDAO.getInstance().getAll();
                 }
     
 }

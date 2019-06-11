@@ -5,8 +5,7 @@
  */
 package model;
 
-import dao.ModalidadeDAO;
-import dao.PagamentoDAO;
+import dao.GenericoDAO;
 import java.sql.SQLException;
 import java.util.List;
 import javax.persistence.Entity;
@@ -16,7 +15,7 @@ import javax.persistence.Id;
 
 /**
  *
- * @author iza
+ * @author luis
  */
 
 @Entity
@@ -82,18 +81,18 @@ public class Modalidade {
     }
     
     
-    public void salvar() throws SQLException, ClassNotFoundException {
-        ModalidadeDAO.getInstance().salvar(this);
+    public void salvar() throws SQLException, ClassNotFoundException, NoSuchMethodException {
+        GenericoDAO.getInstance().salvar(this);
     }
-    public void excluir() throws SQLException, ClassNotFoundException {
-        ModalidadeDAO.getInstance().excluir(this);
+    public void excluir() throws SQLException, ClassNotFoundException, NoSuchMethodException {
+        GenericoDAO.getInstance().excluir(this);
     }
 
     public static Modalidade obterModalidade(Long id) throws SQLException, ClassNotFoundException {
-        return ModalidadeDAO.getInstance().getModalidade(id);
+        return (Modalidade) GenericoDAO.getInstance().get((long) id);
     }
 
-    public static List<Modalidade> obterTodasModalidades() throws SQLException, ClassNotFoundException {
-        return ModalidadeDAO.getInstance().getAllModalidades();
+    public static List<Object> obterTodasModalidades() throws SQLException, ClassNotFoundException {
+        return GenericoDAO.getInstance().getAll();
     }
 }

@@ -5,7 +5,7 @@
  */
 package model;
 
-import dao.TipoEspacoDAO;
+import dao.GenericoDAO;
 import java.sql.SQLException;
 import java.util.List;
 import javax.persistence.Entity;
@@ -16,7 +16,7 @@ import javax.persistence.ManyToOne;
 
 /**
  *
- * @author iza
+ * @author luis
  */
 
 @Entity
@@ -83,18 +83,18 @@ public class TipoEspaco {
      * @throws java.sql.SQLException
      * @throws java.lang.ClassNotFoundException
      */
-      public void salvar() throws SQLException, ClassNotFoundException {
-        TipoEspacoDAO.getInstance().salvar(this);
+      public void salvar() throws SQLException, ClassNotFoundException, NoSuchMethodException {
+        GenericoDAO.getInstance().salvar(this);
       }
-    public void excluir() throws SQLException, ClassNotFoundException {
-        TipoEspacoDAO.getInstance().excluir(this);
+    public void excluir() throws SQLException, ClassNotFoundException, NoSuchMethodException {
+        GenericoDAO.getInstance().excluir(this);
     }
     
     public static TipoEspaco obterTipoEspaco(Long id) throws SQLException, ClassNotFoundException {
-        return TipoEspacoDAO.getInstance().getTipoEspaco(id);
+        return (TipoEspaco) GenericoDAO.getInstance().get((long) id);
     }
     
-    public static List<TipoEspaco> obterTodosTipoEspacos() throws SQLException, ClassNotFoundException {
-        return TipoEspacoDAO.getInstance().getAllTipoEspacos();
+    public static List<Object> obterTodosTipoEspacos() throws SQLException, ClassNotFoundException {
+        return GenericoDAO.getInstance().getAll();
     }
 }

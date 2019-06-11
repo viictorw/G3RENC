@@ -5,7 +5,7 @@
  */
 package model;
 
-import dao.EspacoDAO;
+import dao.GenericoDAO;
 import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.List;
@@ -186,20 +186,20 @@ public class Espaco implements Serializable {
     }
     
     
-      public void salvar() throws SQLException, ClassNotFoundException {
-        EspacoDAO.getInstance().salvar(this);
+      public void salvar() throws SQLException, ClassNotFoundException, NoSuchMethodException {
+        GenericoDAO.getInstance().salvar(this);
     }
     
-    public void excluir() throws SQLException, ClassNotFoundException {
-        EspacoDAO.getInstance().excluir(this);
+    public void excluir() throws SQLException, ClassNotFoundException, NoSuchMethodException {
+        GenericoDAO.getInstance().excluir(this);
     }
     
     public static Espaco obterEspaco(Long id) throws SQLException, ClassNotFoundException {
-        return EspacoDAO.getInstance().getEspaco((long) id);
+        return (Espaco) GenericoDAO.getInstance().get((long) id);
     }
     
-    public static List<Espaco> obterTodosEspacos() throws SQLException, ClassNotFoundException {
-        return EspacoDAO.getInstance().getAllEspacos();
+    public static List<Object> obterTodosEspacos() throws SQLException, ClassNotFoundException {
+        return GenericoDAO.getInstance().getAll();
     }
   
     
