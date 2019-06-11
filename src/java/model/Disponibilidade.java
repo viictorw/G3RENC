@@ -5,9 +5,8 @@
  */
 package model;
 
-import dao.DisponibilidadeDAO;
+
 import dao.GenericoDAO;
-import dao.PagamentoDAO;
 import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.List;

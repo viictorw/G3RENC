@@ -6,7 +6,6 @@
 package model;
 
 import dao.ModalidadeDAO;
-import dao.PagamentoDAO;
 import java.sql.SQLException;
 import java.util.List;
 import javax.persistence.Entity;
