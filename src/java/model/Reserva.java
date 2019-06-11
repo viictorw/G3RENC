@@ -5,7 +5,7 @@
  */
 package model;
 
-import dao.ReservaDAO;
+import dao.GenericoDAO;
 import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.List;
@@ -137,20 +137,20 @@ public class Reserva implements Serializable {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
-       public void salvar() throws SQLException, ClassNotFoundException {
-        ReservaDAO.getInstance().salvar(this);
+       public void salvar() throws SQLException, ClassNotFoundException, NoSuchMethodException {
+        GenericoDAO.getInstance().salvar(this);
     }
     
-    public void excluir() throws SQLException, ClassNotFoundException {
-        ReservaDAO.getInstance().excluir(this);
+    public void excluir() throws SQLException, ClassNotFoundException, NoSuchMethodException {
+        GenericoDAO.getInstance().excluir(this);
     }
     
     public static Reserva obterReserva (Long id) throws SQLException, ClassNotFoundException {
-        return ReservaDAO.getInstance().getReserva((long) id);
+        return (Reserva) GenericoDAO.getInstance().get((long) id);
     }
     
-    public static List<Reserva> obterTodasReservas() throws SQLException, ClassNotFoundException {
-        return ReservaDAO.getInstance().getAllReservaes();
+    public static List<Object> obterTodasReservas() throws SQLException, ClassNotFoundException {
+        return GenericoDAO.getInstance().getAll();
                 }
 
 }

@@ -34,7 +34,7 @@ public class ManterReservaController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException, ClassNotFoundException {
+            throws ServletException, IOException, SQLException, ClassNotFoundException, NoSuchMethodException {
 
         String acao = request.getParameter("acao");
 
@@ -74,7 +74,7 @@ public class ManterReservaController extends HttpServlet {
         }
     }
 
-    public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException, SQLException, ClassNotFoundException {
+    public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException, SQLException, ClassNotFoundException, NoSuchMethodException {
         String operacao = request.getParameter("operacao");
 
         String dataLocacao = request.getParameter("txtDataLocacao");
@@ -144,6 +144,8 @@ public class ManterReservaController extends HttpServlet {
             Logger.getLogger(ManterReservaController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ManterReservaController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchMethodException ex) {
+            Logger.getLogger(ManterReservaController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -163,6 +165,8 @@ public class ManterReservaController extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(ManterReservaController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ManterReservaController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchMethodException ex) {
             Logger.getLogger(ManterReservaController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

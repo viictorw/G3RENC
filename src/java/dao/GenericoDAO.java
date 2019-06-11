@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 import model.Pagamento;
+import model.Reserva;
 
 public class GenericoDAO {
 
