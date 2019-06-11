@@ -5,8 +5,8 @@
  */
 package model;
 
-import dao.DisponibilidadeDAO;
-import dao.PagamentoDAO;
+
+import dao.GenericoDAO;
 import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.List;
@@ -95,19 +95,19 @@ public class Disponibilidade implements Serializable{
         this.hora_fim = hora_fim;
     }
 
-    public void salvar() throws SQLException, ClassNotFoundException {
-            DisponibilidadeDAO.getInstance().salvar(this);
+    public void salvar() throws SQLException, ClassNotFoundException, NoSuchMethodException {
+            GenericoDAO.getInstance().salvar(this);
     }
-    public void excluir() throws SQLException, ClassNotFoundException {
-            DisponibilidadeDAO.getInstance().excluir(this);
+    public void excluir() throws SQLException, ClassNotFoundException, NoSuchMethodException {
+            GenericoDAO.getInstance().excluir(this);
         }
 
     public static Disponibilidade obterDisponibilidade(Long id) throws SQLException, ClassNotFoundException {
-        return DisponibilidadeDAO.getInstance().getDisponibilidade((long) id);
+        return (Disponibilidade) GenericoDAO.getInstance().get((long) id);
     }
 
-    public static List<Disponibilidade> obterTodasDisponibilidades() throws SQLException, ClassNotFoundException {
-        return DisponibilidadeDAO.getInstance().getAllDisponibilidades();
+    public static List<Object> obterTodasDisponibilidades() throws SQLException, ClassNotFoundException {
+        return GenericoDAO.getInstance().getAll();
     }
     
 }

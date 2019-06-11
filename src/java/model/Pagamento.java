@@ -5,7 +5,7 @@
  */
 package model;
 
-import dao.PagamentoDAO;
+import dao.GenericoDAO;
 import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.List;
@@ -84,19 +84,19 @@ public class Pagamento implements Serializable {
     public void setValorTotal(Double valorTotal) {
         this.valorTotal = valorTotal;
     }
-public void salvar() throws SQLException, ClassNotFoundException {
-        PagamentoDAO.getInstance().salvar(this);
-}
-public void excluir() throws SQLException, ClassNotFoundException {
-        PagamentoDAO.getInstance().excluir(this);
+    public void salvar() throws SQLException, ClassNotFoundException, NoSuchMethodException {
+        GenericoDAO.getInstance().salvar(this);
+    }
+    public void excluir() throws SQLException, ClassNotFoundException, NoSuchMethodException {
+        GenericoDAO.getInstance().excluir(this);
     }
 
     public static Pagamento obterPagamento(Long id) throws SQLException, ClassNotFoundException {
-        return PagamentoDAO.getInstance().getPagamento((long) id);
+        return (Pagamento) GenericoDAO.getInstance().get((long) id);
     }
 
-    public static List<Pagamento> obterTodosPagamentos() throws SQLException, ClassNotFoundException {
-        return PagamentoDAO.getInstance().getAllPagamentos();
+    public static List<Object> obterTodosPagamentos() throws SQLException, ClassNotFoundException {
+        return GenericoDAO.getInstance().getAll();
     }
 
 }
