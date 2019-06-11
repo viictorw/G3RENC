@@ -7,7 +7,7 @@ package model;
 
 import model.Contato;
 import dao.Base;
-import dao.ContatoDAO;
+import dao.GenericoDAO;
 import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.List;
@@ -79,20 +79,20 @@ public class Contato implements  Base, Serializable{
     
     
     
-    public void gravar() throws SQLException, ClassNotFoundException {
-        ContatoDAO.getInstance().salvar(this);
+    public void gravar() throws SQLException, ClassNotFoundException, NoSuchMethodException {
+        GenericoDAO.getInstance().salvar(this);
     }
            
     
-    public void excluir() throws SQLException, ClassNotFoundException {
-        ContatoDAO.getInstance().excluir(this);
+    public void excluir() throws SQLException, ClassNotFoundException, NoSuchMethodException {
+        GenericoDAO.getInstance().excluir(this);
     }
 
     public static  Contato obterContato(Long id) throws SQLException, ClassNotFoundException {
-        return ContatoDAO.getInstance().getContato((long) id);
+        return (Contato) GenericoDAO.getInstance().get((long) id);
     }
 
-    public static List<Contato> obterTodosContatos() throws SQLException, ClassNotFoundException {
-        return ContatoDAO.getInstance().getAllContatos();
+    public static List<Object> obterTodosContatos() throws SQLException, ClassNotFoundException {
+        return GenericoDAO.getInstance().getAll();
     }
 }

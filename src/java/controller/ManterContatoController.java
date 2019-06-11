@@ -8,6 +8,8 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -36,7 +38,7 @@ public class ManterContatoController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, NoSuchMethodException {
         
         String acao = request.getParameter("acao");
         
@@ -87,7 +89,11 @@ public class ManterContatoController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (NoSuchMethodException ex) {
+            Logger.getLogger(ManterContatoController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -101,7 +107,11 @@ public class ManterContatoController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (NoSuchMethodException ex) {
+            Logger.getLogger(ManterContatoController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -113,7 +123,7 @@ public class ManterContatoController extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-         public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+         public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException, NoSuchMethodException {
         String operacao = request.getParameter("operacao");
 
         String numero = request.getParameter("txtNumeroContato");
