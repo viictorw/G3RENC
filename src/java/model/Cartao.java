@@ -5,7 +5,7 @@
  */
 package model;
 
-import dao.CartaoDAO;
+import dao.GenericoDAO;
 import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.List;
@@ -121,18 +121,18 @@ public class Cartao implements Serializable{
 
     }
 
-      public void gravar() throws SQLException, ClassNotFoundException{
-        CartaoDAO.getInstance().salvar(this);
+      public void gravar() throws SQLException, ClassNotFoundException, NoSuchMethodException{
+        GenericoDAO.getInstance().salvar(this);
       }
 
-    public void excluir() throws SQLException, ClassNotFoundException{
-        CartaoDAO.getInstance().excluir(this);
+    public void excluir() throws SQLException, ClassNotFoundException, NoSuchMethodException{
+        GenericoDAO.getInstance().excluir(this);
     }
     public static Cartao obterCartao(Long id) throws SQLException, ClassNotFoundException{
-        return CartaoDAO.getInstance().getCartao((long) id);
+        return (Cartao) GenericoDAO.getInstance().get((long) id);
     }
-    public static List<Cartao> obterTodosOsCartoes() throws SQLException, ClassNotFoundException{
-        return CartaoDAO.getInstance().getAllCartoess();
+    public static List<Object> obterTodosOsCartoes() throws SQLException, ClassNotFoundException{
+        return GenericoDAO.getInstance().getAll();
     }
 
 
