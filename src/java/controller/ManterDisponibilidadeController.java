@@ -34,7 +34,7 @@ public class ManterDisponibilidadeController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException, ClassNotFoundException {
+            throws ServletException, IOException, SQLException, ClassNotFoundException, NoSuchMethodException {
         
         String acao = request.getParameter("acao");
         
@@ -69,7 +69,7 @@ public class ManterDisponibilidadeController extends HttpServlet {
             }
     }
     
-     public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException, SQLException, ClassNotFoundException {
+     public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException, SQLException, ClassNotFoundException, NoSuchMethodException {
         String operacao = request.getParameter("operacao");
 
         String data = request.getParameter("txtDataDisponibilidade");
@@ -126,6 +126,8 @@ public class ManterDisponibilidadeController extends HttpServlet {
             Logger.getLogger(ManterPagamentoController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ManterPagamentoController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchMethodException ex) {
+            Logger.getLogger(ManterDisponibilidadeController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -146,6 +148,8 @@ public class ManterDisponibilidadeController extends HttpServlet {
             Logger.getLogger(ManterPagamentoController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ManterPagamentoController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchMethodException ex) {
+            Logger.getLogger(ManterDisponibilidadeController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
