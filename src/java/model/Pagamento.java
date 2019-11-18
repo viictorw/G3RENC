@@ -99,4 +99,39 @@ public class Pagamento implements Serializable {
         return GenericoDAO.getInstance().getAll();
     }
 
+    public void calculaTipodeDesconto(double valorTotal){
+        double valorDesconto=0;
+        if (valorTotal>0) {
+            if (valorTotal < 50) {
+                System.out.println("Sem desconto. Valor será: " + valorTotal);
+            }
+            else if (valorTotal < 100) {
+                valorDesconto = valorTotal - ((valorTotal/100)*10);
+                System.out.println("10% de desconto. Novo valor: "+valorDesconto);
+                valorTotal= valorDesconto;
+            }
+            else if (valorTotal < 150) {
+                valorDesconto = valorTotal - ((valorTotal/100)*15);
+                System.out.println("15% de desconto. Novo valor:  "+valorDesconto);
+                valorTotal= valorDesconto;
+            }
+            else if (valorTotal < 200) {
+                valorDesconto = valorTotal - ((valorTotal/100)*20);
+                System.out.println("20% de desconto. Novo valor:  "+valorDesconto);
+                valorTotal= valorDesconto;
+            } 
+            else if (valorTotal < 300) {
+                valorDesconto = valorTotal - ((valorTotal/100)*25);
+                System.out.println("25% de desconto. Novo valor:  "+valorDesconto);
+                valorTotal= valorDesconto;
+            }else {
+                valorDesconto = valorTotal - ((valorTotal/100)*30);
+                System.out.println("30% de desconto. Novo valor:  "+valorDesconto);
+                valorTotal= valorDesconto;
+            }
+            
+        }else{
+        System.err.println("Valor total é inválido!");
+        }
+    }
 }

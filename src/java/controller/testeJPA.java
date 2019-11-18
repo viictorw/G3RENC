@@ -5,18 +5,6 @@
  */
 package controller;
 
-import dao.AdministradorDAO;
-import dao.CartaoDAO;
-import dao.ClienteDAO;
-import dao.ContatoDAO;
-import dao.DisponibilidadeDAO;
-import dao.EspacoDAO;
-import dao.IrregularidadeDAO;
-import dao.ModalidadeDAO;
-import dao.PagamentoDAO;
-import dao.ReembolsoDAO;
-import dao.ReservaDAO;
-import dao.TipoEspacoDAO;
 import model.Administrador;
 import model.Cartao;
 import model.Cliente;

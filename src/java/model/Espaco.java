@@ -25,7 +25,7 @@ public class Espaco implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    
+
     private Long id;
     private String nome;
     private String cnpj;
@@ -46,7 +46,6 @@ public class Espaco implements Serializable {
     public Espaco() {
     }
 
-   
     public Espaco(String nome, String cnpj, String cep, String logradouro, Integer numero, String complemento, String bairro, String cidade, String uf, Double area, Integer quantidadePessoas, String horaFuncionamentoInicio, String horaFuncionamentoFinal, TipoEspaco tipoEspaco) {
         this.nome = nome;
         this.cnpj = cnpj;
@@ -64,7 +63,7 @@ public class Espaco implements Serializable {
         this.tipoEspaco = tipoEspaco;
     }
 
-     public TipoEspaco getTipoEspaco() {
+    public TipoEspaco getTipoEspaco() {
         return tipoEspaco;
     }
 
@@ -72,7 +71,6 @@ public class Espaco implements Serializable {
         this.tipoEspaco = tipoEspaco;
     }
 
-    
     public Long getId() {
         return id;
     }
@@ -184,25 +182,90 @@ public class Espaco implements Serializable {
     public void setHoraFuncionamentoFinal(String horaFuncionamentoFinal) {
         this.horaFuncionamentoFinal = horaFuncionamentoFinal;
     }
-    
-    
-      public void salvar() throws SQLException, ClassNotFoundException, NoSuchMethodException {
+
+    public void salvar() throws SQLException, ClassNotFoundException, NoSuchMethodException {
         GenericoDAO.getInstance().salvar(this);
     }
-    
+
     public void excluir() throws SQLException, ClassNotFoundException, NoSuchMethodException {
         GenericoDAO.getInstance().excluir(this);
     }
-    
+
     public static Espaco obterEspaco(Long id) throws SQLException, ClassNotFoundException {
         return (Espaco) GenericoDAO.getInstance().get((long) id);
     }
-    
+
     public static List<Object> obterTodosEspacos() throws SQLException, ClassNotFoundException {
         return GenericoDAO.getInstance().getAll();
     }
-  
-    
-    
+
+    public void calculaTamanhoEspaco(int area) {
+        if (area>0) {
+            if (area < 20) {
+                System.out.println("Espaço insuficiente para o tipo desejado!");
+            }
+            else if (area < 100) {
+                System.out.println("Espaço de pequeno porte, aconselhável ter no máximo 300 pessoas");
+            }
+            else if (area < 250) {
+                System.out.println("Espaço de médio porte, aconselhável ter no máximo 750 pessoas");
+            }
+            else if (area < 320) {
+                System.out.println("Espaço de grande porte, aconselhável ter no máximo 1000 pessoas");
+            } 
+            else if (area < 500) {
+                System.out.println("Espaço de grande+ porte, aconselhável ter no máximo 1500 pessoas");
+            }
+            else if (area < 750) {
+                System.out.println("Espaço de grande++ porte, aconselhável ter no máximo 2300 pessoas");
+            }
+            else if (area < 1000) {
+                System.out.println("Espaço de grande+++ porte, aconselhável ter no máximo 3000 pessoas");
+            }
+            else if (area < 2000) {
+                System.out.println("Espaço de grande ex+ porte, aconselhável ter no máximo 6000 pessoas");
+            }
+            else {
+                System.out.println("Espaço acima do padrão, determinação para quantidades de pessoas passará a ser estabelecida por ambiente sobre administração responsável.");
+            }
+            
+        }else{
+        System.err.println("Espaço inválido!");
+        }
+    }
+    public void calculaSeguranca(int quantidadePessoas){
+        if (quantidadePessoas>0) {
+            if (quantidadePessoas < 50) {
+                System.out.println("Poucas pessoas,portanto não será feito cálculo da quantidade de seguranças!");
+            }
+            else if (quantidadePessoas < 90) {
+                System.out.println("Evento de pequeno porte, aconselhável ter 5 seguranças");
+            }
+            else if (quantidadePessoas < 150) {
+                System.out.println("Evento de médio porte, aconselhável ter entre 6 e 10 seguranças");
+            }
+            else if (quantidadePessoas < 250) {
+                System.out.println("Evento de grande porte, aconselhável ter entre 11 e 15 seguranças");
+            } 
+            else if (quantidadePessoas < 550) {
+                System.out.println("Evento de grande+ porte, aconselhável ter entre 16 e 25 seguranças");
+            }
+            else if (quantidadePessoas < 750) {
+                System.out.println("Evento de grande++ porte, aconselhável ter entre 21 e 30 seguranças");
+            }
+            else if (quantidadePessoas < 1250) {
+                System.out.println("Evento de grande+++ porte, aconselhável ter entre 31 e 50 seguranças");
+            }
+            else if (quantidadePessoas < 3250) {
+                System.out.println("Evento de grande ex+ porte, aconselhável ter mais do que 50 seguranças");
+            }
+            else {
+                System.out.println("Evento acima das Normas, portanto, a determinação para quantidades de seguranças passará a ser estabelecida por ambiente sobre administração responsável.");
+            }
+            
+        }else{
+        System.err.println("Quantidade de pessoas é inválido!");
+        }
+    }
 
 }
