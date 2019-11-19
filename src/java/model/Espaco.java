@@ -199,73 +199,116 @@ public class Espaco implements Serializable {
         return GenericoDAO.getInstance().getAll();
     }
 
-    public void calculaTamanhoEspaco(int area) {
+    public String calculaTamanhoEspaco(int area) {
+         String mensagem;
         if (area>0) {
+           
             if (area < 20) {
-                System.out.println("Espaço insuficiente para o tipo desejado!");
+                mensagem = "Espaço insuficiente para o tipo desejado!";
+                System.out.println(mensagem);
+                return mensagem;
             }
             else if (area < 100) {
-                System.out.println("Espaço de pequeno porte, aconselhável ter no máximo 300 pessoas");
+                mensagem = "Espaço de pequeno porte, aconselhável ter no máximo 300 pessoas";
+                System.out.println(mensagem);
+                return mensagem;
             }
             else if (area < 250) {
-                System.out.println("Espaço de médio porte, aconselhável ter no máximo 750 pessoas");
+                mensagem = "Espaço de médio porte, aconselhável ter no máximo 750 pessoas";
+                System.out.println(mensagem);
+                return mensagem;
             }
             else if (area < 320) {
-                System.out.println("Espaço de grande porte, aconselhável ter no máximo 1000 pessoas");
+                mensagem = "Espaço de grande porte, aconselhável ter no máximo 1000 pessoas";
+                System.out.println(mensagem);
+                return mensagem;
             } 
             else if (area < 500) {
-                System.out.println("Espaço de grande+ porte, aconselhável ter no máximo 1500 pessoas");
+                mensagem = "Espaço de grande+ porte, aconselhável ter no máximo 1500 pessoas";
+                System.out.println(mensagem);
+                return mensagem;
             }
             else if (area < 750) {
-                System.out.println("Espaço de grande++ porte, aconselhável ter no máximo 2300 pessoas");
+                mensagem = "Espaço de grande++ porte, aconselhável ter no máximo 2300 pessoas";
+                System.out.println(mensagem);
+                return mensagem;
             }
             else if (area < 1000) {
-                System.out.println("Espaço de grande+++ porte, aconselhável ter no máximo 3000 pessoas");
+                mensagem = "Espaço de grande+++ porte, aconselhável ter no máximo 3000 pessoas";
+                System.out.println(mensagem);
+                return mensagem;
             }
             else if (area < 2000) {
-                System.out.println("Espaço de grande ex+ porte, aconselhável ter no máximo 6000 pessoas");
+                mensagem = "Espaço de grande ex+ porte, aconselhável ter no máximo 6000 pessoas";
+                System.out.println(mensagem);
+                return mensagem;
             }
             else {
-                System.out.println("Espaço acima do padrão, determinação para quantidades de pessoas passará a ser estabelecida por ambiente sobre administração responsável.");
+                mensagem = "Espaço acima do padrão, determinação para quantidades de pessoas passará a ser estabelecida por ambiente sobre administração responsável.";
+                System.out.println(mensagem);
+                return mensagem;
             }
             
         }else{
-        System.err.println("Espaço inválido!");
+                            mensagem = "Espaço inválido!";
+                System.out.println(mensagem);
+                return mensagem;
+
         }
     }
-    public void calculaSeguranca(int quantidadePessoas){
+    public String calculaSeguranca(int quantidadePessoas){
+        String mensagem;
         if (quantidadePessoas>0) {
             if (quantidadePessoas < 50) {
-                System.out.println("Poucas pessoas,portanto não será feito cálculo da quantidade de seguranças!");
+                mensagem = "Poucas pessoas,portanto não será feito cálculo da quantidade de seguranças!";
+                System.out.println(mensagem);
+                return mensagem;
             }
             else if (quantidadePessoas < 90) {
-                System.out.println("Evento de pequeno porte, aconselhável ter 5 seguranças");
+                mensagem = "Evento de pequeno porte, aconselhável ter 5 seguranças";
+                System.out.println(mensagem);
+                return mensagem;
+
             }
             else if (quantidadePessoas < 150) {
-                System.out.println("Evento de médio porte, aconselhável ter entre 6 e 10 seguranças");
+                mensagem = "Evento de médio porte, aconselhável ter entre 6 e 10 seguranças";
+                System.out.println(mensagem);
+                return mensagem;
             }
             else if (quantidadePessoas < 250) {
-                System.out.println("Evento de grande porte, aconselhável ter entre 11 e 15 seguranças");
+                mensagem = "Evento de grande porte, aconselhável ter entre 11 e 15 seguranças";
+                System.out.println(mensagem);
+                return mensagem;
             } 
             else if (quantidadePessoas < 550) {
-                System.out.println("Evento de grande+ porte, aconselhável ter entre 16 e 25 seguranças");
+                mensagem = "Evento de grande+ porte, aconselhável ter entre 16 e 25 seguranças";
+                System.out.println(mensagem);
+                return mensagem;
             }
             else if (quantidadePessoas < 750) {
-                System.out.println("Evento de grande++ porte, aconselhável ter entre 21 e 30 seguranças");
+                mensagem = "Evento de grande++ porte, aconselhável ter entre 21 e 30 seguranças";
+                System.out.println(mensagem);
+                return mensagem;
             }
             else if (quantidadePessoas < 1250) {
-                System.out.println("Evento de grande+++ porte, aconselhável ter entre 31 e 50 seguranças");
+                mensagem = "Evento de grande+++ porte, aconselhável ter entre 31 e 50 seguranças";
+                System.out.println(mensagem);
+                return mensagem;
             }
             else if (quantidadePessoas < 3250) {
-                System.out.println("Evento de grande ex+ porte, aconselhável ter mais do que 50 seguranças");
+                mensagem = "Evento de grande ex+ porte, aconselhável ter mais do que 50 seguranças";
+                System.out.println(mensagem);
+                return mensagem;
             }
             else {
                 System.out.println("Evento acima das Normas, portanto, a determinação para quantidades de seguranças passará a ser estabelecida por ambiente sobre administração responsável.");
             }
             
         }else{
+
         System.err.println("Quantidade de pessoas é inválido!");
         }
+            return null;
     }
 
 }
