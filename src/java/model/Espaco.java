@@ -5,6 +5,7 @@
  */
 package model;
 
+import static com.sun.org.apache.regexp.internal.RETest.test;
 import dao.GenericoDAO;
 import java.io.Serializable;
 import java.sql.SQLException;
@@ -14,6 +15,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import static jdk.nashorn.internal.objects.NativeRegExp.test;
 
 /**
  *
@@ -230,7 +232,7 @@ public class Espaco implements Serializable {
             }
             
         }else{
-        System.err.println("Espaço inválido!");
+        System.out.println("Espaço inválido!");
         }
     }
     public void calculaSeguranca(int quantidadePessoas){
@@ -264,7 +266,7 @@ public class Espaco implements Serializable {
             }
             
         }else{
-        System.err.println("Quantidade de pessoas é inválido!");
+        System.out.println("Quantidade de pessoas é inválido!");
         }
     }
 

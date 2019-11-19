@@ -99,7 +99,7 @@ public class Pagamento implements Serializable {
         return GenericoDAO.getInstance().getAll();
     }
 
-    public void calculaTipodeDesconto(double valorTotal){
+    public double calculaTipoDesconto(double valorTotal){
         double valorDesconto=0;
         if (valorTotal>0) {
             if (valorTotal < 50) {
@@ -131,7 +131,8 @@ public class Pagamento implements Serializable {
             }
             
         }else{
-        System.err.println("Valor total é inválido!");
+        System.out.println("Valor total é inválido!");
         }
+        return valorTotal;
     }
 }

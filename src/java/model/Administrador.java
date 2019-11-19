@@ -15,8 +15,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 
-
-
 /**
  *
  * @author viict
