@@ -8,9 +8,9 @@
  *
  * @author Pichau
  */
-import static junit.framework.Assert.assertEquals;
 import model.Espaco;
-import org.junit.Test;
+import static org.testng.Assert.assertEquals;
+import org.testng.annotations.Test;
 
 public class calculaTamanhoEspaco {
     @Test

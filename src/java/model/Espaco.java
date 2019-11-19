@@ -252,14 +252,10 @@ public class Espaco implements Serializable {
             }
             
         }else{
-<<<<<<< HEAD
         System.out.println("Espaço inválido!");
-=======
                             mensagem = "Espaço inválido!";
                 System.out.println(mensagem);
                 return mensagem;
-
->>>>>>> 83e9a61385c5aed864d75950d749173a00939c4e
         }
     }
     public String calculaSeguranca(int quantidadePessoas){
@@ -311,12 +307,9 @@ public class Espaco implements Serializable {
             }
             
         }else{
-<<<<<<< HEAD
         System.out.println("Quantidade de pessoas é inválido!");
-=======
 
         System.err.println("Quantidade de pessoas é inválido!");
->>>>>>> 83e9a61385c5aed864d75950d749173a00939c4e
         }
             return null;
     }

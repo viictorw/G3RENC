@@ -1,7 +1,7 @@
 
-import static junit.framework.Assert.assertEquals;
+
 import model.Espaco;
-import org.junit.Test;
+
 
 public class calculaSeguranca {
     @Test
