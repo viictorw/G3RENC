@@ -472,6 +472,14 @@
         <servlet-name>ReportIrregularidade</servlet-name>
         <url-pattern>/ReportIrregularidade</url-pattern>
     </servlet-mapping>
+        <servlet>
+        <servlet-name>calculaTamanhoEspaco</servlet-name>
+        <servlet-class>calculaTamanhoEspaco</servlet-class>
+    </servlet>
+     <servlet-mapping>
+        <servlet-name>calculaTamanhoEspaco</servlet-name>
+        <url-pattern>/calculaTamanhoEspaco</url-pattern>
+    </servlet-mapping>
 </web-app>
 <dependency>
   <groupId>junit</groupId>

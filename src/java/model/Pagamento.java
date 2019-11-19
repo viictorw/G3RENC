@@ -99,40 +99,57 @@ public class Pagamento implements Serializable {
         return GenericoDAO.getInstance().getAll();
     }
 
+<<<<<<< HEAD
     public double calculaTipoDesconto(double valorTotal){
+=======
+    public double calculaTipodeDesconto(double valorTotal){
+>>>>>>> 83e9a61385c5aed864d75950d749173a00939c4e
         double valorDesconto=0;
         if (valorTotal>0) {
             if (valorTotal < 50) {
                 System.out.println("Sem desconto. Valor será: " + valorTotal);
+                return valorTotal;
             }
             else if (valorTotal < 100) {
                 valorDesconto = valorTotal - ((valorTotal/100)*10);
                 System.out.println("10% de desconto. Novo valor: "+valorDesconto);
                 valorTotal= valorDesconto;
+                return valorTotal;
             }
             else if (valorTotal < 150) {
                 valorDesconto = valorTotal - ((valorTotal/100)*15);
                 System.out.println("15% de desconto. Novo valor:  "+valorDesconto);
                 valorTotal= valorDesconto;
+                return valorTotal;
             }
             else if (valorTotal < 200) {
                 valorDesconto = valorTotal - ((valorTotal/100)*20);
                 System.out.println("20% de desconto. Novo valor:  "+valorDesconto);
                 valorTotal= valorDesconto;
+                return valorTotal;
             } 
             else if (valorTotal < 300) {
                 valorDesconto = valorTotal - ((valorTotal/100)*25);
                 System.out.println("25% de desconto. Novo valor:  "+valorDesconto);
                 valorTotal= valorDesconto;
+                return valorTotal;
             }else {
                 valorDesconto = valorTotal - ((valorTotal/100)*30);
                 System.out.println("30% de desconto. Novo valor:  "+valorDesconto);
                 valorTotal= valorDesconto;
+                return valorTotal;
             }
             
         }else{
+<<<<<<< HEAD
         System.out.println("Valor total é inválido!");
         }
         return valorTotal;
+=======
+        System.err.println("Valor total é inválido!");
+        return 0;
+        }
+        
+>>>>>>> 83e9a61385c5aed864d75950d749173a00939c4e
     }
 }

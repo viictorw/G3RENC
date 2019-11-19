@@ -95,7 +95,11 @@
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
+<<<<<<< HEAD
                     <file>${file.reference.JUnitSampleSol.zip}</file>
+=======
+                    <file>${file.reference.junit-4.13-rc-1.jar}</file>
+>>>>>>> 83e9a61385c5aed864d75950d749173a00939c4e
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>
