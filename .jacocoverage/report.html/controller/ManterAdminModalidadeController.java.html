@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ManterAdminModalidadeController.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;G3RENC&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">controller</a> &gt; <span class="el_source">ManterAdminModalidadeController.java</span></div><h1>ManterAdminModalidadeController.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import model.Modalidade;
+
+/**
+ *
+ * @author viict
+ */
+
+<span class="nc" id="L25">public class ManterAdminModalidadeController extends HttpServlet {</span>
+
+    /**
+     * Processes requests for both HTTP &lt;code&gt;GET&lt;/code&gt; and &lt;code&gt;POST&lt;/code&gt;
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     * @throws java.sql.SQLException
+     * @throws java.lang.ClassNotFoundException
+     */
+    
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, SQLException, ClassNotFoundException, NoSuchMethodException {
+<span class="nc" id="L41">        String acao = request.getParameter(&quot;acao&quot;);</span>
+<span class="nc bnc" id="L42" title="All 2 branches missed.">        if (acao.equals(&quot;confirmarOperacao&quot;)) {</span>
+<span class="nc" id="L43">            confirmarOperacao(request, response);</span>
+        } else {
+<span class="nc bnc" id="L45" title="All 2 branches missed.">            if (acao.equals(&quot;prepararOperacao&quot;)) {</span>
+<span class="nc" id="L46">                prepararOperacao(request, response);</span>
+            }
+        }
+<span class="nc" id="L49">    }</span>
+    
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;HttpServlet methods. Click on the + sign on the left to edit the code.&quot;&gt;
+    /**
+     * Handles the HTTP &lt;code&gt;GET&lt;/code&gt; method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+<span class="nc" id="L64">            processRequest(request, response);</span>
+<span class="nc" id="L65">        } catch (SQLException | ClassNotFoundException ex) {</span>
+<span class="nc" id="L66">            Logger.getLogger(ManterModalidadeController.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L67">        } catch (NoSuchMethodException ex) {</span>
+<span class="nc" id="L68">            Logger.getLogger(ManterAdminModalidadeController.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L69">        }</span>
+<span class="nc" id="L70">    }</span>
+
+    /**
+     * Handles the HTTP &lt;code&gt;POST&lt;/code&gt; method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+<span class="nc" id="L84">            processRequest(request, response);</span>
+<span class="nc" id="L85">        } catch (SQLException | ClassNotFoundException ex) {</span>
+<span class="nc" id="L86">            Logger.getLogger(ManterModalidadeController.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L87">        } catch (NoSuchMethodException ex) {</span>
+<span class="nc" id="L88">            Logger.getLogger(ManterAdminModalidadeController.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L89">        }</span>
+<span class="nc" id="L90">    }</span>
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+<span class="nc" id="L99">        return &quot;Short description&quot;;</span>
+    }// &lt;/editor-fold&gt;
+
+    private void prepararOperacao(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, IOException, ServletException {
+        try {
+<span class="nc" id="L104">            String operacao = request.getParameter(&quot;operacao&quot;);</span>
+<span class="nc" id="L105">            request.setAttribute(&quot;operacao&quot;, operacao);</span>
+<span class="nc" id="L106">            request.setAttribute(&quot;modalidades&quot;, Modalidade.obterTodasModalidades());</span>
+<span class="nc bnc" id="L107" title="All 2 branches missed.">            if (!operacao.equals(&quot;Incluir&quot;)) {</span>
+<span class="nc" id="L108">                long id = Long.parseLong(request.getParameter(&quot;id&quot;).trim());</span>
+<span class="nc" id="L109">                Modalidade modalidade = Modalidade.obterModalidade((long) id);</span>
+<span class="nc" id="L110">                request.setAttribute(&quot;modalidade&quot;, modalidade);</span>
+            }
+<span class="nc" id="L112">            RequestDispatcher view = request.getRequestDispatcher(&quot;/manterAdminModalidade.jsp&quot;);</span>
+<span class="nc" id="L113">            view.forward(request, response);</span>
+<span class="nc" id="L114">        } catch (ServletException e) {</span>
+<span class="nc" id="L115">            throw e;</span>
+<span class="nc" id="L116">        } catch (IOException | SQLException | ClassNotFoundException e) {</span>
+<span class="nc" id="L117">            throw new ServletException(e);</span>
+<span class="nc" id="L118">        }</span>
+<span class="nc" id="L119">    }</span>
+
+    public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException, NoSuchMethodException {
+<span class="nc" id="L122">        String operacao = request.getParameter(&quot;operacao&quot;);</span>
+<span class="nc" id="L123">        String nome = request.getParameter(&quot;txtModalidade&quot;);</span>
+<span class="nc" id="L124">        String descricao = request.getParameter(&quot;txtDescricao&quot;);</span>
+        
+<span class="nc" id="L126">        Long id = null;</span>
+<span class="nc bnc" id="L127" title="All 2 branches missed.">        if (!operacao.equals(&quot;Incluir&quot;)) {</span>
+<span class="nc" id="L128">            id = Long.parseLong(request.getParameter(&quot;id&quot;));</span>
+        }
+
+        try {
+
+<span class="nc" id="L133">            Modalidade modalidade = new Modalidade(nome, descricao);</span>
+<span class="nc bnc" id="L134" title="All 2 branches missed.">            if (operacao.equals(&quot;Incluir&quot;)) {</span>
+<span class="nc" id="L135">                modalidade.salvar();</span>
+
+            } else {
+<span class="nc bnc" id="L138" title="All 2 branches missed.">                if (operacao.equals(&quot;Editar&quot;)) {</span>
+<span class="nc" id="L139">                    modalidade.setId(id);</span>
+<span class="nc" id="L140">                    modalidade.salvar();</span>
+
+                } else {
+<span class="nc bnc" id="L143" title="All 2 branches missed.">                    if (operacao.equals(&quot;Excluir&quot;)) {</span>
+<span class="nc" id="L144">                        modalidade.setId(id);</span>
+<span class="nc" id="L145">                        modalidade.excluir();</span>
+                    }
+                }
+            }
+
+<span class="nc" id="L150">            RequestDispatcher view = request.getRequestDispatcher(&quot;PesquisaAdminModalidadeController&quot;);</span>
+<span class="nc" id="L151">            view.forward(request, response);</span>
+<span class="nc" id="L152">        } catch (IOException | SQLException | ClassNotFoundException e) {</span>
+<span class="nc" id="L153">            throw new ServletException(e);</span>
+<span class="nc" id="L154">        } catch (ServletException e) {</span>
+<span class="nc" id="L155">            throw e;</span>
+<span class="nc" id="L156">        }</span>
+<span class="nc" id="L157">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

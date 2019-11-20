@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>AdministradorDAO.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;G3RENC&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">dao</a> &gt; <span class="el_source">AdministradorDAO.java</span></div><h1>AdministradorDAO.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
+import model.Administrador;
+
+/**
+ *
+ * @author viict
+ */
+public class AdministradorDAO {
+
+<span class="nc" id="L25">    private static AdministradorDAO instance = new AdministradorDAO();</span>
+
+    public static AdministradorDAO getInstance() {
+<span class="nc" id="L28">        return instance;</span>
+
+    }
+
+<span class="nc" id="L32">    private AdministradorDAO() {</span>
+<span class="nc" id="L33">    }</span>
+
+    public void salvar(Administrador administrador) {
+
+<span class="nc" id="L37">        EntityManager em = PersistenceUtil.getEntityManager();</span>
+<span class="nc" id="L38">        EntityTransaction tx = em.getTransaction();</span>
+
+        try {
+<span class="nc" id="L41">            tx.begin();</span>
+<span class="nc bnc" id="L42" title="All 2 branches missed.">            if (administrador.getId() != null) {</span>
+<span class="nc" id="L43">                em.merge(administrador);</span>
+            } else {
+<span class="nc" id="L45">                em.persist(administrador);</span>
+            }
+<span class="nc" id="L47">            tx.commit();</span>
+<span class="nc" id="L48">        } catch (Exception e) {</span>
+<span class="nc bnc" id="L49" title="All 4 branches missed.">            if (tx != null &amp;&amp; tx.isActive()) {</span>
+<span class="nc" id="L50">                tx.rollback();</span>
+            }
+<span class="nc" id="L52">            throw new RuntimeException(e);</span>
+        } finally {
+<span class="nc" id="L54">            PersistenceUtil.close(em);</span>
+<span class="nc" id="L55">        }</span>
+<span class="nc" id="L56">    }</span>
+
+    public void excluir(Administrador administrador) {
+<span class="nc" id="L59">        EntityManager em = PersistenceUtil.getEntityManager();</span>
+<span class="nc" id="L60">        EntityTransaction tx = em.getTransaction();</span>
+        try {
+<span class="nc" id="L62">            tx.begin();</span>
+<span class="nc" id="L63">            em.remove(em.getReference(Administrador.class, administrador.getId()));</span>
+<span class="nc" id="L64">            tx.commit();       </span>
+<span class="nc" id="L65">        } catch (Exception e) {</span>
+<span class="nc bnc" id="L66" title="All 4 branches missed.">            if(tx != null &amp;&amp; tx.isActive()){</span>
+<span class="nc" id="L67">                tx.rollback();</span>
+            }
+<span class="nc" id="L69">            throw new RuntimeException(e);</span>
+        }finally{
+<span class="nc" id="L71">            PersistenceUtil.close(em);</span>
+<span class="nc" id="L72">        }</span>
+<span class="nc" id="L73">    }</span>
+   
+
+    public Administrador getAdministrador(long id) {
+<span class="nc" id="L77">        EntityManager em = PersistenceUtil.getEntityManager();</span>
+<span class="nc" id="L78">        EntityTransaction tx = em.getTransaction();</span>
+<span class="nc" id="L79">        Administrador administrador = null;</span>
+
+        try {
+<span class="nc" id="L82">            tx.begin();</span>
+<span class="nc" id="L83">            administrador = em.find(Administrador.class, id);</span>
+<span class="nc" id="L84">            tx.commit();</span>
+<span class="nc" id="L85">        } catch (Exception e) {</span>
+<span class="nc bnc" id="L86" title="All 4 branches missed.">            if (tx != null &amp;&amp; tx.isActive()) {</span>
+<span class="nc" id="L87">                tx.rollback();</span>
+            }
+<span class="nc" id="L89">            throw new RuntimeException(e);</span>
+        } finally {
+<span class="nc" id="L91">            PersistenceUtil.close(em);</span>
+<span class="nc" id="L92">        }</span>
+<span class="nc" id="L93">        return administrador;</span>
+    }
+
+    public List&lt;Administrador&gt; getAllAdministradores() {
+<span class="nc" id="L97">        EntityManager em = PersistenceUtil.getEntityManager();</span>
+<span class="nc" id="L98">        EntityTransaction tx = em.getTransaction();</span>
+<span class="nc" id="L99">        List&lt;Administrador&gt; administradores = null;</span>
+        try {
+<span class="nc" id="L101">            tx.begin();</span>
+<span class="nc" id="L102">            TypedQuery&lt;Administrador&gt; query = em.createQuery(&quot;select a From Administrador a&quot;, Administrador.class);</span>
+<span class="nc" id="L103">            administradores = query.getResultList();</span>
+<span class="nc" id="L104">            tx.commit();</span>
+<span class="nc" id="L105">        } catch (Exception e) {</span>
+<span class="nc bnc" id="L106" title="All 4 branches missed.">            if (tx != null &amp;&amp; tx.isActive()) {</span>
+<span class="nc" id="L107">                tx.rollback();</span>
+            }
+<span class="nc" id="L109">            throw new RuntimeException(e);</span>
+        } finally {
+<span class="nc" id="L111">            PersistenceUtil.close(em);</span>
+<span class="nc" id="L112">        }</span>
+<span class="nc" id="L113">        return administradores;</span>
+    }
+    
+    public static Administrador logar(String email, String senha) throws ClassNotFoundException {
+<span class="nc" id="L117">        Connection conexao = null;</span>
+<span class="nc" id="L118">        Administrador administrador = null;</span>
+<span class="nc" id="L119">        PreparedStatement comando = null;</span>
+        try {
+<span class="nc" id="L121">            conexao = BD.getConexao();</span>
+<span class="nc" id="L122">            String sql = &quot;SELECT * FROM administrador WHERE email = ? AND senha = ?&quot;;</span>
+<span class="nc" id="L123">            comando = conexao.prepareStatement(sql);</span>
+<span class="nc" id="L124">            comando.setString(1, email);</span>
+<span class="nc" id="L125">            comando.setString(2, senha);</span>
+<span class="nc" id="L126">            ResultSet rs = comando.executeQuery();</span>
+<span class="nc bnc" id="L127" title="All 2 branches missed.">            if (rs.first()) {</span>
+<span class="nc" id="L128">                administrador = new Administrador(</span>
+<span class="nc" id="L129">                        rs.getString(&quot;nome&quot;),</span>
+<span class="nc" id="L130">                        rs.getString(&quot;email&quot;),</span>
+<span class="nc" id="L131">                        rs.getString(&quot;senha&quot;));</span>
+            }
+
+<span class="nc" id="L134">            comando.close();</span>
+<span class="nc" id="L135">            conexao.close();</span>
+<span class="nc" id="L136">        } catch (SQLException e) {</span>
+        } finally {
+<span class="nc" id="L138">            fecharConexao(conexao, comando);</span>
+<span class="nc" id="L139">        }</span>
+<span class="nc" id="L140">        return administrador;</span>
+    }
+     public static void fecharConexao(Connection conexao, Statement comando) {
+        try {
+<span class="nc bnc" id="L144" title="All 2 branches missed.">            if (comando != null) {</span>
+<span class="nc" id="L145">                comando.close();</span>
+            }
+
+<span class="nc bnc" id="L148" title="All 2 branches missed.">            if (comando != null) {</span>
+<span class="nc" id="L149">                conexao.close();</span>
+            }
+
+<span class="nc" id="L152">        } catch (SQLException e) {</span>
+
+<span class="nc" id="L154">        }</span>
+<span class="nc" id="L155">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

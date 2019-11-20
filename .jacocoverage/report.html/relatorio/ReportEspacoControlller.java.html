@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ReportEspacoControlller.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;G3RENC&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">relatorio</a> &gt; <span class="el_source">ReportEspacoControlller.java</span></div><h1>ReportEspacoControlller.java</h1><pre class="source lang-java linenums">/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package relatorio;
+
+import dao.BD;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.HashMap;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+
+/**
+ *
+ * @author Marco
+ */
+<span class="nc" id="L26">public class ReportEspacoControlller extends HttpServlet {</span>
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) {
+<span class="nc" id="L28"> Connection conexao = null;</span>
+        try {
+<span class="nc" id="L30">            Class.forName(&quot;com.mysql.jdbc.Driver&quot;);</span>
+<span class="nc" id="L31">            conexao = BD.getConexao();</span>
+            
+<span class="nc" id="L33">            HashMap parametros = new HashMap();</span>
+<span class="nc" id="L34">            String relatorio = getServletContext().getRealPath(&quot;/WEB-INF/classes/relatorio&quot;)+&quot;/ReportEspaco.jasper&quot;;</span>
+<span class="nc" id="L35">            JasperPrint jp = JasperFillManager.fillReport(relatorio, parametros, conexao);</span>
+<span class="nc" id="L36">            byte[] relat = JasperExportManager.exportReportToPdf(jp);</span>
+<span class="nc" id="L37">            response.setHeader(&quot;Content-Disposition&quot;, &quot;attachment;filename=relatorioEspaco.pdf&quot;);</span>
+<span class="nc" id="L38">            response.setContentType(&quot;application/pdf&quot;);</span>
+<span class="nc" id="L39">            response.getOutputStream().write(relat);</span>
+        } /*catch (SQLException ex) {
+            ex.printStackTrace();
+<span class="nc" id="L42">        } */catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L43">            ex.printStackTrace();</span>
+<span class="nc" id="L44">        } catch (JRException ex) {</span>
+<span class="nc" id="L45">            ex.printStackTrace();</span>
+<span class="nc" id="L46">        } catch (IOException ex) {</span>
+<span class="nc" id="L47">            ex.printStackTrace();</span>
+        } finally {
+<span class="nc" id="L49">            try {</span>
+<span class="nc bnc" id="L50" title="All 10 branches missed.">                if (!conexao.isClosed()) {</span>
+<span class="nc" id="L51">                    conexao.close();</span>
+                }
+<span class="nc" id="L53">            } catch (SQLException ex) {</span>
+<span class="nc" id="L54">            }</span>
+<span class="nc" id="L55">        }</span>
+<span class="nc" id="L56">    }</span>
+
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;HttpServlet methods. Click on the + sign on the left to edit the code.&quot;&gt;
+    /** 
+     * Handles the HTTP &lt;code&gt;GET&lt;/code&gt; method.
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+<span class="nc" id="L69">        processRequest(request, response);</span>
+<span class="nc" id="L70">    }</span>
+
+    /** 
+     * Handles the HTTP &lt;code&gt;POST&lt;/code&gt; method.
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+<span class="nc" id="L82">        processRequest(request, response);</span>
+<span class="nc" id="L83">    }</span>
+
+    /** 
+     * Returns a short description of the servlet.
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+<span class="nc" id="L91">        return &quot;Short description&quot;;</span>
+    }// &lt;/editor-fold&gt;
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

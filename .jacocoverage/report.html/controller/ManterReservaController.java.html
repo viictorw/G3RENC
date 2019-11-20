@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ManterReservaController.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;G3RENC&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">controller</a> &gt; <span class="el_source">ManterReservaController.java</span></div><h1>ManterReservaController.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package controller;
+
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import model.Reserva;
+import model.Cliente;
+import model.Espaco;
+
+/**
+ *
+ * @author viict
+ */
+<span class="nc" id="L25">public class ManterReservaController extends HttpServlet {</span>
+
+    /**
+     * Processes requests for both HTTP &lt;code&gt;GET&lt;/code&gt; and &lt;code&gt;POST&lt;/code&gt;
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, SQLException, ClassNotFoundException, NoSuchMethodException {
+
+<span class="nc" id="L39">        String acao = request.getParameter(&quot;acao&quot;);</span>
+
+<span class="nc bnc" id="L41" title="All 2 branches missed.">        if (acao.equals(&quot;confirmarOperacao&quot;)) {</span>
+<span class="nc" id="L42">            confirmarOperacao(request, response);</span>
+
+        } else {
+<span class="nc bnc" id="L45" title="All 2 branches missed.">            if (acao.equals(&quot;prepararOperacao&quot;)) {</span>
+<span class="nc" id="L46">                prepararOperacao(request, response);</span>
+            }
+        }
+<span class="nc" id="L49">    }</span>
+
+    public void prepararOperacao(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+<span class="nc" id="L54">            String operacao = request.getParameter(&quot;operacao&quot;);</span>
+<span class="nc" id="L55">            request.setAttribute(&quot;operacao&quot;, operacao);</span>
+<span class="nc" id="L56">            request.setAttribute(&quot;espacos&quot;, Espaco.obterTodosEspacos());</span>
+<span class="nc" id="L57">            request.setAttribute(&quot;clientes&quot;, Cliente.obterTodosOsClientes());</span>
+
+<span class="nc bnc" id="L59" title="All 2 branches missed.">            if (!operacao.equals(&quot;Incluir&quot;)) {</span>
+<span class="nc" id="L60">                Reserva reserva = Reserva.obterReserva(Long.parseLong(request.getParameter(&quot;id&quot;).trim()));</span>
+<span class="nc" id="L61">                request.setAttribute(&quot;reserva&quot;, reserva);</span>
+            }
+<span class="nc" id="L63">            RequestDispatcher view = request.getRequestDispatcher(&quot;/manterReserva.jsp&quot;);</span>
+<span class="nc" id="L64">            view.forward(request, response);</span>
+
+<span class="nc" id="L66">        } catch (ServletException e) {</span>
+<span class="nc" id="L67">            throw e;</span>
+<span class="nc" id="L68">        } catch (IOException e) {</span>
+<span class="nc" id="L69">            throw new ServletException(e);</span>
+<span class="nc" id="L70">        } catch (SQLException e) {</span>
+<span class="nc" id="L71">            throw new ServletException(e);</span>
+<span class="nc" id="L72">        } catch (ClassNotFoundException e) {</span>
+<span class="nc" id="L73">            throw new ServletException(e);</span>
+<span class="nc" id="L74">        }</span>
+<span class="nc" id="L75">    }</span>
+
+    public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException, SQLException, ClassNotFoundException, NoSuchMethodException {
+<span class="nc" id="L78">        String operacao = request.getParameter(&quot;operacao&quot;);</span>
+
+<span class="nc" id="L80">        String dataLocacao = request.getParameter(&quot;txtDataLocacao&quot;);</span>
+<span class="nc" id="L81">        String horaInicioLocacao = request.getParameter(&quot;txtHrInicio&quot;);</span>
+<span class="nc" id="L82">        String horaFimLocacao = request.getParameter(&quot;txtHrFim&quot;);</span>
+<span class="nc" id="L83">        Long qtPessoas = Long.parseLong(request.getParameter(&quot;txtqtPessoas&quot;));</span>
+<span class="nc" id="L84">        double valorLocacao = Double.parseDouble(request.getParameter(&quot;txtvalorLocacao&quot;));</span>
+<span class="nc" id="L85">        long notaAvaliacao = Long.parseLong(request.getParameter(&quot;txtAvaliacao&quot;));</span>
+<span class="nc" id="L86">        long idClientes = Long.parseLong(request.getParameter(&quot;optCliente&quot;));</span>
+<span class="nc" id="L87">        long idEspacos = Long.parseLong(request.getParameter(&quot;optEspaco&quot;));</span>
+
+<span class="nc" id="L89">        Long id = null;</span>
+<span class="nc bnc" id="L90" title="All 2 branches missed.">        if (!operacao.equals(&quot;Incluir&quot;)) {</span>
+<span class="nc" id="L91">            id = Long.parseLong(request.getParameter(&quot;id&quot;));</span>
+        }
+
+        try {
+<span class="nc" id="L95">            Cliente cliente = null;</span>
+<span class="nc" id="L96">            Espaco espaco = null;</span>
+
+<span class="nc bnc" id="L98" title="All 2 branches missed.">            if (idClientes != 0) {</span>
+<span class="nc" id="L99">                cliente = Cliente.obterCliente(idClientes);</span>
+            }
+
+<span class="nc bnc" id="L102" title="All 2 branches missed.">            if (idEspacos != 0) {</span>
+<span class="nc" id="L103">                espaco = Espaco.obterEspaco(idEspacos);</span>
+            }
+
+<span class="nc" id="L106">            Reserva reserva = new Reserva(dataLocacao, horaInicioLocacao, horaFimLocacao, qtPessoas, valorLocacao, notaAvaliacao, cliente, espaco);</span>
+<span class="nc bnc" id="L107" title="All 2 branches missed.">            if (operacao.equals(&quot;Incluir&quot;)) {</span>
+<span class="nc" id="L108">                reserva.salvar();</span>
+            } else {
+<span class="nc bnc" id="L110" title="All 2 branches missed.">                if (operacao.equals(&quot;Editar&quot;)) {</span>
+<span class="nc" id="L111">                    reserva.setId(id);</span>
+<span class="nc" id="L112">                    reserva.salvar();</span>
+                } else {
+<span class="nc bnc" id="L114" title="All 2 branches missed.">                    if (operacao.equals(&quot;Excluir&quot;)) {</span>
+<span class="nc" id="L115">                        reserva.setId(id);</span>
+<span class="nc" id="L116">                        reserva.excluir();</span>
+                    }
+                }
+            }
+<span class="nc" id="L120">            RequestDispatcher view = request.getRequestDispatcher(&quot;PesquisaReservaController&quot;);</span>
+<span class="nc" id="L121">      view.forward(request, response);</span>
+<span class="nc" id="L122">        } catch (IOException e) {</span>
+<span class="nc" id="L123">            throw new ServletException(e);</span>
+<span class="nc" id="L124">        } catch (ServletException e) {</span>
+<span class="nc" id="L125">            throw e;</span>
+<span class="nc" id="L126">        }</span>
+<span class="nc" id="L127">    }</span>
+
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;HttpServlet methods. Click on the + sign on the left to edit the code.&quot;&gt;
+    /**
+     * Handles the HTTP &lt;code&gt;GET&lt;/code&gt; method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+<span class="nc" id="L142">            processRequest(request, response);</span>
+<span class="nc" id="L143">        } catch (SQLException ex) {</span>
+<span class="nc" id="L144">            Logger.getLogger(ManterReservaController.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L145">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L146">            Logger.getLogger(ManterReservaController.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L147">        } catch (NoSuchMethodException ex) {</span>
+<span class="nc" id="L148">            Logger.getLogger(ManterReservaController.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L149">        }</span>
+<span class="nc" id="L150">    }</span>
+
+    /**
+     * Handles the HTTP &lt;code&gt;POST&lt;/code&gt; method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+<span class="nc" id="L164">            processRequest(request, response);</span>
+<span class="nc" id="L165">        } catch (SQLException ex) {</span>
+<span class="nc" id="L166">            Logger.getLogger(ManterReservaController.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L167">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L168">            Logger.getLogger(ManterReservaController.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L169">        } catch (NoSuchMethodException ex) {</span>
+<span class="nc" id="L170">            Logger.getLogger(ManterReservaController.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L171">        }</span>
+<span class="nc" id="L172">    }</span>
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+<span class="nc" id="L181">        return &quot;Short description&quot;;</span>
+    }// &lt;/editor-fold&gt;
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

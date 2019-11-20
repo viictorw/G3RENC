@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>calculaSeguranca.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;G3RENC&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">calculaSeguranca.java</span></div><h1>calculaSeguranca.java</h1><pre class="source lang-java linenums">
+
+import static junit.framework.Assert.assertEquals;
+import model.Espaco;
+import org.junit.Test;
+
+
+<span class="nc" id="L8">public class calculaSeguranca {</span>
+    @Test
+    public static void poucasPessoas() {
+<span class="nc" id="L11">        Espaco espaco = new Espaco();</span>
+      
+<span class="nc" id="L13">        assertEquals(&quot;Poucas pessoas,portanto não será feito cálculo da quantidade de seguranças!&quot;,espaco.calculaTamanhoEspaco(49));</span>
+<span class="nc" id="L14">    }</span>
+    
+    @Test
+    public static void pequenoPorte() {
+<span class="nc" id="L18">        Espaco espaco = new Espaco();</span>
+      
+<span class="nc" id="L20">        assertEquals(&quot;Evento de pequeno porte, aconselhável ter 5 seguranças&quot;,espaco.calculaTamanhoEspaco(89));</span>
+<span class="nc" id="L21">    }</span>
+    
+    @Test
+    public static void medioPorte() {
+<span class="nc" id="L25">        Espaco espaco = new Espaco();</span>
+      
+<span class="nc" id="L27">        assertEquals(&quot;Evento de médio porte, aconselhável ter entre 6 e 10 seguranças&quot;,espaco.calculaTamanhoEspaco(149));</span>
+<span class="nc" id="L28">    }</span>
+    
+    @Test
+    public static void grandePorte() {
+<span class="nc" id="L32">        Espaco espaco = new Espaco();</span>
+      
+<span class="nc" id="L34">        assertEquals(&quot;Evento de grande porte, aconselhável ter entre 11 e 15 seguranças&quot;,espaco.calculaTamanhoEspaco(249));</span>
+<span class="nc" id="L35">    }</span>
+    
+    @Test
+    public static void  grandegPorte() {
+<span class="nc" id="L39">        Espaco espaco = new Espaco();</span>
+      
+<span class="nc" id="L41">        assertEquals(&quot;Evento de grande+ porte, aconselhável ter entre 16 e 25 seguranças&quot;,espaco.calculaTamanhoEspaco(549));</span>
+<span class="nc" id="L42">    }</span>
+    
+    @Test
+    public static void  grandeggPorte() {
+<span class="nc" id="L46">        Espaco espaco = new Espaco();</span>
+      
+<span class="nc" id="L48">        assertEquals(&quot;Evento de grande++ porte, aconselhável ter entre 21 e 30 seguranças&quot;,espaco.calculaTamanhoEspaco(749));</span>
+<span class="nc" id="L49">    }</span>
+    
+    @Test
+    public static void  grandegggPorte() {
+<span class="nc" id="L53">        Espaco espaco = new Espaco();</span>
+      
+<span class="nc" id="L55">        assertEquals(&quot;Evento de grande+++ porte, aconselhável ter entre 31 e 50 seguranças&quot;,espaco.calculaTamanhoEspaco(1249));</span>
+<span class="nc" id="L56">    }</span>
+    
+    @Test
+    public static void  extragrandePorte() {
+<span class="nc" id="L60">        Espaco espaco = new Espaco();</span>
+      
+<span class="nc" id="L62">        assertEquals(&quot;Evento de grande ex+ porte, aconselhável ter mais do que 50 seguranças&quot;,espaco.calculaTamanhoEspaco(3249));</span>
+<span class="nc" id="L63">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

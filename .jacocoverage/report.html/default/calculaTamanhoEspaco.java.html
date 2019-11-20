@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>calculaTamanhoEspaco.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;G3RENC&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">calculaTamanhoEspaco.java</span></div><h1>calculaTamanhoEspaco.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author Pichau
+ */
+
+import static junit.framework.Assert.assertEquals;
+import model.Espaco;
+import org.junit.Test;
+
+<span class="nc" id="L16">public class calculaTamanhoEspaco {</span>
+    @Test
+    public static void tamanhoInsuficiente() {
+<span class="nc" id="L19">        Espaco espaco = new Espaco();</span>
+      
+<span class="nc" id="L21">        assertEquals(&quot;Espaço insuficiente para o tipo desejado!&quot;,espaco.calculaTamanhoEspaco(19));</span>
+<span class="nc" id="L22">    }</span>
+    
+    @Test
+    public static void tamanhoPequeno() {
+<span class="nc" id="L26">        Espaco espaco = new Espaco();</span>
+      
+<span class="nc" id="L28">        assertEquals(&quot;Espaço de pequeno porte, aconselhável ter no máximo 300 pessoas&quot;,espaco.calculaTamanhoEspaco(99));</span>
+<span class="nc" id="L29">    }</span>
+    
+    @Test
+    public static void tamanhoMedio() {
+<span class="nc" id="L33">        Espaco espaco = new Espaco();</span>
+      
+<span class="nc" id="L35">        assertEquals(&quot;Espaço de médio porte, aconselhável ter no máximo 750 pessoas&quot;,espaco.calculaTamanhoEspaco(249));</span>
+<span class="nc" id="L36">    }</span>
+    
+    @Test
+    public static void tamanhoGrande() {
+<span class="nc" id="L40">        Espaco espaco = new Espaco();</span>
+      
+<span class="nc" id="L42">        assertEquals(&quot;Espaço de grande porte, aconselhável ter no máximo 1000 pessoas&quot;,espaco.calculaTamanhoEspaco(319));</span>
+<span class="nc" id="L43">    }</span>
+    
+    @Test
+    public static void tamanhoGrandeg() {
+<span class="nc" id="L47">        Espaco espaco = new Espaco();</span>
+      
+<span class="nc" id="L49">        assertEquals(&quot;Espaço de grande+ porte, aconselhável ter no máximo 1500 pessoas&quot;,espaco.calculaTamanhoEspaco(499));</span>
+<span class="nc" id="L50">    }</span>
+    
+    @Test
+    public static void tamanhoGrandegg() {
+<span class="nc" id="L54">        Espaco espaco = new Espaco();</span>
+      
+<span class="nc" id="L56">        assertEquals(&quot;Espaço de grande++ porte, aconselhável ter no máximo 2300 pessoas&quot;,espaco.calculaTamanhoEspaco(749));</span>
+<span class="nc" id="L57">    }</span>
+    
+    @Test
+    public static void tamanhoGrandeggg() {
+<span class="nc" id="L61">        Espaco espaco = new Espaco();</span>
+      
+<span class="nc" id="L63">        assertEquals(&quot;Espaço de grande+++ porte, aconselhável ter no máximo 3000 pessoas&quot;,espaco.calculaTamanhoEspaco(999));</span>
+<span class="nc" id="L64">    }</span>
+    
+    @Test
+    public static void tamanhoExtraGrande() {
+<span class="nc" id="L68">        Espaco espaco = new Espaco();</span>
+      
+<span class="nc" id="L70">        assertEquals(&quot;Espaço de grande ex+ porte, aconselhável ter no máximo 6000 pessoas&quot;,espaco.calculaTamanhoEspaco(1999));</span>
+<span class="nc" id="L71">    }</span>
+       
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

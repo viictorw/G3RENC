@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Cliente.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;G3RENC&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">model</a> &gt; <span class="el_source">Cliente.java</span></div><h1>Cliente.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package model;
+
+import dao.GenericoDAO;
+import java.io.Serializable;
+import java.sql.SQLException;
+import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+
+
+
+/**
+ *
+ * @author viict
+ */
+@Entity
+public class Cliente implements Serializable{
+
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+
+    private Long id;
+    private String nome;
+    private String sobrenome;
+    private String cpf;
+    private String dataNascimento;
+    private String email;
+    private String senha;
+   
+
+<span class="nc" id="L40">    public Cliente() {</span>
+<span class="nc" id="L41">    }</span>
+
+<span class="nc" id="L43">    public Cliente(String nome, String sobrenome, String dataNascimento,  String email,String cpf, String senha) {</span>
+<span class="nc" id="L44">        this.nome = nome;</span>
+<span class="nc" id="L45">        this.sobrenome = sobrenome;</span>
+<span class="nc" id="L46">        this.cpf = cpf;</span>
+<span class="nc" id="L47">        this.dataNascimento = dataNascimento;</span>
+<span class="nc" id="L48">        this.email = email;</span>
+<span class="nc" id="L49">        this.senha = senha;</span>
+
+<span class="nc" id="L51">    }</span>
+
+    
+    
+    
+    
+    public Long getId() {
+<span class="nc" id="L58">        return id;</span>
+    }
+
+    public void setId(Long id) {
+<span class="nc" id="L62">        this.id = id;</span>
+<span class="nc" id="L63">    }</span>
+
+    public String getNome() {
+<span class="nc" id="L66">        return nome;</span>
+    }
+
+    public void setNome(String nome) {
+<span class="nc" id="L70">        this.nome = nome;</span>
+<span class="nc" id="L71">    }</span>
+
+    public String getSobrenome() {
+<span class="nc" id="L74">        return sobrenome;</span>
+    }
+
+    public void setSobrenome(String sobrenome) {
+<span class="nc" id="L78">        this.sobrenome = sobrenome;</span>
+<span class="nc" id="L79">    }</span>
+
+    public String getCpf() {
+<span class="nc" id="L82">        return cpf;</span>
+    }
+
+    public void setCpf(String cpf) {
+<span class="nc" id="L86">        this.cpf = cpf;</span>
+<span class="nc" id="L87">    }</span>
+
+    public String getDataNascimento() {
+<span class="nc" id="L90">        return dataNascimento;</span>
+    }
+
+    public void setDataNascimento(String dataNascimento) {
+<span class="nc" id="L94">        this.dataNascimento = dataNascimento;</span>
+<span class="nc" id="L95">    }</span>
+
+    public String getEmail() {
+<span class="nc" id="L98">        return email;</span>
+    }
+
+    public void setEmail(String email) {
+<span class="nc" id="L102">        this.email = email;</span>
+<span class="nc" id="L103">    }</span>
+
+    public String getSenha() {
+<span class="nc" id="L106">        return senha;</span>
+    }
+
+    public void setSenha(String senha) {
+<span class="nc" id="L110">        this.senha = senha;</span>
+<span class="nc" id="L111">    }</span>
+
+    public static Object logar(String email, String senha) throws ClassNotFoundException {
+<span class="nc" id="L114">        return GenericoDAO.getInstance().getClienteEmail(email, null, email);</span>
+    }
+      public void gravar() throws SQLException, ClassNotFoundException, NoSuchMethodException{
+<span class="nc" id="L117">        GenericoDAO.getInstance().salvar(this);</span>
+<span class="nc" id="L118">    }</span>
+
+    public void excluir() throws SQLException, ClassNotFoundException, NoSuchMethodException{
+<span class="nc" id="L121">        GenericoDAO.getInstance().excluir(this);</span>
+<span class="nc" id="L122">    }</span>
+    public static Cliente obterCliente(Long id) throws SQLException, ClassNotFoundException{
+<span class="nc" id="L124">        return (Cliente) GenericoDAO.getInstance().get(id);</span>
+    }
+    public static List&lt;Object&gt; obterTodosOsClientes() throws SQLException, ClassNotFoundException{
+<span class="nc" id="L127">        return GenericoDAO.getInstance().getAll();</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

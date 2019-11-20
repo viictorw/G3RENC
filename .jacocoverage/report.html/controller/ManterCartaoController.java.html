@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ManterCartaoController.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;G3RENC&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">controller</a> &gt; <span class="el_source">ManterCartaoController.java</span></div><h1>ManterCartaoController.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package controller;
+
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import model.Cartao;
+import model.Cliente;
+
+/**
+ *
+ * @author iza Ribeiro
+ */
+/*@WebServlet(name = &quot;ManterCartaoController&quot;, urlPatterns = {&quot;/ManterCartaoController&quot;})*/
+<span class="nc" id="L25">public class ManterCartaoController extends HttpServlet {</span>
+
+    /**
+     * Processes requests for both HTTP &lt;code&gt;GET&lt;/code&gt; and &lt;code&gt;POST&lt;/code&gt;
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, SQLException, ClassNotFoundException, NoSuchMethodException {
+        
+<span class="nc" id="L39">        String acao = request.getParameter(&quot;acao&quot;);</span>
+        
+<span class="nc bnc" id="L41" title="All 2 branches missed.">        if(acao.equals(&quot;confirmarOperacao&quot;)){</span>
+<span class="nc" id="L42">           confirmarOperacao(request, response);</span>
+        
+        }else{
+<span class="nc bnc" id="L45" title="All 2 branches missed.">            if(acao.equals(&quot;prepararOperacao&quot;)){</span>
+<span class="nc" id="L46">                prepararOperacao(request, response);</span>
+            }
+        }
+<span class="nc" id="L49">    }</span>
+    
+    public void prepararOperacao(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+            try{
+<span class="nc" id="L54">        String operacao = request.getParameter(&quot;operacao&quot;);</span>
+<span class="nc" id="L55">        request.setAttribute(&quot;operacao&quot;, operacao);</span>
+<span class="nc" id="L56">        request.setAttribute(&quot;clientes&quot;, Cliente.obterTodosOsClientes());</span>
+        
+<span class="nc bnc" id="L58" title="All 2 branches missed.">        if(!operacao.equals(&quot;Incluir&quot;)){</span>
+<span class="nc" id="L59">             Cartao cartao = Cartao.obterCartao(Long.parseLong(request.getParameter(&quot;id&quot;)));</span>
+<span class="nc" id="L60">            request.setAttribute(&quot;cartao&quot;, cartao);</span>
+        }
+<span class="nc" id="L62">                RequestDispatcher view = request.getRequestDispatcher(&quot;/manterCartao.jsp&quot;);</span>
+<span class="nc" id="L63">                view.forward(request, response);</span>
+                
+<span class="nc" id="L65">    }catch(ServletException e){</span>
+<span class="nc" id="L66">                throw e;</span>
+<span class="nc" id="L67">            }catch(IOException e){</span>
+<span class="nc" id="L68">                throw new ServletException(e);</span>
+<span class="nc" id="L69">            }catch(SQLException e){</span>
+<span class="nc" id="L70">                throw new ServletException(e);</span>
+<span class="nc" id="L71">            }catch(ClassNotFoundException e){</span>
+<span class="nc" id="L72">                throw new ServletException(e);</span>
+<span class="nc" id="L73">            }</span>
+<span class="nc" id="L74">    }</span>
+    
+       public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException, ClassNotFoundException, NoSuchMethodException  {
+<span class="nc" id="L77">        String operacao = request.getParameter(&quot;operacao&quot;);</span>
+        
+<span class="nc" id="L79">        Long id = null;</span>
+<span class="nc" id="L80">        long numero = Long.parseLong(request.getParameter(&quot;txtNumeroCartao&quot;));</span>
+<span class="nc" id="L81">        String bandeira = request.getParameter(&quot;txtBandeiraCartao&quot;);</span>
+<span class="nc" id="L82">        String validade = request.getParameter(&quot;txtValidadeCartao&quot;);</span>
+<span class="nc" id="L83">        String codSeguranca = request.getParameter(&quot;txtCodCartao&quot;);</span>
+<span class="nc" id="L84">         long idCliente = Long.parseLong(request.getParameter(&quot;idClientes&quot;));</span>
+<span class="nc bnc" id="L85" title="All 2 branches missed.">         if (!operacao.equals(&quot;Incluir&quot;)) {</span>
+<span class="nc" id="L86">            id = Long.parseLong(request.getParameter(&quot;id&quot;));</span>
+        }
+        
+        
+        try {
+<span class="nc" id="L91">            Cliente cliente = null;</span>
+<span class="nc bnc" id="L92" title="All 2 branches missed.">            if (idCliente != 0) {</span>
+<span class="nc" id="L93">                cliente = Cliente.obterCliente(idCliente);</span>
+            }     
+            
+<span class="nc" id="L96">            Cartao cartao = new Cartao(bandeira, validade, numero, codSeguranca, cliente);</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">            if (operacao.equals(&quot;Incluir&quot;)) {</span>
+<span class="nc" id="L98">                cartao.gravar();</span>
+            } else {
+<span class="nc bnc" id="L100" title="All 2 branches missed.">                if (operacao.equals(&quot;Editar&quot;)) {</span>
+<span class="nc" id="L101">                    cartao.setId(id);</span>
+<span class="nc" id="L102">                    cartao.gravar();</span>
+                } else {
+<span class="nc bnc" id="L104" title="All 2 branches missed.">                    if (operacao.equals(&quot;Excluir&quot;)) {</span>
+<span class="nc" id="L105">                        cartao.setId(id);</span>
+<span class="nc" id="L106">                        cartao.excluir();</span>
+                    }
+                }
+            }
+<span class="nc" id="L110">            RequestDispatcher view = request.getRequestDispatcher(&quot;PesquisaCartaoController&quot;);</span>
+<span class="nc" id="L111">            view.forward(request, response);</span>
+<span class="nc" id="L112">        } catch (IOException e) {</span>
+<span class="nc" id="L113">            throw new ServletException(e);</span>
+<span class="nc" id="L114">        } catch (SQLException e) {</span>
+<span class="nc" id="L115">            throw new ServletException(e);</span>
+<span class="nc" id="L116">        } catch (ClassNotFoundException e) {</span>
+<span class="nc" id="L117">            throw new ServletException(e);</span>
+<span class="nc" id="L118">        } catch (ServletException e) {</span>
+<span class="nc" id="L119">            throw e;</span>
+<span class="nc" id="L120">        }</span>
+<span class="nc" id="L121">    }</span>
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;HttpServlet methods. Click on the + sign on the left to edit the code.&quot;&gt;
+    /**
+     * Handles the HTTP &lt;code&gt;GET&lt;/code&gt; method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+         try {
+<span class="nc" id="L136">            processRequest(request, response);</span>
+<span class="nc" id="L137">        } catch (SQLException ex) {</span>
+<span class="nc" id="L138">            Logger.getLogger(ManterAdministradorController.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L139">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L140">            Logger.getLogger(ManterAdministradorController.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L141">        } catch (NoSuchMethodException ex) {</span>
+<span class="nc" id="L142">            Logger.getLogger(ManterCartaoController.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L143">        }</span>
+
+<span class="nc" id="L145">    }</span>
+
+    /**
+     * Handles the HTTP &lt;code&gt;POST&lt;/code&gt; method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+<span class="nc" id="L159">            processRequest(request, response);</span>
+<span class="nc" id="L160">        } catch (SQLException ex) {</span>
+<span class="nc" id="L161">            Logger.getLogger(ManterPagamentoController.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L162">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L163">            Logger.getLogger(ManterPagamentoController.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L164">        } catch (NoSuchMethodException ex) {</span>
+<span class="nc" id="L165">            Logger.getLogger(ManterCartaoController.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L166">        }</span>
+<span class="nc" id="L167">    }</span>
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+<span class="nc" id="L176">        return &quot;Short description&quot;;</span>
+    }// &lt;/editor-fold&gt;
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

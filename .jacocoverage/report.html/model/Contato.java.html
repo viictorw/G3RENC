@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Contato.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;G3RENC&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">model</a> &gt; <span class="el_source">Contato.java</span></div><h1>Contato.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package model;
+
+import model.Contato;
+import dao.Base;
+import dao.GenericoDAO;
+import java.io.Serializable;
+import java.sql.SQLException;
+import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+/**
+ *
+ * @author iza
+ */
+@Entity
+public class Contato implements  Base, Serializable{
+    
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    
+    private Long id;
+    private String numero;
+    @ManyToOne
+    private Cliente cliente;
+
+<span class="nc" id="L36">    public Contato(){</span>
+        
+<span class="nc" id="L38">    }</span>
+    
+<span class="nc" id="L40">    public Contato(String numero, Cliente cliente) {</span>
+<span class="nc" id="L41">        this.numero = numero;</span>
+<span class="nc" id="L42">        this.cliente = cliente;</span>
+<span class="nc" id="L43">    }</span>
+
+
+
+<span class="nc" id="L47">    public Contato(long id, String numero) {</span>
+<span class="nc" id="L48">        this.id = id;</span>
+<span class="nc" id="L49">        this.numero = numero;</span>
+<span class="nc" id="L50">    }</span>
+
+
+    public Cliente getCliente() {
+<span class="nc" id="L54">        return cliente;</span>
+    }
+
+    public Contato setCliente(Cliente cliente) {
+<span class="nc" id="L58">        this.cliente = cliente;</span>
+<span class="nc" id="L59">        return this;</span>
+    }
+
+
+    @Override
+    public Long getId() {
+<span class="nc" id="L65">        return id;</span>
+    }
+
+    public void setId(Long id) {
+<span class="nc" id="L69">        this.id = id;</span>
+<span class="nc" id="L70">    }</span>
+
+    public String getNumero() {
+<span class="nc" id="L73">        return numero;</span>
+    }
+
+    public void setNumero(String numero) {
+<span class="nc" id="L77">        this.numero = numero;</span>
+<span class="nc" id="L78">    }</span>
+    
+    
+    
+    public void gravar() throws SQLException, ClassNotFoundException, NoSuchMethodException {
+<span class="nc" id="L83">        GenericoDAO.getInstance().salvar(this);</span>
+<span class="nc" id="L84">    }</span>
+           
+    
+    public void excluir() throws SQLException, ClassNotFoundException, NoSuchMethodException {
+<span class="nc" id="L88">        GenericoDAO.getInstance().excluir(this);</span>
+<span class="nc" id="L89">    }</span>
+
+    public static  Contato obterContato(Long id) throws SQLException, ClassNotFoundException {
+<span class="nc" id="L92">        return (Contato) GenericoDAO.getInstance().get((long) id);</span>
+    }
+
+    public static List&lt;Object&gt; obterTodosContatos() throws SQLException, ClassNotFoundException {
+<span class="nc" id="L96">        return GenericoDAO.getInstance().getAll();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

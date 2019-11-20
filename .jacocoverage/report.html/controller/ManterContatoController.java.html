@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ManterContatoController.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;G3RENC&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">controller</a> &gt; <span class="el_source">ManterContatoController.java</span></div><h1>ManterContatoController.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import model.Cliente;
+import model.Contato;
+import model.Pagamento;
+
+
+/**
+ *
+ * @author iza Ribeiro
+ */
+/*@WebServlet(name = &quot;ManterContatoController&quot;, urlPatterns = {&quot;/ManterContatoController&quot;})*/
+<span class="nc" id="L29">public class ManterContatoController extends HttpServlet {</span>
+
+    /**
+     * Processes requests for both HTTP &lt;code&gt;GET&lt;/code&gt; and &lt;code&gt;POST&lt;/code&gt;
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, NoSuchMethodException {
+        
+<span class="nc" id="L43">        String acao = request.getParameter(&quot;acao&quot;);</span>
+        
+<span class="nc bnc" id="L45" title="All 2 branches missed.">        if(acao.equals(&quot;confirmarOperacao&quot;)){</span>
+<span class="nc" id="L46">           confirmarOperacao(request, response);</span>
+        
+        }else{
+<span class="nc bnc" id="L49" title="All 2 branches missed.">            if(acao.equals(&quot;prepararOperacao&quot;)){</span>
+<span class="nc" id="L50">                prepararOperacao(request, response);</span>
+            }
+        }
+<span class="nc" id="L53">    }</span>
+    
+    public void prepararOperacao(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+            try{
+<span class="nc" id="L58">        String operacao = request.getParameter(&quot;operacao&quot;);</span>
+<span class="nc" id="L59">        request.setAttribute(&quot;operacao&quot;, operacao);</span>
+<span class="nc" id="L60">        request.setAttribute(&quot;clientes&quot;, Cliente.obterTodosOsClientes());</span>
+        
+<span class="nc bnc" id="L62" title="All 2 branches missed.">        if(!operacao.equals(&quot;Incluir&quot;)){</span>
+<span class="nc" id="L63">                Contato contato = Contato.obterContato(Long.parseLong(request.getParameter(&quot;id&quot;)));</span>
+                
+<span class="nc" id="L65">                request.setAttribute(&quot;contato&quot;, contato);</span>
+        }
+<span class="nc" id="L67">                RequestDispatcher view = request.getRequestDispatcher(&quot;/manterContato.jsp&quot;);</span>
+<span class="nc" id="L68">                view.forward(request, response);</span>
+                
+<span class="nc" id="L70">    }catch(ServletException e){</span>
+<span class="nc" id="L71">                throw e;</span>
+<span class="nc" id="L72">            }catch(IOException e){</span>
+<span class="nc" id="L73">                throw new ServletException(e);</span>
+<span class="nc" id="L74">            }catch(SQLException e){</span>
+<span class="nc" id="L75">                throw new ServletException(e);</span>
+<span class="nc" id="L76">            }catch(ClassNotFoundException e){</span>
+<span class="nc" id="L77">                throw new ServletException(e);</span>
+<span class="nc" id="L78">            }</span>
+<span class="nc" id="L79">    }</span>
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;HttpServlet methods. Click on the + sign on the left to edit the code.&quot;&gt;
+    /**
+     * Handles the HTTP &lt;code&gt;GET&lt;/code&gt; method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+<span class="nc" id="L93">            processRequest(request, response);</span>
+<span class="nc" id="L94">        } catch (NoSuchMethodException ex) {</span>
+<span class="nc" id="L95">            Logger.getLogger(ManterContatoController.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L96">        }</span>
+<span class="nc" id="L97">    }</span>
+
+    /**
+     * Handles the HTTP &lt;code&gt;POST&lt;/code&gt; method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+<span class="nc" id="L111">            processRequest(request, response);</span>
+<span class="nc" id="L112">        } catch (NoSuchMethodException ex) {</span>
+<span class="nc" id="L113">            Logger.getLogger(ManterContatoController.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L114">        }</span>
+<span class="nc" id="L115">    }</span>
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+<span class="nc" id="L124">        return &quot;Short description&quot;;</span>
+    }// &lt;/editor-fold&gt;
+         public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException, NoSuchMethodException {
+<span class="nc" id="L127">        String operacao = request.getParameter(&quot;operacao&quot;);</span>
+
+<span class="nc" id="L129">        String numero = request.getParameter(&quot;txtNumeroContato&quot;);</span>
+<span class="nc" id="L130">        long idcliente = Long.parseLong(request.getParameter(&quot;idCliente&quot;));</span>
+<span class="nc" id="L131">        Long id = null;</span>
+         
+<span class="nc bnc" id="L133" title="All 2 branches missed.">       if (!operacao.equals(&quot;Incluir&quot;)) {</span>
+<span class="nc" id="L134">            id = Long.parseLong(request.getParameter(&quot;id&quot;));</span>
+        }
+        try {
+<span class="nc" id="L137">            Cliente cliente = null;</span>
+<span class="nc bnc" id="L138" title="All 2 branches missed.">            if (idcliente != 0) {</span>
+<span class="nc" id="L139">                cliente = Cliente.obterCliente(idcliente);</span>
+            }     
+            
+<span class="nc" id="L142">            Contato contato = new Contato(numero,cliente);</span>
+<span class="nc bnc" id="L143" title="All 2 branches missed.">            if (operacao.equals(&quot;Incluir&quot;)) {</span>
+<span class="nc" id="L144">                contato.gravar();</span>
+            } else {
+<span class="nc bnc" id="L146" title="All 2 branches missed.">                if (operacao.equals(&quot;Editar&quot;)) {</span>
+<span class="nc" id="L147">                    contato.setId(id);</span>
+<span class="nc" id="L148">                    contato.gravar();</span>
+                } else {
+<span class="nc bnc" id="L150" title="All 2 branches missed.">                    if (operacao.equals(&quot;Excluir&quot;)) {</span>
+<span class="nc" id="L151">                        contato.setId(id);</span>
+<span class="nc" id="L152">                        contato.excluir();</span>
+                    }
+                }
+            }
+<span class="nc" id="L156">            RequestDispatcher view = request.getRequestDispatcher(&quot;PesquisaContatoController&quot;);</span>
+<span class="nc" id="L157">            view.forward(request, response);</span>
+<span class="nc" id="L158">        } catch (IOException e) {</span>
+<span class="nc" id="L159">            throw new ServletException(e);</span>
+<span class="nc" id="L160">        } catch (SQLException e) {</span>
+<span class="nc" id="L161">            throw new ServletException(e);</span>
+<span class="nc" id="L162">        } catch (ClassNotFoundException e) {</span>
+<span class="nc" id="L163">            throw new ServletException(e);</span>
+<span class="nc" id="L164">        } catch (ServletException e) {</span>
+<span class="nc" id="L165">            throw e;</span>
+<span class="nc" id="L166">        }</span>
+<span class="nc" id="L167">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
