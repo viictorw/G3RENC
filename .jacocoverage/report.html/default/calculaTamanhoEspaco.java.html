@@ -69,6 +69,16 @@ import org.junit.Test;
       
 <span class="nc" id="L70">        assertEquals(&quot;Espaço de grande ex+ porte, aconselhável ter no máximo 6000 pessoas&quot;,espaco.calculaTamanhoEspaco(1999));</span>
 <span class="nc" id="L71">    }</span>
-       
+       @Test
+    public static void tamanhoAcimaPadrao() {
+<span class="nc" id="L74">        Espaco espaco = new Espaco();</span>
+      
+<span class="nc" id="L76">        assertEquals(&quot;Espaço acima do padrão, determinação para quantidades de pessoas passará a ser estabelecida por ambiente sobre administração responsável.&quot;,espaco.calculaTamanhoEspaco(2000));</span>
+<span class="nc" id="L77">    }</span>
+    public static void espacoInvalido() {
+<span class="nc" id="L79">        Espaco espaco = new Espaco();</span>
+      
+<span class="nc" id="L81">        assertEquals(&quot;Espaço inválido!&quot;,espaco.calculaTamanhoEspaco(-2));</span>
+<span class="nc" id="L82">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

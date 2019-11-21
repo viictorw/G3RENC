@@ -87,6 +87,95 @@ public class EspacoTest {
 
             assertEquals("Espaço de grande ex+ porte, aconselhável ter no máximo 6000 pessoas", espaco.calculaTamanhoEspaco(1999));
         }
+
+        @Test
+        public void tamanhoAcimaPadrao() {
+            Espaco espaco = new Espaco();
+
+            assertEquals("Espaço acima do padrão, determinação para quantidades de pessoas passará a ser estabelecida por ambiente sobre administração responsável.", espaco.calculaTamanhoEspaco(2000));
+        }
+
+        public void espacoInvalido() {
+            Espaco espaco = new Espaco();
+
+            assertEquals("Espaço inválido!", espaco.calculaTamanhoEspaco(-1));
+        }
     }
 
+    public class calculaSeguranca {
+
+        @Test
+        public void poucasPessoas() {
+            Espaco espaco = new Espaco();
+
+            assertEquals("Poucas pessoas,portanto não será feito cálculo da quantidade de seguranças!", espaco.calculaSeguranca(49));
+        }
+
+        @Test
+        public void pequenoPorte() {
+            Espaco espaco = new Espaco();
+
+            assertEquals("Evento de pequeno porte, aconselhável ter 5 seguranças", espaco.calculaSeguranca(89));
+        }
+
+        @Test
+        public void medioPorte() {
+            Espaco espaco = new Espaco();
+
+            assertEquals("Evento de médio porte, aconselhável ter entre 6 e 10 seguranças", espaco.calculaSeguranca(149));
+        }
+
+        @Test
+        public void grandePorte() {
+            Espaco espaco = new Espaco();
+
+            assertEquals("Evento de grande porte, aconselhável ter entre 11 e 15 seguranças", espaco.calculaSeguranca(249));
+        }
+
+        @Test
+        public void grandegPorte() {
+            Espaco espaco = new Espaco();
+
+            assertEquals("Evento de grande+ porte, aconselhável ter entre 16 e 25 seguranças", espaco.calculaSeguranca(549));
+        }
+
+        @Test
+        public void grandeggPorte() {
+            Espaco espaco = new Espaco();
+
+            assertEquals("Evento de grande++ porte, aconselhável ter entre 21 e 30 seguranças", espaco.calculaSeguranca(749));
+        }
+
+        @Test
+        public void grandegggPorte() {
+            Espaco espaco = new Espaco();
+
+            assertEquals("Evento de grande+++ porte, aconselhável ter entre 31 e 50 seguranças", espaco.calculaSeguranca(1249));
+        }
+
+        @Test
+        public void extragrandePorte() {
+            Espaco espaco = new Espaco();
+
+            assertEquals("Evento de grande ex+ porte, aconselhável ter mais do que 50 seguranças", espaco.calculaSeguranca(3249));
+        }
+        @Test
+        public void  acimaNormas() {
+        Espaco espaco = new Espaco();
+      
+        assertEquals("Evento acima das Normas, portanto, a determinação para quantidades de seguranças passará a ser estabelecida por ambiente sobre administração responsável.",espaco.calculaSeguranca(3250));
+        }
+        @Test
+         public void  acimaNormas1() {
+        Espaco espaco = new Espaco();
+      
+        assertEquals("Evento acima das Normas, portanto, a determinação para quantidades de seguranças passará a ser estabelecida por ambiente sobre administração responsável.",espaco.calculaSeguranca(3251));
+    }
+         @Test
+    public void invalido() {
+        Espaco espaco = new Espaco();
+      
+        assertEquals("inválido",espaco.calculaSeguranca(0));
+    }
+    }
 }

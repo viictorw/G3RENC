@@ -35,43 +35,43 @@ public class PagamentoTest {
     public void tearDown() {
     }
 
-    public class calculaDesconto {
+    public class calculaTipodeDesconto {
 
         @Test
         public void semDesconto() {
             Pagamento pagamento = new Pagamento();
-            assertEquals(49, pagamento.calculaTipoDesconto(49), 0.001);
+            assertEquals(49, pagamento.calculaTipodeDesconto(49), 0.001);
         }
 
         @Test
         public void desconto10() {
             Pagamento pagamento = new Pagamento();
-            assertEquals(89.1, pagamento.calculaTipoDesconto(99), 0.001);
+            assertEquals(89.1, pagamento.calculaTipodeDesconto(99), 0.001);
         }
 
         @Test
         public void desconto15() {
             Pagamento pagamento = new Pagamento();
 
-            assertEquals(126.65, pagamento.calculaTipoDesconto(149), 0.001);
+            assertEquals(126.65, pagamento.calculaTipodeDesconto(149), 0.001);
         }
 
         @Test
         public void desconto20() {
             Pagamento pagamento = new Pagamento();
-            assertEquals(159.2, pagamento.calculaTipoDesconto(199), 0.001);
+            assertEquals(159.2, pagamento.calculaTipodeDesconto(199), 0.001);
         }
 
         @Test
         public void desconto25() {
             Pagamento pagamento = new Pagamento();
-            assertEquals(224.25, pagamento.calculaTipoDesconto(299), 0.001);
+            assertEquals(224.25, pagamento.calculaTipodeDesconto(299), 0.001);
         }
 
         @Test
         public void desconto30() {
             Pagamento pagamento = new Pagamento();
-            assertEquals(210.7, pagamento.calculaTipoDesconto(301), 0.001);
+            assertEquals(210.7, pagamento.calculaTipodeDesconto(301), 0.001);
         }
     }
 

@@ -202,116 +202,78 @@ public class Espaco implements Serializable {
     }
 
     public String calculaTamanhoEspaco(int area) {
-         String mensagem;
-        if (area>0) {
-           
+        String mensagem = null;
+        if (area > 0) {
+
             if (area < 20) {
                 mensagem = "Espaço insuficiente para o tipo desejado!";
                 System.out.println(mensagem);
-                return mensagem;
-            }
-            else if (area < 100) {
+            } else if (area < 100) {
                 mensagem = "Espaço de pequeno porte, aconselhável ter no máximo 300 pessoas";
                 System.out.println(mensagem);
-                return mensagem;
-            }
-            else if (area < 250) {
+            } else if (area < 250) {
                 mensagem = "Espaço de médio porte, aconselhável ter no máximo 750 pessoas";
                 System.out.println(mensagem);
-                return mensagem;
-            }
-            else if (area < 320) {
+            } else if (area < 320) {
                 mensagem = "Espaço de grande porte, aconselhável ter no máximo 1000 pessoas";
                 System.out.println(mensagem);
-                return mensagem;
-            } 
-            else if (area < 500) {
+            } else if (area < 500) {
                 mensagem = "Espaço de grande+ porte, aconselhável ter no máximo 1500 pessoas";
                 System.out.println(mensagem);
-                return mensagem;
-            }
-            else if (area < 750) {
+            } else if (area < 750) {
                 mensagem = "Espaço de grande++ porte, aconselhável ter no máximo 2300 pessoas";
                 System.out.println(mensagem);
-                return mensagem;
-            }
-            else if (area < 1000) {
+            } else if (area < 1000) {
                 mensagem = "Espaço de grande+++ porte, aconselhável ter no máximo 3000 pessoas";
                 System.out.println(mensagem);
-                return mensagem;
-            }
-            else if (area < 2000) {
+            } else if (area < 2000) {
                 mensagem = "Espaço de grande ex+ porte, aconselhável ter no máximo 6000 pessoas";
                 System.out.println(mensagem);
-                return mensagem;
-            }
-            else {
+            } else if (area > 1999) {
                 mensagem = "Espaço acima do padrão, determinação para quantidades de pessoas passará a ser estabelecida por ambiente sobre administração responsável.";
                 System.out.println(mensagem);
-                return mensagem;
             }
-            
-        }else{
-        System.out.println("Espaço inválido!");
-                            mensagem = "Espaço inválido!";
-                System.out.println(mensagem);
-                return mensagem;
         }
+        return mensagem;
     }
-    public String calculaSeguranca(int quantidadePessoas){
-        String mensagem;
-        if (quantidadePessoas>0) {
+
+    
+    public String calculaSeguranca(int quantidadePessoas) {
+        String mensagem = null;
+        if (quantidadePessoas > 0) {
             if (quantidadePessoas < 50) {
                 mensagem = "Poucas pessoas,portanto não será feito cálculo da quantidade de seguranças!";
                 System.out.println(mensagem);
-                return mensagem;
-            }
-            else if (quantidadePessoas < 90) {
+            } else if (quantidadePessoas < 90) {
                 mensagem = "Evento de pequeno porte, aconselhável ter 5 seguranças";
                 System.out.println(mensagem);
-                return mensagem;
-
-            }
-            else if (quantidadePessoas < 150) {
+            } else if (quantidadePessoas < 150) {
                 mensagem = "Evento de médio porte, aconselhável ter entre 6 e 10 seguranças";
                 System.out.println(mensagem);
-                return mensagem;
-            }
-            else if (quantidadePessoas < 250) {
+            } else if (quantidadePessoas < 250) {
                 mensagem = "Evento de grande porte, aconselhável ter entre 11 e 15 seguranças";
                 System.out.println(mensagem);
-                return mensagem;
-            } 
-            else if (quantidadePessoas < 550) {
+            } else if (quantidadePessoas < 550) {
                 mensagem = "Evento de grande+ porte, aconselhável ter entre 16 e 25 seguranças";
                 System.out.println(mensagem);
-                return mensagem;
-            }
-            else if (quantidadePessoas < 750) {
+            } else if (quantidadePessoas < 750) {
                 mensagem = "Evento de grande++ porte, aconselhável ter entre 21 e 30 seguranças";
                 System.out.println(mensagem);
-                return mensagem;
-            }
-            else if (quantidadePessoas < 1250) {
+            } else if (quantidadePessoas < 1250) {
                 mensagem = "Evento de grande+++ porte, aconselhável ter entre 31 e 50 seguranças";
                 System.out.println(mensagem);
-                return mensagem;
-            }
-            else if (quantidadePessoas < 3250) {
+            } else if (quantidadePessoas < 3250) {
                 mensagem = "Evento de grande ex+ porte, aconselhável ter mais do que 50 seguranças";
                 System.out.println(mensagem);
-                return mensagem;
+                
+            } else if (quantidadePessoas >= 3250  ) {
+                mensagem = "Evento acima das Normas, portanto, a determinação para quantidades de seguranças passará a ser estabelecida por ambiente sobre administração responsável.";
+                System.out.println(mensagem);
             }
-            else {
-                System.out.println("Evento acima das Normas, portanto, a determinação para quantidades de seguranças passará a ser estabelecida por ambiente sobre administração responsável.");
-            }
-            
-        }else{
-        System.out.println("Quantidade de pessoas é inválido!");
-
-        System.err.println("Quantidade de pessoas é inválido!");
+        }else if(quantidadePessoas<=0){        
+        mensagem = "inválido";
+                System.out.println(mensagem);
         }
-            return null;
+        return mensagem;
     }
-
 }

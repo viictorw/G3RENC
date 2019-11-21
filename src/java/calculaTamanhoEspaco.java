@@ -69,5 +69,15 @@ public class calculaTamanhoEspaco {
       
         assertEquals("Espaço de grande ex+ porte, aconselhável ter no máximo 6000 pessoas",espaco.calculaTamanhoEspaco(1999));
     }
-       
+       @Test
+    public static void tamanhoAcimaPadrao() {
+        Espaco espaco = new Espaco();
+      
+        assertEquals("Espaço acima do padrão, determinação para quantidades de pessoas passará a ser estabelecida por ambiente sobre administração responsável.",espaco.calculaTamanhoEspaco(2000));
+    }
+    public static void espacoInvalido() {
+        Espaco espaco = new Espaco();
+      
+        assertEquals("Espaço inválido!",espaco.calculaTamanhoEspaco(-2));
+    }
 }

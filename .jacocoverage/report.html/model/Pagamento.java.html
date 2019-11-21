@@ -99,47 +99,38 @@ public class Pagamento implements Serializable {
 <span class="nc" id="L99">        return GenericoDAO.getInstance().getAll();</span>
     }
 
-    public double calculaTipoDesconto(double valorTotal){
+    public double calculaTipodeDesconto(double valorTotal){
 <span class="fc" id="L103">        double valorDesconto=0;</span>
 <span class="pc bpc" id="L104" title="1 of 2 branches missed.">        if (valorTotal&gt;0) {</span>
 <span class="fc bfc" id="L105" title="All 2 branches covered.">            if (valorTotal &lt; 50) {</span>
 <span class="fc" id="L106">                System.out.println(&quot;Sem desconto. Valor será: &quot; + valorTotal);</span>
-<span class="fc" id="L107">                return valorTotal;</span>
             }
-<span class="fc bfc" id="L109" title="All 2 branches covered.">            else if (valorTotal &lt; 100) {</span>
-<span class="fc" id="L110">                valorDesconto = valorTotal - ((valorTotal/100)*10);</span>
-<span class="fc" id="L111">                System.out.println(&quot;10% de desconto. Novo valor: &quot;+valorDesconto);</span>
-<span class="fc" id="L112">                valorTotal= valorDesconto;</span>
-<span class="fc" id="L113">                return valorTotal;</span>
+<span class="fc bfc" id="L108" title="All 2 branches covered.">            else if (valorTotal &lt; 100) {</span>
+<span class="fc" id="L109">                valorDesconto = valorTotal - ((valorTotal/100)*10);</span>
+<span class="fc" id="L110">                System.out.println(&quot;10% de desconto. Novo valor: &quot;+valorDesconto);</span>
+<span class="fc" id="L111">                valorTotal= valorDesconto;</span>
             }
-<span class="fc bfc" id="L115" title="All 2 branches covered.">            else if (valorTotal &lt; 150) {</span>
-<span class="fc" id="L116">                valorDesconto = valorTotal - ((valorTotal/100)*15);</span>
-<span class="fc" id="L117">                System.out.println(&quot;15% de desconto. Novo valor:  &quot;+valorDesconto);</span>
-<span class="fc" id="L118">                valorTotal= valorDesconto;</span>
-<span class="fc" id="L119">                return valorTotal;</span>
+<span class="fc bfc" id="L113" title="All 2 branches covered.">            else if (valorTotal &lt; 150) {</span>
+<span class="fc" id="L114">                valorDesconto = valorTotal - ((valorTotal/100)*15);</span>
+<span class="fc" id="L115">                System.out.println(&quot;15% de desconto. Novo valor:  &quot;+valorDesconto);</span>
+<span class="fc" id="L116">                valorTotal= valorDesconto;</span>
             }
-<span class="fc bfc" id="L121" title="All 2 branches covered.">            else if (valorTotal &lt; 200) {</span>
-<span class="fc" id="L122">                valorDesconto = valorTotal - ((valorTotal/100)*20);</span>
-<span class="fc" id="L123">                System.out.println(&quot;20% de desconto. Novo valor:  &quot;+valorDesconto);</span>
-<span class="fc" id="L124">                valorTotal= valorDesconto;</span>
-<span class="fc" id="L125">                return valorTotal;</span>
+<span class="fc bfc" id="L118" title="All 2 branches covered.">            else if (valorTotal &lt; 200) {</span>
+<span class="fc" id="L119">                valorDesconto = valorTotal - ((valorTotal/100)*20);</span>
+<span class="fc" id="L120">                System.out.println(&quot;20% de desconto. Novo valor:  &quot;+valorDesconto);</span>
+<span class="fc" id="L121">                valorTotal= valorDesconto;</span>
             } 
-<span class="fc bfc" id="L127" title="All 2 branches covered.">            else if (valorTotal &lt; 300) {</span>
-<span class="fc" id="L128">                valorDesconto = valorTotal - ((valorTotal/100)*25);</span>
-<span class="fc" id="L129">                System.out.println(&quot;25% de desconto. Novo valor:  &quot;+valorDesconto);</span>
-<span class="fc" id="L130">                valorTotal= valorDesconto;</span>
-<span class="fc" id="L131">                return valorTotal;</span>
+<span class="fc bfc" id="L123" title="All 2 branches covered.">            else if (valorTotal &lt; 300) {</span>
+<span class="fc" id="L124">                valorDesconto = valorTotal - ((valorTotal/100)*25);</span>
+<span class="fc" id="L125">                System.out.println(&quot;25% de desconto. Novo valor:  &quot;+valorDesconto);</span>
+<span class="fc" id="L126">                valorTotal= valorDesconto;</span>
             }else {
-<span class="fc" id="L133">                valorDesconto = valorTotal - ((valorTotal/100)*30);</span>
-<span class="fc" id="L134">                System.out.println(&quot;30% de desconto. Novo valor:  &quot;+valorDesconto);</span>
-<span class="fc" id="L135">                valorTotal= valorDesconto;</span>
-<span class="fc" id="L136">                return valorTotal;</span>
+<span class="fc" id="L128">                valorDesconto = valorTotal - ((valorTotal/100)*30);</span>
+<span class="fc" id="L129">                System.out.println(&quot;30% de desconto. Novo valor:  &quot;+valorDesconto);</span>
+<span class="fc" id="L130">                valorTotal= valorDesconto;</span>
             }
-            
-        }else{
-<span class="nc" id="L140">        System.out.println(&quot;Valor total é inválido!&quot;);</span>
         }
-<span class="nc" id="L142">        return valorTotal;</span>
+<span class="fc" id="L133">        return valorTotal;</span>
         }
         
 }

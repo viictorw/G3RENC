@@ -202,117 +202,79 @@ public class Espaco implements Serializable {
     }
 
     public String calculaTamanhoEspaco(int area) {
-         String mensagem;
-<span class="pc bpc" id="L206" title="1 of 2 branches missed.">        if (area&gt;0) {</span>
-           
+<span class="fc" id="L205">        String mensagem = null;</span>
+<span class="pc bpc" id="L206" title="1 of 2 branches missed.">        if (area &gt; 0) {</span>
+
 <span class="fc bfc" id="L208" title="All 2 branches covered.">            if (area &lt; 20) {</span>
 <span class="fc" id="L209">                mensagem = &quot;Espaço insuficiente para o tipo desejado!&quot;;</span>
 <span class="fc" id="L210">                System.out.println(mensagem);</span>
-<span class="fc" id="L211">                return mensagem;</span>
-            }
-<span class="fc bfc" id="L213" title="All 2 branches covered.">            else if (area &lt; 100) {</span>
-<span class="fc" id="L214">                mensagem = &quot;Espaço de pequeno porte, aconselhável ter no máximo 300 pessoas&quot;;</span>
-<span class="fc" id="L215">                System.out.println(mensagem);</span>
-<span class="fc" id="L216">                return mensagem;</span>
-            }
-<span class="fc bfc" id="L218" title="All 2 branches covered.">            else if (area &lt; 250) {</span>
-<span class="fc" id="L219">                mensagem = &quot;Espaço de médio porte, aconselhável ter no máximo 750 pessoas&quot;;</span>
-<span class="fc" id="L220">                System.out.println(mensagem);</span>
-<span class="fc" id="L221">                return mensagem;</span>
-            }
-<span class="fc bfc" id="L223" title="All 2 branches covered.">            else if (area &lt; 320) {</span>
-<span class="fc" id="L224">                mensagem = &quot;Espaço de grande porte, aconselhável ter no máximo 1000 pessoas&quot;;</span>
+<span class="fc bfc" id="L211" title="All 2 branches covered.">            } else if (area &lt; 100) {</span>
+<span class="fc" id="L212">                mensagem = &quot;Espaço de pequeno porte, aconselhável ter no máximo 300 pessoas&quot;;</span>
+<span class="fc" id="L213">                System.out.println(mensagem);</span>
+<span class="fc bfc" id="L214" title="All 2 branches covered.">            } else if (area &lt; 250) {</span>
+<span class="fc" id="L215">                mensagem = &quot;Espaço de médio porte, aconselhável ter no máximo 750 pessoas&quot;;</span>
+<span class="fc" id="L216">                System.out.println(mensagem);</span>
+<span class="fc bfc" id="L217" title="All 2 branches covered.">            } else if (area &lt; 320) {</span>
+<span class="fc" id="L218">                mensagem = &quot;Espaço de grande porte, aconselhável ter no máximo 1000 pessoas&quot;;</span>
+<span class="fc" id="L219">                System.out.println(mensagem);</span>
+<span class="fc bfc" id="L220" title="All 2 branches covered.">            } else if (area &lt; 500) {</span>
+<span class="fc" id="L221">                mensagem = &quot;Espaço de grande+ porte, aconselhável ter no máximo 1500 pessoas&quot;;</span>
+<span class="fc" id="L222">                System.out.println(mensagem);</span>
+<span class="fc bfc" id="L223" title="All 2 branches covered.">            } else if (area &lt; 750) {</span>
+<span class="fc" id="L224">                mensagem = &quot;Espaço de grande++ porte, aconselhável ter no máximo 2300 pessoas&quot;;</span>
 <span class="fc" id="L225">                System.out.println(mensagem);</span>
-<span class="fc" id="L226">                return mensagem;</span>
-            } 
-<span class="fc bfc" id="L228" title="All 2 branches covered.">            else if (area &lt; 500) {</span>
-<span class="fc" id="L229">                mensagem = &quot;Espaço de grande+ porte, aconselhável ter no máximo 1500 pessoas&quot;;</span>
-<span class="fc" id="L230">                System.out.println(mensagem);</span>
-<span class="fc" id="L231">                return mensagem;</span>
+<span class="fc bfc" id="L226" title="All 2 branches covered.">            } else if (area &lt; 1000) {</span>
+<span class="fc" id="L227">                mensagem = &quot;Espaço de grande+++ porte, aconselhável ter no máximo 3000 pessoas&quot;;</span>
+<span class="fc" id="L228">                System.out.println(mensagem);</span>
+<span class="fc bfc" id="L229" title="All 2 branches covered.">            } else if (area &lt; 2000) {</span>
+<span class="fc" id="L230">                mensagem = &quot;Espaço de grande ex+ porte, aconselhável ter no máximo 6000 pessoas&quot;;</span>
+<span class="fc" id="L231">                System.out.println(mensagem);</span>
+<span class="pc bpc" id="L232" title="1 of 2 branches missed.">            } else if (area &gt; 1999) {</span>
+<span class="fc" id="L233">                mensagem = &quot;Espaço acima do padrão, determinação para quantidades de pessoas passará a ser estabelecida por ambiente sobre administração responsável.&quot;;</span>
+<span class="fc" id="L234">                System.out.println(mensagem);</span>
             }
-<span class="fc bfc" id="L233" title="All 2 branches covered.">            else if (area &lt; 750) {</span>
-<span class="fc" id="L234">                mensagem = &quot;Espaço de grande++ porte, aconselhável ter no máximo 2300 pessoas&quot;;</span>
-<span class="fc" id="L235">                System.out.println(mensagem);</span>
-<span class="fc" id="L236">                return mensagem;</span>
-            }
-<span class="fc bfc" id="L238" title="All 2 branches covered.">            else if (area &lt; 1000) {</span>
-<span class="fc" id="L239">                mensagem = &quot;Espaço de grande+++ porte, aconselhável ter no máximo 3000 pessoas&quot;;</span>
-<span class="fc" id="L240">                System.out.println(mensagem);</span>
-<span class="fc" id="L241">                return mensagem;</span>
-            }
-<span class="pc bpc" id="L243" title="1 of 2 branches missed.">            else if (area &lt; 2000) {</span>
-<span class="fc" id="L244">                mensagem = &quot;Espaço de grande ex+ porte, aconselhável ter no máximo 6000 pessoas&quot;;</span>
-<span class="fc" id="L245">                System.out.println(mensagem);</span>
-<span class="fc" id="L246">                return mensagem;</span>
-            }
-            else {
-<span class="nc" id="L249">                mensagem = &quot;Espaço acima do padrão, determinação para quantidades de pessoas passará a ser estabelecida por ambiente sobre administração responsável.&quot;;</span>
-<span class="nc" id="L250">                System.out.println(mensagem);</span>
-<span class="nc" id="L251">                return mensagem;</span>
-            }
-            
-        }else{
-<span class="nc" id="L255">        System.out.println(&quot;Espaço inválido!&quot;);</span>
-<span class="nc" id="L256">                            mensagem = &quot;Espaço inválido!&quot;;</span>
-<span class="nc" id="L257">                System.out.println(mensagem);</span>
-<span class="nc" id="L258">                return mensagem;</span>
         }
-    }
-    public String calculaSeguranca(int quantidadePessoas){
-        String mensagem;
-<span class="nc bnc" id="L263" title="All 2 branches missed.">        if (quantidadePessoas&gt;0) {</span>
-<span class="nc bnc" id="L264" title="All 2 branches missed.">            if (quantidadePessoas &lt; 50) {</span>
-<span class="nc" id="L265">                mensagem = &quot;Poucas pessoas,portanto não será feito cálculo da quantidade de seguranças!&quot;;</span>
-<span class="nc" id="L266">                System.out.println(mensagem);</span>
-<span class="nc" id="L267">                return mensagem;</span>
-            }
-<span class="nc bnc" id="L269" title="All 2 branches missed.">            else if (quantidadePessoas &lt; 90) {</span>
-<span class="nc" id="L270">                mensagem = &quot;Evento de pequeno porte, aconselhável ter 5 seguranças&quot;;</span>
-<span class="nc" id="L271">                System.out.println(mensagem);</span>
-<span class="nc" id="L272">                return mensagem;</span>
-
-            }
-<span class="nc bnc" id="L275" title="All 2 branches missed.">            else if (quantidadePessoas &lt; 150) {</span>
-<span class="nc" id="L276">                mensagem = &quot;Evento de médio porte, aconselhável ter entre 6 e 10 seguranças&quot;;</span>
-<span class="nc" id="L277">                System.out.println(mensagem);</span>
-<span class="nc" id="L278">                return mensagem;</span>
-            }
-<span class="nc bnc" id="L280" title="All 2 branches missed.">            else if (quantidadePessoas &lt; 250) {</span>
-<span class="nc" id="L281">                mensagem = &quot;Evento de grande porte, aconselhável ter entre 11 e 15 seguranças&quot;;</span>
-<span class="nc" id="L282">                System.out.println(mensagem);</span>
-<span class="nc" id="L283">                return mensagem;</span>
-            } 
-<span class="nc bnc" id="L285" title="All 2 branches missed.">            else if (quantidadePessoas &lt; 550) {</span>
-<span class="nc" id="L286">                mensagem = &quot;Evento de grande+ porte, aconselhável ter entre 16 e 25 seguranças&quot;;</span>
-<span class="nc" id="L287">                System.out.println(mensagem);</span>
-<span class="nc" id="L288">                return mensagem;</span>
-            }
-<span class="nc bnc" id="L290" title="All 2 branches missed.">            else if (quantidadePessoas &lt; 750) {</span>
-<span class="nc" id="L291">                mensagem = &quot;Evento de grande++ porte, aconselhável ter entre 21 e 30 seguranças&quot;;</span>
-<span class="nc" id="L292">                System.out.println(mensagem);</span>
-<span class="nc" id="L293">                return mensagem;</span>
-            }
-<span class="nc bnc" id="L295" title="All 2 branches missed.">            else if (quantidadePessoas &lt; 1250) {</span>
-<span class="nc" id="L296">                mensagem = &quot;Evento de grande+++ porte, aconselhável ter entre 31 e 50 seguranças&quot;;</span>
-<span class="nc" id="L297">                System.out.println(mensagem);</span>
-<span class="nc" id="L298">                return mensagem;</span>
-            }
-<span class="nc bnc" id="L300" title="All 2 branches missed.">            else if (quantidadePessoas &lt; 3250) {</span>
-<span class="nc" id="L301">                mensagem = &quot;Evento de grande ex+ porte, aconselhável ter mais do que 50 seguranças&quot;;</span>
-<span class="nc" id="L302">                System.out.println(mensagem);</span>
-<span class="nc" id="L303">                return mensagem;</span>
-            }
-            else {
-<span class="nc" id="L306">                System.out.println(&quot;Evento acima das Normas, portanto, a determinação para quantidades de seguranças passará a ser estabelecida por ambiente sobre administração responsável.&quot;);</span>
-            }
-            
-        }else{
-<span class="nc" id="L310">        System.out.println(&quot;Quantidade de pessoas é inválido!&quot;);</span>
-
-<span class="nc" id="L312">        System.err.println(&quot;Quantidade de pessoas é inválido!&quot;);</span>
-        }
-<span class="nc" id="L314">            return null;</span>
+<span class="fc" id="L237">        return mensagem;</span>
     }
 
+    
+    public String calculaSeguranca(int quantidadePessoas) {
+<span class="fc" id="L242">        String mensagem = null;</span>
+<span class="fc bfc" id="L243" title="All 2 branches covered.">        if (quantidadePessoas &gt; 0) {</span>
+<span class="fc bfc" id="L244" title="All 2 branches covered.">            if (quantidadePessoas &lt; 50) {</span>
+<span class="fc" id="L245">                mensagem = &quot;Poucas pessoas,portanto não será feito cálculo da quantidade de seguranças!&quot;;</span>
+<span class="fc" id="L246">                System.out.println(mensagem);</span>
+<span class="fc bfc" id="L247" title="All 2 branches covered.">            } else if (quantidadePessoas &lt; 90) {</span>
+<span class="fc" id="L248">                mensagem = &quot;Evento de pequeno porte, aconselhável ter 5 seguranças&quot;;</span>
+<span class="fc" id="L249">                System.out.println(mensagem);</span>
+<span class="fc bfc" id="L250" title="All 2 branches covered.">            } else if (quantidadePessoas &lt; 150) {</span>
+<span class="fc" id="L251">                mensagem = &quot;Evento de médio porte, aconselhável ter entre 6 e 10 seguranças&quot;;</span>
+<span class="fc" id="L252">                System.out.println(mensagem);</span>
+<span class="fc bfc" id="L253" title="All 2 branches covered.">            } else if (quantidadePessoas &lt; 250) {</span>
+<span class="fc" id="L254">                mensagem = &quot;Evento de grande porte, aconselhável ter entre 11 e 15 seguranças&quot;;</span>
+<span class="fc" id="L255">                System.out.println(mensagem);</span>
+<span class="fc bfc" id="L256" title="All 2 branches covered.">            } else if (quantidadePessoas &lt; 550) {</span>
+<span class="fc" id="L257">                mensagem = &quot;Evento de grande+ porte, aconselhável ter entre 16 e 25 seguranças&quot;;</span>
+<span class="fc" id="L258">                System.out.println(mensagem);</span>
+<span class="fc bfc" id="L259" title="All 2 branches covered.">            } else if (quantidadePessoas &lt; 750) {</span>
+<span class="fc" id="L260">                mensagem = &quot;Evento de grande++ porte, aconselhável ter entre 21 e 30 seguranças&quot;;</span>
+<span class="fc" id="L261">                System.out.println(mensagem);</span>
+<span class="fc bfc" id="L262" title="All 2 branches covered.">            } else if (quantidadePessoas &lt; 1250) {</span>
+<span class="fc" id="L263">                mensagem = &quot;Evento de grande+++ porte, aconselhável ter entre 31 e 50 seguranças&quot;;</span>
+<span class="fc" id="L264">                System.out.println(mensagem);</span>
+<span class="fc bfc" id="L265" title="All 2 branches covered.">            } else if (quantidadePessoas &lt; 3250) {</span>
+<span class="fc" id="L266">                mensagem = &quot;Evento de grande ex+ porte, aconselhável ter mais do que 50 seguranças&quot;;</span>
+<span class="fc" id="L267">                System.out.println(mensagem);</span>
+                
+<span class="pc bpc" id="L269" title="1 of 2 branches missed.">            } else if (quantidadePessoas &gt;= 3250  ) {</span>
+<span class="fc" id="L270">                mensagem = &quot;Evento acima das Normas, portanto, a determinação para quantidades de seguranças passará a ser estabelecida por ambiente sobre administração responsável.&quot;;</span>
+<span class="fc" id="L271">                System.out.println(mensagem);</span>
+            }
+<span class="pc bpc" id="L273" title="1 of 2 branches missed.">        }else if(quantidadePessoas&lt;=0){        </span>
+<span class="fc" id="L274">        mensagem = &quot;inválido&quot;;</span>
+<span class="fc" id="L275">                System.out.println(mensagem);</span>
+        }
+<span class="fc" id="L277">        return mensagem;</span>
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

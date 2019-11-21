@@ -10,56 +10,74 @@ import org.junit.Test;
     public static void poucasPessoas() {
 <span class="nc" id="L11">        Espaco espaco = new Espaco();</span>
       
-<span class="nc" id="L13">        assertEquals(&quot;Poucas pessoas,portanto não será feito cálculo da quantidade de seguranças!&quot;,espaco.calculaTamanhoEspaco(49));</span>
+<span class="nc" id="L13">        assertEquals(&quot;Poucas pessoas,portanto não será feito cálculo da quantidade de seguranças!&quot;,espaco.calculaSeguranca(49));</span>
 <span class="nc" id="L14">    }</span>
     
     @Test
     public static void pequenoPorte() {
 <span class="nc" id="L18">        Espaco espaco = new Espaco();</span>
       
-<span class="nc" id="L20">        assertEquals(&quot;Evento de pequeno porte, aconselhável ter 5 seguranças&quot;,espaco.calculaTamanhoEspaco(89));</span>
+<span class="nc" id="L20">        assertEquals(&quot;Evento de pequeno porte, aconselhável ter 5 seguranças&quot;,espaco.calculaSeguranca(89));</span>
 <span class="nc" id="L21">    }</span>
     
     @Test
     public static void medioPorte() {
 <span class="nc" id="L25">        Espaco espaco = new Espaco();</span>
       
-<span class="nc" id="L27">        assertEquals(&quot;Evento de médio porte, aconselhável ter entre 6 e 10 seguranças&quot;,espaco.calculaTamanhoEspaco(149));</span>
+<span class="nc" id="L27">        assertEquals(&quot;Evento de médio porte, aconselhável ter entre 6 e 10 seguranças&quot;,espaco.calculaSeguranca(149));</span>
 <span class="nc" id="L28">    }</span>
     
     @Test
     public static void grandePorte() {
 <span class="nc" id="L32">        Espaco espaco = new Espaco();</span>
       
-<span class="nc" id="L34">        assertEquals(&quot;Evento de grande porte, aconselhável ter entre 11 e 15 seguranças&quot;,espaco.calculaTamanhoEspaco(249));</span>
+<span class="nc" id="L34">        assertEquals(&quot;Evento de grande porte, aconselhável ter entre 11 e 15 seguranças&quot;,espaco.calculaSeguranca(249));</span>
 <span class="nc" id="L35">    }</span>
     
     @Test
-    public static void  grandegPorte() {
+    public static void grandegPorte() {
 <span class="nc" id="L39">        Espaco espaco = new Espaco();</span>
       
-<span class="nc" id="L41">        assertEquals(&quot;Evento de grande+ porte, aconselhável ter entre 16 e 25 seguranças&quot;,espaco.calculaTamanhoEspaco(549));</span>
+<span class="nc" id="L41">        assertEquals(&quot;Evento de grande+ porte, aconselhável ter entre 16 e 25 seguranças&quot;,espaco.calculaSeguranca(549));</span>
 <span class="nc" id="L42">    }</span>
     
     @Test
-    public static void  grandeggPorte() {
+    public static void grandeggPorte() {
 <span class="nc" id="L46">        Espaco espaco = new Espaco();</span>
       
-<span class="nc" id="L48">        assertEquals(&quot;Evento de grande++ porte, aconselhável ter entre 21 e 30 seguranças&quot;,espaco.calculaTamanhoEspaco(749));</span>
+<span class="nc" id="L48">        assertEquals(&quot;Evento de grande++ porte, aconselhável ter entre 21 e 30 seguranças&quot;,espaco.calculaSeguranca(749));</span>
 <span class="nc" id="L49">    }</span>
     
     @Test
-    public static void  grandegggPorte() {
+    public static void grandegggPorte() {
 <span class="nc" id="L53">        Espaco espaco = new Espaco();</span>
       
-<span class="nc" id="L55">        assertEquals(&quot;Evento de grande+++ porte, aconselhável ter entre 31 e 50 seguranças&quot;,espaco.calculaTamanhoEspaco(1249));</span>
+<span class="nc" id="L55">        assertEquals(&quot;Evento de grande+++ porte, aconselhável ter entre 31 e 50 seguranças&quot;,espaco.calculaSeguranca(1249));</span>
 <span class="nc" id="L56">    }</span>
     
     @Test
-    public static void  extragrandePorte() {
+    public static void extragrandePorte() {
 <span class="nc" id="L60">        Espaco espaco = new Espaco();</span>
       
-<span class="nc" id="L62">        assertEquals(&quot;Evento de grande ex+ porte, aconselhável ter mais do que 50 seguranças&quot;,espaco.calculaTamanhoEspaco(3249));</span>
+<span class="nc" id="L62">        assertEquals(&quot;Evento de grande ex+ porte, aconselhável ter mais do que 50 seguranças&quot;,espaco.calculaSeguranca(3249));</span>
 <span class="nc" id="L63">    }</span>
+@Test
+    public static void acimaNormas() {
+<span class="nc" id="L66">        Espaco espaco = new Espaco();</span>
+      
+<span class="nc" id="L68">        assertEquals(&quot;Evento acima das Normas, portanto, a determinação para quantidades de seguranças passará a ser estabelecida por ambiente sobre administração responsável.&quot;,espaco.calculaSeguranca(3250));</span>
+<span class="nc" id="L69">    }</span>
+    @Test
+    public static void acimaNormas1() {
+<span class="nc" id="L72">        Espaco espaco = new Espaco();</span>
+      
+<span class="nc" id="L74">        assertEquals(&quot;Evento acima das Normas, portanto, a determinação para quantidades de seguranças passará a ser estabelecida por ambiente sobre administração responsável.&quot;,espaco.calculaSeguranca(3251));</span>
+<span class="nc" id="L75">    }</span>
+    @Test
+    public static void invalido() {
+<span class="nc" id="L78">        Espaco espaco = new Espaco();</span>
+      
+<span class="nc" id="L80">        assertEquals(&quot;inválido&quot;,espaco.calculaSeguranca(0));</span>
+<span class="nc" id="L81">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
